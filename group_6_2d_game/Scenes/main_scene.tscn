@@ -121,7 +121,4 @@ tile_set = SubResource("TileSet_q8urb")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_p8c7s")]
 
-[node name="Player(Astronaut)" parent="CharacterBody2D/CollisionShape2D" index="0"]
-position = Vector2(169, 156)
-
 [editable path="CharacterBody2D"]

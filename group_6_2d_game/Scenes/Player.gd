@@ -7,7 +7,7 @@ var direction: Vector2 = Vector2.ZERO
 @onready var sprite = $Player
 @onready var animation_player = $Player/AnimationPlayer
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	# Capture input for movement
 	direction = Vector2.ZERO
 	
