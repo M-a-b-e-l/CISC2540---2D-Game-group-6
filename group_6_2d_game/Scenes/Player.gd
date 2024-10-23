@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var speed: float = 80.0
+@export var speed: float = 60.0
 var direction: Vector2 = Vector2.ZERO
 
 # Reference to the Player Sprite2D node and its AnimationPlayer
@@ -41,3 +41,18 @@ func _physics_process(_delta):
 		# Play the idle animation when the character is not moving
 		velocity = Vector2.ZERO
 		animation_player.play("Idle")
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.is_in_group("Portal"):
+		position.x = 525
+		position.y = 340
+		
+	if area.is_in_group("Portal2"):
+		position.x = 613
+		position.y = 490
+		
+	if area.is_in_group("Portal3"):
+		position.x = 967
+		position.y = 106
+		

@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://Scenes/Player.gd" id="1_xaulu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ktcub"]
-radius = 6.0
+radius = 4.0
 height = 18.0
 
 [sub_resource type="Animation" id="Animation_l2twq"]
