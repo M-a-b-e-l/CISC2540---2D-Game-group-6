@@ -4,8 +4,8 @@ extends CharacterBody2D
 var direction: Vector2 = Vector2.ZERO
 
 # Reference to the Player Sprite2D node and its AnimationPlayer
-@onready var sprite = $Player
-@onready var animation_player = $Player/AnimationPlayer
+@onready var sprite = $CollisionShape2D/Player
+@onready var animation_player = $CollisionShape2D/Player/AnimationPlayer
 
 func _physics_process(_delta):
 	# Capture input for movement
