@@ -3,7 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://dykdgq32vpr4q" path="res://Assets/CosmicLilac_AnimatedSpriteSheet/CosmicLilac_AnimatedSpriteSheet.png" id="1_p28xm"]
 [ext_resource type="Script" path="res://Scenes/Player.gd" id="1_xaulu"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_esq3a"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ktcub"]
+radius = 6.0
+height = 18.0
 
 [sub_resource type="Animation" id="Animation_l2twq"]
 resource_name = "Idle"
@@ -117,10 +119,10 @@ _data = {
 script = ExtResource("1_xaulu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CircleShape2D_esq3a")
+shape = SubResource("CapsuleShape2D_ktcub")
 
 [node name="Player" type="Sprite2D" parent="CollisionShape2D"]
-position = Vector2(187, 140)
+position = Vector2(1, 1)
 texture = ExtResource("1_p28xm")
 hframes = 15
 vframes = 6
