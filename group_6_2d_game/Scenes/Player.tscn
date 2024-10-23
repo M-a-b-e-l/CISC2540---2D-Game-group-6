@@ -5,9 +5,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_esq3a"]
 
-[sub_resource type="Animation" id="Animation_y1n8m"]
-resource_name = "Walking"
-length = 0.55
+[sub_resource type="Animation" id="Animation_l2twq"]
+resource_name = "Idle"
+length = 0.65
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -16,10 +16,10 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [30, 31, 32, 33, 34, 35]
+"values": [15, 16, 17, 18, 19, 20, 21]
 }
 
 [sub_resource type="Animation" id="Animation_pi5mg"]
@@ -37,8 +37,8 @@ tracks/0/keys = {
 "values": [30]
 }
 
-[sub_resource type="Animation" id="Animation_gapjd"]
-resource_name = "WalkingUp"
+[sub_resource type="Animation" id="Animation_y1n8m"]
+resource_name = "Walking"
 length = 0.55
 loop_mode = 1
 tracks/0/type = "value"
@@ -51,7 +51,22 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [60, 61, 62, 63, 64, 65]
+"values": [30, 31, 32, 33, 34, 35]
+}
+
+[sub_resource type="Animation" id="Animation_x8171"]
+resource_name = "WalkingLeft"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [45, 46, 47, 48, 49, 50]
 }
 
 [sub_resource type="Animation" id="Animation_2fjyt"]
@@ -71,8 +86,10 @@ tracks/0/keys = {
 "values": [45, 46, 47, 48, 49, 50]
 }
 
-[sub_resource type="Animation" id="Animation_x8171"]
-resource_name = "WalkingLeft"
+[sub_resource type="Animation" id="Animation_gapjd"]
+resource_name = "WalkingUp"
+length = 0.55
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -83,24 +100,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
-"values": [45, 46, 47, 48, 49, 50]
-}
-
-[sub_resource type="Animation" id="Animation_l2twq"]
-resource_name = "Idle"
-length = 0.65
-loop_mode = 1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [15, 16, 17, 18, 19, 20, 21]
+"values": [60, 61, 62, 63, 64, 65]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kg42p"]
