@@ -14,6 +14,10 @@ config/name="group_6_2D_game"
 run/main_scene="res://Scenes/main_scene.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 
+[autoload]
+
+BgMusic="*res://bg_music.tscn"
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
