@@ -1,0 +1,54 @@
+[gd_scene load_steps=4 format=3 uid="uid://clu243djdrff6"]
+
+[ext_resource type="Script" path="res://main_menu.gd" id="1_jdffq"]
+[ext_resource type="FontFile" uid="uid://htx5t07ltj12" path="res://Fonts/Emulogic-zrEw.ttf" id="2_1redm"]
+[ext_resource type="Theme" uid="uid://d0lvdha57nic3" path="res://main_menu_theme.tres" id="2_hnq5v"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jdffq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 13.0
+offset_top = -115.0
+offset_right = 113.0
+offset_bottom = -14.0
+grow_vertical = 0
+
+[node name="Play Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_hnq5v")
+theme_override_colors/font_hover_color = Color(0.54902, 0.313726, 0.796078, 1)
+theme_override_fonts/font = ExtResource("2_1redm")
+text = "Play"
+alignment = 0
+
+[node name="How to Play_Settings Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_hnq5v")
+theme_override_colors/font_hover_color = Color(0.54902, 0.313726, 0.796078, 1)
+theme_override_fonts/font = ExtResource("2_1redm")
+text = "How to Play/Settings"
+alignment = 0
+
+[node name="Quit Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../Play Button")
+theme = ExtResource("2_hnq5v")
+theme_override_colors/font_hover_color = Color(0.550843, 0.312927, 0.795294, 1)
+theme_override_fonts/font = ExtResource("2_1redm")
+text = "Quit"
+alignment = 0
+
+[connection signal="pressed" from="VBoxContainer/Play Button" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/How to Play_Settings Button" to="." method="_on_how_to_play_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit Button" to="." method="_on_quit_button_pressed"]

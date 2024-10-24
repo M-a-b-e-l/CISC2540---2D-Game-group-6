@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://crc2hijb7nbku"]
+
+[ext_resource type="Script" path="res://Scenes/how_to_play_scene.gd" id="1_2ljhf"]
+[ext_resource type="Theme" uid="uid://d0lvdha57nic3" path="res://main_menu_theme.tres" id="2_hr4og"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ljhf")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -54.0
+offset_right = 54.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "How to play"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -58.0
+offset_right = 108.0
+grow_vertical = 0
+
+[node name="Back to Main" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme = ExtResource("2_hr4og")
+theme_override_colors/font_hover_color = Color(0.54902, 0.313726, 0.796078, 1)
+text = "Back to Main"
+
+[connection signal="pressed" from="VBoxContainer/Back to Main" to="." method="_on_back_to_main_pressed"]
