@@ -206,30 +206,28 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
-[node name="CanvasLayer" type="CanvasLayer" parent="CharacterBody2D/Camera2D"]
-
-[node name="Control" type="Control" parent="CharacterBody2D/Camera2D/CanvasLayer"]
+[node name="Control" type="Control" parent="CharacterBody2D/Camera2D"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
+offset_left = -72.0
+offset_top = -41.0
+offset_right = 72.0
+offset_bottom = 41.0
 script = ExtResource("3_n00oh")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CharacterBody2D/Camera2D/CanvasLayer/Control"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CharacterBody2D/Camera2D/Control"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -151.0
-offset_top = 7.0
-offset_right = -79.0
-offset_bottom = 20.0
+offset_left = -24.0
+offset_top = 3.0
+offset_right = 48.0
+offset_bottom = 16.0
 grow_horizontal = 0
-scale = Vector2(2, 2)
+scale = Vector2(0.3, 0.3)
 
-[node name="Button" type="Button" parent="CharacterBody2D/Camera2D/CanvasLayer/Control/VBoxContainer"]
+[node name="Button" type="Button" parent="CharacterBody2D/Camera2D/Control/VBoxContainer"]
 z_index = 5
 layout_mode = 2
 theme = ExtResource("4_rwkct")
@@ -273,7 +271,7 @@ shape = SubResource("RectangleShape2D_1k3fo")
 [node name="Portal4" type="Sprite2D" parent="."]
 position = Vector2(951, 198)
 
-[connection signal="pressed" from="CharacterBody2D/Camera2D/CanvasLayer/Control/VBoxContainer/Button" to="CharacterBody2D/Camera2D/CanvasLayer/Control" method="_on_button_pressed"]
+[connection signal="pressed" from="CharacterBody2D/Camera2D/Control/VBoxContainer/Button" to="CharacterBody2D/Camera2D/Control" method="_on_button_pressed"]
 [connection signal="area_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_area_entered"]
 
 [editable path="CharacterBody2D"]

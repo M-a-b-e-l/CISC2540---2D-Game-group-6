@@ -1,9 +1,9 @@
 [gd_scene load_steps=4 format=4 uid="uid://b838f06jmpn12"]
 
-[ext_resource type="Texture2D" uid="uid://cjupec5pbv2cx" path="res://Assets/CosmicLilac_Tiles.png" id="1_0tgqo"]
+[ext_resource type="Texture2D" uid="uid://cjupec5pbv2cx" path="res://Assets/CosmicLilac_Tiles.png" id="1_sb5t3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y5l8g"]
-texture = ExtResource("1_0tgqo")
+texture = ExtResource("1_sb5t3")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
