@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://c2c7x3k42juiu"]
+
+[node name="MatchingGame1" type="Node2D"]
+
+[node name="PatternDisplay" type="Node2D" parent="."]
+
+[node name="Icon1" type="Sprite2D" parent="PatternDisplay"]
+
+[node name="Icon2" type="Sprite2D" parent="PatternDisplay"]
+
+[node name="Icon3" type="Sprite2D" parent="PatternDisplay"]
+
+[node name="Icon4" type="Sprite2D" parent="PatternDisplay"]
+
+[node name="Icon5" type="Sprite2D" parent="PatternDisplay"]
+
+[node name="PlayerInput" type="Node2D" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="PlayerInput"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureButton2" type="TextureButton" parent="PlayerInput"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureButton3" type="TextureButton" parent="PlayerInput"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureButton4" type="TextureButton" parent="PlayerInput"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureButton5" type="TextureButton" parent="PlayerInput"]
+offset_right = 40.0
+offset_bottom = 40.0
