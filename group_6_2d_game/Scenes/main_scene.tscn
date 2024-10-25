@@ -1,11 +1,8 @@
-[gd_scene load_steps=13 format=4 uid="uid://b7a7f7hpf8p0k"]
+[gd_scene load_steps=10 format=4 uid="uid://b7a7f7hpf8p0k"]
 
-[ext_resource type="PackedScene" uid="uid://bkwud4epbvkxc" path="res://Scenes/portal.tscn" id="1_5nmis"]
+[ext_resource type="PackedScene" path="res://portal.tscn" id="1_5nmis"]
 [ext_resource type="Texture2D" uid="uid://cjupec5pbv2cx" path="res://Assets/CosmicLilac_Tiles.png" id="1_p53sb"]
 [ext_resource type="PackedScene" uid="uid://codqmq87vr5pb" path="res://Scenes/Player.tscn" id="2_p8c7s"]
-[ext_resource type="Script" path="res://Scripts/control.gd" id="3_n00oh"]
-[ext_resource type="Theme" uid="uid://d0lvdha57nic3" path="res://Themes/main_menu_theme.tres" id="4_rwkct"]
-[ext_resource type="FontFile" uid="uid://htx5t07ltj12" path="res://Fonts/Emulogic-zrEw.ttf" id="5_5b3j5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y5l8g"]
 texture = ExtResource("1_p53sb")
@@ -209,35 +206,6 @@ limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
-[node name="Control" type="Control" parent="CharacterBody2D/Camera2D"]
-layout_mode = 3
-anchors_preset = 0
-offset_left = -72.0
-offset_top = -41.0
-offset_right = 72.0
-offset_bottom = 41.0
-script = ExtResource("3_n00oh")
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CharacterBody2D/Camera2D/Control"]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -24.0
-offset_top = 3.0
-offset_right = 48.0
-offset_bottom = 16.0
-grow_horizontal = 0
-scale = Vector2(0.3, 0.3)
-
-[node name="Button" type="Button" parent="CharacterBody2D/Camera2D/Control/VBoxContainer"]
-z_index = 5
-layout_mode = 2
-theme = ExtResource("4_rwkct")
-theme_override_fonts/font = ExtResource("5_5b3j5")
-theme_override_font_sizes/font_size = 8
-text = "Main Menu"
-
 [node name="Area2D" type="Area2D" parent="CharacterBody2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D/Area2D"]
@@ -274,7 +242,6 @@ shape = SubResource("RectangleShape2D_1k3fo")
 [node name="Portal4" type="Sprite2D" parent="."]
 position = Vector2(951, 198)
 
-[connection signal="pressed" from="CharacterBody2D/Camera2D/Control/VBoxContainer/Button" to="CharacterBody2D/Camera2D/Control" method="_on_button_pressed"]
 [connection signal="area_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_area_entered"]
 
 [editable path="CharacterBody2D"]

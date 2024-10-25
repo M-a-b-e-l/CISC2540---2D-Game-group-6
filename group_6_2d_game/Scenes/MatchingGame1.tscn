@@ -1,14 +1,25 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2c7x3k42juiu"]
+[gd_scene load_steps=9 format=3 uid="uid://c2c7x3k42juiu"]
 
 [ext_resource type="Texture2D" uid="uid://d0njlgnap3ij" path="res://Sprites/Icon1.png" id="1_6lp4j"]
 [ext_resource type="Script" path="res://Scenes/MatchingGame1.gd" id="1_tjqqw"]
 [ext_resource type="Texture2D" uid="uid://wve7abunjhal" path="res://Sprites/Icon2.png" id="2_finxl"]
+[ext_resource type="Texture2D" uid="uid://c7fv1qgq5anyv" path="res://Sprites/EarthBG.jpg" id="2_pljyc"]
 [ext_resource type="Texture2D" uid="uid://c07rk6bcs8pfm" path="res://Sprites/Icon3.png" id="3_p6jb7"]
 [ext_resource type="Texture2D" uid="uid://donqhalo7hqcb" path="res://Sprites/Icon4.png" id="4_wv4af"]
 [ext_resource type="Texture2D" uid="uid://2bmg5ryes0y3" path="res://Sprites/Icon5.png" id="5_p3gj0"]
+[ext_resource type="Texture2D" uid="uid://crtkui7dbhicc" path="res://Sprites/SubmitButton.png" id="7_avr3r"]
 
 [node name="MatchingGame1" type="Node2D"]
 script = ExtResource("1_tjqqw")
+
+[node name="Background" type="TextureRect" parent="."]
+offset_right = 3933.0
+offset_bottom = 2210.0
+rotation = 0.000703649
+scale = Vector2(0.293, 0.293)
+texture = ExtResource("2_pljyc")
+
+[node name="Timer" type="Timer" parent="."]
 
 [node name="PatternDisplay" type="Node2D" parent="."]
 
@@ -34,22 +45,30 @@ texture = ExtResource("5_p3gj0")
 
 [node name="PlayerInput" type="Node2D" parent="."]
 
-[node name="TextureButton" type="TextureButton" parent="PlayerInput"]
+[node name="Icon1Press" type="TextureButton" parent="PlayerInput"]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureButton2" type="TextureButton" parent="PlayerInput"]
+[node name="Icon2Press" type="TextureButton" parent="PlayerInput"]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureButton3" type="TextureButton" parent="PlayerInput"]
+[node name="Icon3Press" type="TextureButton" parent="PlayerInput"]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureButton4" type="TextureButton" parent="PlayerInput"]
+[node name="Icon4Press" type="TextureButton" parent="PlayerInput"]
 offset_right = 40.0
 offset_bottom = 40.0
 
-[node name="TextureButton5" type="TextureButton" parent="PlayerInput"]
+[node name="Icon5Press" type="TextureButton" parent="PlayerInput"]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="SubmitButton" type="TextureButton" parent="PlayerInput"]
+offset_left = 880.0
+offset_top = 530.0
+offset_right = 1369.0
+offset_bottom = 700.0
+scale = Vector2(0.5, 0.5)
+texture_normal = ExtResource("7_avr3r")
