@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=4 uid="uid://b7a7f7hpf8p0k"]
 
-[ext_resource type="PackedScene" path="res://portal.tscn" id="1_5nmis"]
+[ext_resource type="PackedScene" uid="uid://bkwud4epbvkxc" path="res://portal.tscn" id="1_5nmis"]
 [ext_resource type="Texture2D" uid="uid://cjupec5pbv2cx" path="res://Assets/CosmicLilac_Tiles.png" id="1_p53sb"]
 [ext_resource type="PackedScene" uid="uid://codqmq87vr5pb" path="res://Scenes/Player.tscn" id="2_p8c7s"]
 
