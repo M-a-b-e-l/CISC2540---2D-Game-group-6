@@ -1,8 +1,11 @@
-[gd_scene load_steps=10 format=4 uid="uid://b7a7f7hpf8p0k"]
+[gd_scene load_steps=13 format=4 uid="uid://b7a7f7hpf8p0k"]
 
-[ext_resource type="PackedScene" path="res://portal.tscn" id="1_5nmis"]
+[ext_resource type="PackedScene" uid="uid://bkwud4epbvkxc" path="res://Scenes/portal.tscn" id="1_5nmis"]
 [ext_resource type="Texture2D" uid="uid://cjupec5pbv2cx" path="res://Assets/CosmicLilac_Tiles.png" id="1_p53sb"]
 [ext_resource type="PackedScene" uid="uid://codqmq87vr5pb" path="res://Scenes/Player.tscn" id="2_p8c7s"]
+[ext_resource type="Script" path="res://Scripts/control.gd" id="3_n00oh"]
+[ext_resource type="Theme" uid="uid://d0lvdha57nic3" path="res://Themes/main_menu_theme.tres" id="4_rwkct"]
+[ext_resource type="FontFile" uid="uid://htx5t07ltj12" path="res://Fonts/Emulogic-zrEw.ttf" id="5_5b3j5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y5l8g"]
 texture = ExtResource("1_p53sb")
