@@ -58,6 +58,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_x8171"]
 resource_name = "WalkingLeft"
+length = 0.55
 step = 0.0233
 tracks/0/type = "value"
 tracks/0/imported = false
