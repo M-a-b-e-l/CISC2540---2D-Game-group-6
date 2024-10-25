@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://codqmq87vr5pb"]
 
 [ext_resource type="Texture2D" uid="uid://dykdgq32vpr4q" path="res://Assets/CosmicLilac_AnimatedSpriteSheet/CosmicLilac_AnimatedSpriteSheet.png" id="1_p28xm"]
-[ext_resource type="Script" path="res://Scenes/Player.gd" id="1_xaulu"]
+[ext_resource type="Script" path="res://Scripts/Player.gd" id="1_xaulu"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ktcub"]
 radius = 4.0
