@@ -11,7 +11,7 @@ bg_color = Color(0.6, 0.6, 0.6, 0)
 bg_color = Color(0.6, 0.6, 0.6, 0)
 
 [resource]
-Button/colors/font_hover_color = Color(0.160784, 0.811765, 0.678431, 1)
+Button/colors/font_hover_color = Color(0.423529, 0.137255, 0.247059, 1)
 Button/colors/icon_hover_color = Color(1, 1, 1, 0)
 Button/styles/focus = SubResource("StyleBoxFlat_kfl6r")
 Button/styles/hover = SubResource("StyleBoxFlat_v002k")
