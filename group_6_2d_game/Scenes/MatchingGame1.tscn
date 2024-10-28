@@ -1,18 +1,29 @@
-[gd_scene load_steps=11 format=3 uid="uid://c2c7x3k42juiu"]
+[gd_scene load_steps=14 format=3 uid="uid://c2c7x3k42juiu"]
 
 [ext_resource type="Script" path="res://Scripts/PatternManager.gd" id="1_2csvm"]
 [ext_resource type="Texture2D" uid="uid://b4r0uufqwrjrs" path="res://Sprites/SpaceBG.jpg" id="1_b8s8v"]
 [ext_resource type="FontFile" uid="uid://vxvy528j05fc" path="res://Fonts/Spac3Tech-Dg7E.ttf" id="2_hpdk8"]
+[ext_resource type="AudioStream" uid="uid://b05tyt2gppjwm" path="res://Music/toy_button_trimmed.mp3" id="2_ivvso"]
 [ext_resource type="Texture2D" uid="uid://bifcwotfpkaeo" path="res://Sprites/Icon1.png" id="2_t8qp2"]
+[ext_resource type="AudioStream" uid="uid://dsi308e7xsvav" path="res://Music/10 Space Junk.mp3" id="3_rjqys"]
 [ext_resource type="Texture2D" uid="uid://dpg34c63na88l" path="res://Sprites/Icon2.png" id="3_uljqf"]
 [ext_resource type="Texture2D" uid="uid://c7waw60e3xy1u" path="res://Sprites/Icon3.png" id="4_c1oc6"]
 [ext_resource type="FontFile" uid="uid://htx5t07ltj12" path="res://Fonts/Emulogic-zrEw.ttf" id="4_urnen"]
 [ext_resource type="Texture2D" uid="uid://b2484dqhvbja5" path="res://Sprites/Icon4.png" id="5_wu3wf"]
 [ext_resource type="Texture2D" uid="uid://dac3i7w7fysyx" path="res://Sprites/Icon5.png" id="6_xu3w5"]
 [ext_resource type="Texture2D" uid="uid://bc0i7hfd2tfga" path="res://Sprites/SubmitButton.png" id="7_c8ifh"]
+[ext_resource type="Material" uid="uid://dq4uplsei1qns" path="res://Shaders/RoundedCorners.tres" id="7_qs0n1"]
 
 [node name="MatchingGame1" type="Node2D"]
 script = ExtResource("1_2csvm")
+
+[node name="IconPressedSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_ivvso")
+volume_db = -15.0
+
+[node name="BGMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_rjqys")
+volume_db = -50.0
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
@@ -38,31 +49,41 @@ scale = Vector2(2, 2)
 theme_override_fonts/font = ExtResource("4_urnen")
 text = "Round:"
 
+[node name="ReadyLabel" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
 [node name="Timer" type="Timer" parent="."]
+one_shot = true
 
 [node name="PatternDisplay" type="Node2D" parent="."]
 
 [node name="Icon1" type="Sprite2D" parent="PatternDisplay"]
+material = ExtResource("7_qs0n1")
 position = Vector2(150, 290)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_t8qp2")
 
 [node name="Icon2" type="Sprite2D" parent="PatternDisplay"]
+material = ExtResource("7_qs0n1")
 position = Vector2(350, 290)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_uljqf")
 
 [node name="Icon3" type="Sprite2D" parent="PatternDisplay"]
+material = ExtResource("7_qs0n1")
 position = Vector2(550, 290)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("4_c1oc6")
 
 [node name="Icon4" type="Sprite2D" parent="PatternDisplay"]
+material = ExtResource("7_qs0n1")
 position = Vector2(750, 290)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("5_wu3wf")
 
 [node name="Icon5" type="Sprite2D" parent="PatternDisplay"]
+material = ExtResource("7_qs0n1")
 position = Vector2(950, 290)
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("6_xu3w5")
@@ -99,7 +120,7 @@ offset_top = 245.0
 offset_right = 995.0
 offset_bottom = 335.0
 
-[node name="SubmitButton" type="Button" parent="."]
+[node name="SubmitButton" type="Button" parent="PlayerInput"]
 offset_left = 1020.0
 offset_top = 595.0
 offset_right = 1517.0

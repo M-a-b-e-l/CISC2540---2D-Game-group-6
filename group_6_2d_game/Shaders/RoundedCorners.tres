@@ -1,0 +1,6 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://dq4uplsei1qns"]
+
+[ext_resource type="Shader" path="res://Shaders/RoundedCorners.gdshader" id="1_hoaw0"]
+
+[resource]
+shader = ExtResource("1_hoaw0")
