@@ -1,18 +1,59 @@
-[gd_scene format=3 uid="uid://c2c7x3k42juiu"]
+[gd_scene load_steps=9 format=3 uid="uid://c2c7x3k42juiu"]
+
+[ext_resource type="Texture2D" uid="uid://b4r0uufqwrjrs" path="res://Sprites/SpaceBG.jpg" id="1_b8s8v"]
+[ext_resource type="FontFile" uid="uid://vxvy528j05fc" path="res://Fonts/Spac3Tech-Dg7E.ttf" id="2_hpdk8"]
+[ext_resource type="Texture2D" uid="uid://bifcwotfpkaeo" path="res://Sprites/Icon1.png" id="2_t8qp2"]
+[ext_resource type="Texture2D" uid="uid://dpg34c63na88l" path="res://Sprites/Icon2.png" id="3_uljqf"]
+[ext_resource type="Texture2D" uid="uid://c7waw60e3xy1u" path="res://Sprites/Icon3.png" id="4_c1oc6"]
+[ext_resource type="Texture2D" uid="uid://b2484dqhvbja5" path="res://Sprites/Icon4.png" id="5_wu3wf"]
+[ext_resource type="Texture2D" uid="uid://dac3i7w7fysyx" path="res://Sprites/Icon5.png" id="6_xu3w5"]
+[ext_resource type="Texture2D" uid="uid://bc0i7hfd2tfga" path="res://Sprites/SubmitButton.png" id="7_c8ifh"]
 
 [node name="MatchingGame1" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(0.45, 0.379613)
+texture = ExtResource("1_b8s8v")
+
+[node name="MinigameTitle" type="Label" parent="."]
+offset_left = 325.0
+offset_top = 15.0
+offset_right = 1980.0
+offset_bottom = 146.0
+scale = Vector2(0.3, 0.3)
+theme_override_fonts/font = ExtResource("2_hpdk8")
+theme_override_font_sizes/font_size = 125
+text = "match the pattern"
+
+[node name="Timer" type="Timer" parent="."]
 
 [node name="PatternDisplay" type="Node2D" parent="."]
 
 [node name="Icon1" type="Sprite2D" parent="PatternDisplay"]
+position = Vector2(150, 200)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_t8qp2")
 
 [node name="Icon2" type="Sprite2D" parent="PatternDisplay"]
+position = Vector2(350, 200)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_uljqf")
 
 [node name="Icon3" type="Sprite2D" parent="PatternDisplay"]
+position = Vector2(550, 200)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("4_c1oc6")
 
 [node name="Icon4" type="Sprite2D" parent="PatternDisplay"]
+position = Vector2(750, 200)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("5_wu3wf")
 
 [node name="Icon5" type="Sprite2D" parent="PatternDisplay"]
+position = Vector2(950, 200)
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("6_xu3w5")
 
 [node name="PlayerInput" type="Node2D" parent="."]
 
@@ -35,3 +76,11 @@ offset_bottom = 40.0
 [node name="TextureButton5" type="TextureButton" parent="PlayerInput"]
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="SubmitButton" type="Button" parent="."]
+offset_left = 1020.0
+offset_top = 595.0
+offset_right = 1517.0
+offset_bottom = 773.0
+scale = Vector2(0.25, 0.25)
+icon = ExtResource("7_c8ifh")
