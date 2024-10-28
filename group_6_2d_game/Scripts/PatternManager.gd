@@ -18,6 +18,7 @@ const MAX_ICON_REPEAT = 2  # Max times an icon can repeat consecutively
 @onready var main_menu_button = get_node("GameOverContainer/MainMenuButton")
 @onready var game_over_label = get_node("GameOverContainer/GameOverLabel")
 @onready var result_label = get_node("GameOverContainer/ResultLabel")
+@onready var game1_beat = get_node("Game1Beat")
 
 # Variables
 var current_pattern = []
@@ -43,6 +44,7 @@ func _ready():
 	
 	setup_buttons()
 	hide_game_over_screen()
+	game1_beat.visible = false  # Ensure victory label is hidden at start
 	start_round(current_round)
 
 func setup_buttons():
@@ -107,7 +109,7 @@ func show_game_over_screen():
 	player_input.visible = false
 	submit_button.visible = false
 	round_label.visible = false
-	minigame_title.visible = false  # Hide the title when showing game over screen
+	minigame_title.visible = false
 	game_over_container.visible = true
 	game_over_label.text = "Game Over!"
 	result_label.text = "You reached round: " + str(current_round)
@@ -118,7 +120,23 @@ func hide_game_over_screen():
 	player_input.visible = true
 	submit_button.visible = true
 	round_label.visible = true
-	minigame_title.visible = true  # Show the title again when hiding game over screen
+	minigame_title.visible = true
+
+func show_victory_screen():
+	# Hide all game elements
+	pattern_display.visible = false
+	player_input.visible = false
+	submit_button.visible = false
+	round_label.visible = false
+	minigame_title.visible = false
+	game_over_container.visible = false
+	
+	# Show victory label
+	game1_beat.visible = true
+	
+	# Wait 3 seconds then transition to maze game
+	await get_tree().create_timer(3.0).timeout
+	get_tree().change_scene_to_file("res://scenes/MazeGame2.tscn")
 
 func _on_retry_pressed():
 	hide_game_over_screen()
@@ -167,7 +185,7 @@ func _on_submit_pressed():
 			start_round(current_round)
 		else:
 			print("Victory - All rounds complete!")
-			# Handle victory here if needed
+			show_victory_screen()
 	else:
 		# Player failed
 		if current_round == 4:
