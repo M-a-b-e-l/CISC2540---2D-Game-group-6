@@ -1,6 +1,5 @@
 extends Node2D
 
-# Constants for round configurations
 const ROUND_PATTERNS = [4, 5, 6, 8]  # Number of icons in the pattern for each round
 const MAX_ICON_REPEAT = 2  # Max times an icon can repeat consecutively
 
@@ -14,6 +13,11 @@ const MAX_ICON_REPEAT = 2  # Max times an icon can repeat consecutively
 @onready var icon_pressed_sound = get_node("IconPressedSound")
 @onready var ready_label = get_node("ReadyLabel")
 @onready var minigame_title = get_node("MinigameTitle")
+@onready var game_over_container = get_node("GameOverContainer")
+@onready var retry_button = get_node("GameOverContainer/RetryButton")
+@onready var main_menu_button = get_node("GameOverContainer/MainMenuButton")
+@onready var game_over_label = get_node("GameOverContainer/GameOverLabel")
+@onready var result_label = get_node("GameOverContainer/ResultLabel")
 
 # Variables
 var current_pattern = []
@@ -22,6 +26,13 @@ var current_round = 1
 var is_player_turn = false
 
 func _ready():
+	# Create unique materials for each icon
+	for i in range(5):
+		var icon = pattern_display.get_child(i)
+		if icon and icon.material:
+			icon.material = icon.material.duplicate()
+			icon.material.set_shader_parameter("flash_intensity", 0.0)
+	
 	# Setup background music
 	if BgMusic.playing:
 		BgMusic.stop()
@@ -31,6 +42,7 @@ func _ready():
 		print("Local background music started.")
 	
 	setup_buttons()
+	hide_game_over_screen()
 	start_round(current_round)
 
 func setup_buttons():
@@ -38,6 +50,13 @@ func setup_buttons():
 		submit_button.pressed.connect(_on_submit_pressed)
 		submit_button.disabled = true
 	
+	# Setup game over screen buttons
+	if retry_button:
+		retry_button.pressed.connect(_on_retry_pressed)
+	if main_menu_button:
+		main_menu_button.pressed.connect(_on_main_menu_pressed)
+	
+	# Setup pattern buttons
 	for i in range(5):
 		var button = player_input.get_child(i)
 		if button:
@@ -46,6 +65,68 @@ func setup_buttons():
 			button.pressed.connect(_on_texture_button_pressed.bind(i))
 			button.visible = true
 			print("Connected button %d to handle input." % i)
+
+func _flash_icon(icon_index):
+	var icon_node = pattern_display.get_child(icon_index)
+	if icon_node and icon_node.material:
+		print("Flashing icon %d" % icon_index)
+		
+		# Flash the specific icon
+		icon_node.material.set_shader_parameter("flash_intensity", 1.0)
+		icon_pressed_sound.play()
+		
+		await get_tree().create_timer(0.3).timeout
+		
+		# Reset only this icon's flash
+		icon_node.material.set_shader_parameter("flash_intensity", 0.0)
+		print("Icon flash complete")
+	else:
+		print("Error: Icon %d not found or has no material" % icon_index)
+
+func show_pattern(pattern):
+	print("Showing pattern: ", pattern)
+	for i in range(pattern.size()):
+		await get_tree().create_timer(0.8).timeout
+		await _flash_icon(pattern[i])
+	print("Pattern display complete")
+
+func _on_texture_button_pressed(button_index):
+	if is_player_turn:
+		print("Button %d pressed" % button_index)
+		player_sequence.append(button_index)
+		
+		# Flash the corresponding pattern icon
+		_flash_icon(button_index)
+		
+		if player_sequence.size() == current_pattern.size():
+			submit_button.disabled = false
+			print("Sequence complete - Submit enabled")
+
+func show_game_over_screen():
+	pattern_display.visible = false
+	player_input.visible = false
+	submit_button.visible = false
+	round_label.visible = false
+	minigame_title.visible = false  # Hide the title when showing game over screen
+	game_over_container.visible = true
+	game_over_label.text = "Game Over!"
+	result_label.text = "You reached round: " + str(current_round)
+
+func hide_game_over_screen():
+	game_over_container.visible = false
+	pattern_display.visible = true
+	player_input.visible = true
+	submit_button.visible = true
+	round_label.visible = true
+	minigame_title.visible = true  # Show the title again when hiding game over screen
+
+func _on_retry_pressed():
+	hide_game_over_screen()
+	current_round = 1
+	start_round(current_round)
+
+func _on_main_menu_pressed():
+	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 
 func start_round(round_num):
 	print("Starting round %d" % round_num)
@@ -74,75 +155,29 @@ func show_ready_text():
 	submit_button.visible = true
 	print("Ready text hidden, nodes restored.")
 
-func _flash_icon(icon_index):
-	var icon_node = pattern_display.get_child(icon_index)
-	if icon_node:
-		print("Flashing icon %d" % icon_index)
-		
-		# Store original color and create flash tween
-		var original_color = icon_node.modulate
-		var flash_tween = create_tween()
-		flash_tween.tween_property(icon_node, "modulate", Color(2.0, 2.0, 0.5), 0.2)
-		icon_pressed_sound.play()
-		
-		await get_tree().create_timer(0.3).timeout
-		
-		# Reset color
-		var reset_tween = create_tween()
-		reset_tween.tween_property(icon_node, "modulate", original_color, 0.2)
-		
-		print("Icon flash complete")
-	else:
-		print("Error: Icon at index %d not found" % icon_index)
-
-func show_pattern(pattern):
-	print("Showing pattern: ", pattern)
-	for i in range(pattern.size()):
-		await get_tree().create_timer(0.8).timeout
-		await _flash_icon(pattern[i])
-	print("Pattern display complete")
-
-func _on_texture_button_pressed(button_index):
-	if is_player_turn:
-		print("Button %d pressed" % button_index)
-		player_sequence.append(button_index)
-		
-		var button = player_input.get_child(button_index)
-		if button:
-			# Flash the button
-			var original_color = button.modulate
-			var flash_tween = create_tween()
-			flash_tween.tween_property(button, "modulate", Color(2.0, 2.0, 0.5), 0.1)
-			
-			# Flash the corresponding pattern icon
-			_flash_icon(button_index)
-			
-			icon_pressed_sound.play()
-			
-			await get_tree().create_timer(0.1).timeout
-			
-			# Reset button color
-			var reset_tween = create_tween()
-			reset_tween.tween_property(button, "modulate", original_color, 0.1)
-		
-		if player_sequence.size() == current_pattern.size():
-			submit_button.disabled = false
-			print("Sequence complete - Submit enabled")
-
 func _on_submit_pressed():
 	print("Submit pressed - Checking sequence")
+	print("Player sequence: ", player_sequence)
+	print("Current pattern: ", current_pattern)
+	
 	if player_sequence == current_pattern:
+		# Player succeeded
 		current_round += 1
 		if current_round <= ROUND_PATTERNS.size():
 			start_round(current_round)
 		else:
 			print("Victory - All rounds complete!")
+			# Handle victory here if needed
 	else:
+		# Player failed
 		if current_round == 4:
+			# On round 4, just retry the same round
+			print("Failed on round 4 - Retrying round 4")
 			start_round(4)
 		else:
-			current_round = 1
-			start_round(current_round)
+			# On rounds 1-3, show game over screen
+			print("Failed before round 4 - Game Over")
+			show_game_over_screen()
 
 func update_round_label():
 	round_label.text = "Round: %d" % current_round

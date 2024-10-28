@@ -30,6 +30,53 @@ position = Vector2(576, 324)
 scale = Vector2(0.45, 0.379613)
 texture = ExtResource("1_b8s8v")
 
+[node name="GameOverContainer" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GameOverLabel" type="Label" parent="GameOverContainer"]
+z_index = 1
+offset_left = 237.0
+offset_top = 150.0
+offset_right = 397.0
+offset_bottom = 173.0
+scale = Vector2(4, 4)
+theme_override_fonts/font = ExtResource("4_urnen")
+text = "GAME OVER!"
+
+[node name="RetryButton" type="Button" parent="GameOverContainer"]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 450.0
+offset_right = 409.0
+offset_bottom = 478.0
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("4_urnen")
+text = "RETRY"
+
+[node name="MainMenuButton" type="Button" parent="GameOverContainer"]
+layout_mode = 0
+offset_left = 590.0
+offset_top = 450.0
+offset_right = 742.0
+offset_bottom = 478.0
+scale = Vector2(1.5, 1.5)
+theme_override_fonts/font = ExtResource("4_urnen")
+text = "MAIN MENU"
+
+[node name="ResultLabel" type="Label" parent="GameOverContainer"]
+z_index = 1
+layout_mode = 0
+offset_left = 124.0
+offset_top = 306.0
+offset_right = 412.0
+offset_bottom = 329.0
+scale = Vector2(2.5, 2.5)
+theme_override_fonts/font = ExtResource("4_urnen")
+text = "You Reached round:"
+
 [node name="MinigameTitle" type="Label" parent="."]
 offset_left = 280.0
 offset_top = 60.0
@@ -50,6 +97,7 @@ theme_override_fonts/font = ExtResource("4_urnen")
 text = "Round:"
 
 [node name="ReadyLabel" type="Label" parent="."]
+visible = false
 z_index = 1
 offset_left = 400.0
 offset_top = 280.0
