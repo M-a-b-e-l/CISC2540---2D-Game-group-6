@@ -137,7 +137,14 @@ func show_victory_screen():
 	
 	# Wait 3 seconds then transition to maze game
 	await get_tree().create_timer(3.0).timeout
-	get_tree().change_scene_to_file("res://scenes/MazeGame2.tscn")
+	
+	# Stop minigame music and start main music
+	if background_music.playing:
+		background_music.stop()
+	if not BgMusic.playing:
+		BgMusic.play()
+		
+	get_tree().change_scene_to_file("res://scenes/main_scene.tscn")
 
 func _on_retry_pressed():
 	hide_game_over_screen()

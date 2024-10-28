@@ -215,7 +215,7 @@ position = Vector2(0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(-1, 1)
-zoom = Vector2(4, 4)
+zoom = Vector2(5, 5)
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
