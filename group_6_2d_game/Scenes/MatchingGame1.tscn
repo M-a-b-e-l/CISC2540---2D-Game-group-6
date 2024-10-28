@@ -43,6 +43,7 @@ offset_top = 150.0
 offset_right = 397.0
 offset_bottom = 173.0
 scale = Vector2(4, 4)
+theme_override_colors/font_color = Color(0.980392, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_urnen")
 text = "GAME OVER!"
 
@@ -52,8 +53,9 @@ offset_left = 321.0
 offset_top = 450.0
 offset_right = 409.0
 offset_bottom = 478.0
-scale = Vector2(1.5, 1.5)
+scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("4_urnen")
+theme_override_font_sizes/font_size = 55
 text = "RETRY"
 
 [node name="MainMenuButton" type="Button" parent="GameOverContainer"]
@@ -62,8 +64,9 @@ offset_left = 590.0
 offset_top = 450.0
 offset_right = 742.0
 offset_bottom = 478.0
-scale = Vector2(1.5, 1.5)
+scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("4_urnen")
+theme_override_font_sizes/font_size = 55
 text = "MAIN MENU"
 
 [node name="ResultLabel" type="Label" parent="GameOverContainer"]
@@ -92,19 +95,20 @@ offset_left = 50.0
 offset_top = 525.0
 offset_right = 146.0
 offset_bottom = 548.0
-scale = Vector2(2, 2)
+scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("4_urnen")
+theme_override_font_sizes/font_size = 60
 text = "Round:"
 
 [node name="ReadyLabel" type="Label" parent="."]
-visible = false
 z_index = 1
 offset_left = 400.0
 offset_top = 280.0
 offset_right = 496.0
 offset_bottom = 303.0
-scale = Vector2(3, 3)
+scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("4_urnen")
+theme_override_font_sizes/font_size = 100
 text = "ready?"
 
 [node name="Game1Beat" type="Label" parent="."]
@@ -114,6 +118,7 @@ offset_top = 267.0
 offset_right = 545.0
 offset_bottom = 290.0
 scale = Vector2(2, 2)
+theme_override_colors/font_color = Color(0, 0.988235, 0, 1)
 theme_override_fonts/font = ExtResource("4_urnen")
 text = "Game 1 Complete! Moving on..."
 

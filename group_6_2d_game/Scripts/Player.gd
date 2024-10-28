@@ -29,7 +29,6 @@ func _physics_process(_delta):
 		# Move the character
 		velocity = direction * speed
 		move_and_slide()
-
 		# Play corresponding animation based on movement direction
 		if direction.x > 0:
 			animation_player.play("WalkingRight")
@@ -44,11 +43,10 @@ func _physics_process(_delta):
 		velocity = Vector2.ZERO
 		animation_player.play("Idle")
 
-
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Portal"):
-		position.x = 525
-		position.y = 340
+		# Use call_deferred to change scene safely
+		get_tree().call_deferred("change_scene_to_file", "res://scenes/MatchingGame1.tscn")
 		
 	if area.is_in_group("Portal2"):
 		position.x = 613

@@ -44,7 +44,7 @@ func _ready():
 	
 	setup_buttons()
 	hide_game_over_screen()
-	game1_beat.visible = false  # Ensure victory label is hidden at start
+	game1_beat.visible = false
 	start_round(current_round)
 
 func setup_buttons():
@@ -111,8 +111,8 @@ func show_game_over_screen():
 	round_label.visible = false
 	minigame_title.visible = false
 	game_over_container.visible = true
-	game_over_label.text = "Game Over!"
-	result_label.text = "You reached round: " + str(current_round)
+	game_over_label.text = "GAME OVER!"
+	result_label.text = "YOU REACHED ROUND: " + str(current_round)
 
 func hide_game_over_screen():
 	game_over_container.visible = false
@@ -132,6 +132,7 @@ func show_victory_screen():
 	game_over_container.visible = false
 	
 	# Show victory label
+	game1_beat.text = "GAME 1 COMPLETE! MOVING ON..."
 	game1_beat.visible = true
 	
 	# Wait 3 seconds then transition to maze game
@@ -144,6 +145,10 @@ func _on_retry_pressed():
 	start_round(current_round)
 
 func _on_main_menu_pressed():
+	if background_music.playing:
+		background_music.stop()
+	if not BgMusic.playing:
+		BgMusic.play()
 	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
 
 func start_round(round_num):

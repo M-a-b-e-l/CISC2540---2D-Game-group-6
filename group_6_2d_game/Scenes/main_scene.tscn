@@ -177,11 +177,11 @@ sources/0 = SubResource("TileSetAtlasSource_y5l8g")
 radius = 5.0
 height = 18.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ouw3s"]
-size = Vector2(13, 11)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbm68"]
 size = Vector2(16, 22)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ouw3s"]
+size = Vector2(13, 11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1k3fo"]
 size = Vector2(18, 16)
@@ -215,7 +215,7 @@ position = Vector2(0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(-1, 1)
-zoom = Vector2(8, 8)
+zoom = Vector2(4, 4)
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
@@ -259,15 +259,6 @@ text = "Main Menu"
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_e8wxy")
 
-[node name="Portal2" type="Sprite2D" parent="."]
-position = Vector2(551, 424)
-
-[node name="Area2D" type="Area2D" parent="Portal2" groups=["Portal2"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal2/Area2D"]
-position = Vector2(0.5, -0.5)
-shape = SubResource("RectangleShape2D_ouw3s")
-
 [node name="Portal" parent="." instance=ExtResource("1_5nmis")]
 position = Vector2(136, 294)
 
@@ -276,6 +267,15 @@ position = Vector2(136, 294)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/Area2D"]
 position = Vector2(0, 30)
 shape = SubResource("RectangleShape2D_wbm68")
+
+[node name="Portal2" type="Sprite2D" parent="."]
+position = Vector2(551, 424)
+
+[node name="Area2D" type="Area2D" parent="Portal2" groups=["Portal2"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal2/Area2D"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_ouw3s")
 
 [node name="Portal3" type="Sprite2D" parent="."]
 position = Vector2(696, 564)
