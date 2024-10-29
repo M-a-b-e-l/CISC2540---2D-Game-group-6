@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://crc2hijb7nbku"]
+[gd_scene load_steps=31 format=3 uid="uid://crc2hijb7nbku"]
 
 [ext_resource type="Script" path="res://Scripts/how_to_play_scene.gd" id="1_2ljhf"]
 [ext_resource type="Texture2D" uid="uid://csv4hyqyb8fo3" path="res://Assets/Starry background  - Layer 01 - Void.png" id="2_07q2x"]
@@ -7,6 +7,9 @@
 [ext_resource type="FontFile" uid="uid://vxvy528j05fc" path="res://Fonts/Spac3Tech-Dg7E.ttf" id="4_ugr3u"]
 [ext_resource type="FontFile" uid="uid://htx5t07ltj12" path="res://Fonts/Emulogic-zrEw.ttf" id="5_euot5"]
 [ext_resource type="Texture2D" uid="uid://ybbe7ysmhslm" path="res://Assets/kisspng-computer-keyboard-vector-graphics-arrow-keys-royal-Тетрис-5b663b6d2d5486.8668868915334265411857.png" id="7_u5mwy"]
+[ext_resource type="Texture2D" uid="uid://dg5sryyl4egq3" path="res://Assets/normalSound.png" id="8_a4ygj"]
+[ext_resource type="Texture2D" uid="uid://cexgmfylam0wu" path="res://Assets/mutedSound.png" id="9_7sns6"]
+[ext_resource type="Script" path="res://Scenes/toggle_sound.gd" id="10_eprmo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ayvck"]
 atlas = ExtResource("2_07q2x")
@@ -176,60 +179,77 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -137.0
-offset_top = 40.0
-offset_right = 137.0
-offset_bottom = 73.0
+offset_left = -132.0
+offset_top = 69.0
+offset_right = 142.0
+offset_bottom = 102.0
 grow_horizontal = 2
 scale = Vector2(1.2, 1.2)
 theme_override_fonts/font = ExtResource("4_ugr3u")
 theme_override_font_sizes/font_size = 30
-text = "instructions"
+text = "how to play"
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -203.0
-offset_top = 270.0
-offset_right = 71.0
-offset_bottom = 303.0
+offset_left = -187.0
+offset_top = 403.0
+offset_right = 87.0
+offset_bottom = 436.0
 grow_horizontal = 2
 scale = Vector2(1.2, 1.2)
 theme_override_fonts/font = ExtResource("5_euot5")
 theme_override_font_sizes/font_size = 15
 text = "Movement"
 
+[node name="Kisspng-computer-keyboard-vector-graphics-arrow-keys-royal-тетрис-5b663b6d2d5486_8668868915334265411857" type="Sprite2D" parent="Label2"]
+position = Vector2(312.5, 9.16666)
+scale = Vector2(0.333333, 0.333333)
+texture = ExtResource("7_u5mwy")
+
 [node name="Label3" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -368.0
-offset_top = 407.0
-offset_right = 277.0
-offset_bottom = 440.0
+offset_left = -343.0
+offset_top = 531.0
+offset_right = 302.0
+offset_bottom = 564.0
 grow_horizontal = 2
 scale = Vector2(1.2, 1.2)
 theme_override_fonts/font = ExtResource("5_euot5")
 theme_override_font_sizes/font_size = 15
 text = "Solve all minigames, and save planet Earth!"
 
-[node name="Kisspng-computer-keyboard-vector-graphics-arrow-keys-royal-тетрис-5b663b6d2d5486_8668868915334265411857" type="Sprite2D" parent="."]
-position = Vector2(749, 260)
-scale = Vector2(0.4, 0.4)
-texture = ExtResource("7_u5mwy")
+[node name="Label4" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -470.0
+offset_top = 143.0
+offset_right = 337.0
+offset_bottom = 316.0
+grow_horizontal = 2
+scale = Vector2(1.2, 1.2)
+theme_override_fonts/font = ExtResource("5_euot5")
+theme_override_font_sizes/font_size = 15
+text = "Stranded on an alien planet, you discover a chilling truth: the aliens are plotting Earth's destruction! But all is not lost, navigate a world of strange puzzles and messages, decoding secrets to sabotage their plan from the inside. Each mini-game you solve draws you deeper into an interstellar mystery."
+horizontal_alignment = 1
+autowrap_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 17.0
-offset_top = -57.0
-offset_right = 125.0
-offset_bottom = 1.0
+offset_left = 3.0
+offset_top = -40.0
+offset_right = 251.0
+offset_bottom = 18.0
 grow_vertical = 0
 scale = Vector2(1.2, 1.2)
 
@@ -241,4 +261,16 @@ theme_override_colors/font_hover_color = Color(0.54902, 0.313726, 0.796078, 1)
 theme_override_fonts/font = ExtResource("5_euot5")
 text = "Back to Main"
 
+[node name="ToggleSound" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1081.0
+offset_top = 580.0
+offset_right = 1131.0
+offset_bottom = 630.0
+toggle_mode = true
+texture_normal = ExtResource("8_a4ygj")
+texture_pressed = ExtResource("9_7sns6")
+script = ExtResource("10_eprmo")
+
 [connection signal="pressed" from="VBoxContainer/Back to Main" to="." method="_on_back_to_main_pressed"]
+[connection signal="pressed" from="ToggleSound" to="ToggleSound" method="_on_pressed"]
