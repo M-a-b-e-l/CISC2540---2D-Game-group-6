@@ -15,16 +15,23 @@ texture = ExtResource("1_rh54l")
 
 [node name="ReadyLabel" type="Label" parent="."]
 visible = false
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 403.0
+offset_top = 285.0
+offset_right = 1003.0
+offset_bottom = 411.0
+scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("3_wod7a")
+theme_override_font_sizes/font_size = 100
 text = "Ready?"
 
 [node name="MinigameTitle" type="Label" parent="."]
-visible = false
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 367.0
+offset_top = 32.0
+offset_right = 1655.0
+offset_bottom = 215.0
+scale = Vector2(0.3, 0.3)
 theme_override_fonts/font = ExtResource("2_pifbg")
+theme_override_font_sizes/font_size = 175
 text = "alien maze"
 
 [node name="Game2Beat" type="Label" parent="."]
@@ -33,3 +40,44 @@ offset_right = 40.0
 offset_bottom = 23.0
 theme_override_fonts/font = ExtResource("3_wod7a")
 text = "Game 2 Complete! Moving on..."
+
+[node name="GameOverContainer" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="GameOverLabel" type="Label" parent="GameOverContainer"]
+z_index = 1
+layout_mode = 0
+offset_left = 250.0
+offset_top = 220.0
+offset_right = 410.0
+offset_bottom = 243.0
+scale = Vector2(4, 4)
+theme_override_colors/font_color = Color(0.980392, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_wod7a")
+text = "GAME OVER!"
+
+[node name="RetryButton" type="Button" parent="GameOverContainer"]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 400.0
+offset_right = 604.0
+offset_bottom = 477.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("3_wod7a")
+theme_override_font_sizes/font_size = 55
+text = "RETRY"
+
+[node name="MainMenuButton" type="Button" parent="GameOverContainer"]
+layout_mode = 0
+offset_left = 590.0
+offset_top = 400.0
+offset_right = 1093.0
+offset_bottom = 477.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("3_wod7a")
+theme_override_font_sizes/font_size = 55
+text = "MAIN MENU"
