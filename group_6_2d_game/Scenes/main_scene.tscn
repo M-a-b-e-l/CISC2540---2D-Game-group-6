@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=4 uid="uid://b7a7f7hpf8p0k"]
+[gd_scene load_steps=17 format=4 uid="uid://b7a7f7hpf8p0k"]
 
 [ext_resource type="PackedScene" uid="uid://bkwud4epbvkxc" path="res://portal.tscn" id="1_5nmis"]
 [ext_resource type="Texture2D" uid="uid://cjupec5pbv2cx" path="res://Assets/CosmicLilac_Tiles.png" id="1_p53sb"]
@@ -195,6 +195,9 @@ size = Vector2(16, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nx1js"]
 size = Vector2(17, 12)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qp7s7"]
+size = Vector2(52, 20)
+
 [node name="Main Scene" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
@@ -215,7 +218,7 @@ position = Vector2(0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 position = Vector2(-1, 1)
-zoom = Vector2(5, 5)
+zoom = Vector2(6.5, 6.5)
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
@@ -306,14 +309,22 @@ position = Vector2(680, 502)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AntiPortal2/Area2D"]
 shape = SubResource("RectangleShape2D_6la43")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
+[node name="AntiPortal3" type="Sprite2D" parent="."]
 position = Vector2(873, 104)
 
-[node name="Area2D" type="Area2D" parent="Sprite2D2" groups=["AntiPortal3"]]
+[node name="Area2D" type="Area2D" parent="AntiPortal3" groups=["AntiPortal3"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D2/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AntiPortal3/Area2D"]
 position = Vector2(-1, -18)
 shape = SubResource("RectangleShape2D_nx1js")
+
+[node name="Minigame1" type="Sprite2D" parent="."]
+position = Vector2(136, 199)
+
+[node name="Area2D" type="Area2D" parent="Minigame1" groups=["Minigame1"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Minigame1/Area2D"]
+shape = SubResource("RectangleShape2D_qp7s7")
 
 [connection signal="pressed" from="CharacterBody2D/Camera2D/CanvasLayer/Control/VBoxContainer/Button" to="CharacterBody2D/Camera2D/CanvasLayer/Control" method="_on_button_pressed"]
 [connection signal="area_entered" from="CharacterBody2D/Area2D" to="CharacterBody2D" method="_on_area_2d_area_entered"]
