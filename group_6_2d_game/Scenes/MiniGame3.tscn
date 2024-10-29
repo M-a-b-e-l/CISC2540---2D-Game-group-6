@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=3 uid="uid://r0ewdxhwercq"]
+
+[ext_resource type="Texture2D" uid="uid://gkdr5fc3r3sj" path="res://Assets/space_background_pack copy/Assets/Blue Version/layered/blue-with-stars.png" id="1_llb72"]
+[ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="2_i25wp"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j24r7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l0l8n"]
+radius = 3.75402
+
+[node name="MiniGame2" type="Node2D"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(577, 325)
+
+[node name="Node2D" type="Sprite2D" parent="Camera2D"]
+position = Vector2(-10, -15.5)
+scale = Vector2(38, 43)
+texture = SubResource("PlaceholderTexture2D_j24r7")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Camera2D/Node2D"]
+script = ExtResource("2_i25wp")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/Node2D/CharacterBody2D"]
+position = Vector2(-3, 0)
+shape = SubResource("CircleShape2D_l0l8n")
+one_way_collision_margin = 5.0
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Parallax2D" type="Parallax2D" parent="CanvasLayer"]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Parallax2D"]
+offset_right = 1155.0
+offset_bottom = 651.0
+texture = ExtResource("1_llb72")
+metadata/_edit_use_anchors_ = true
