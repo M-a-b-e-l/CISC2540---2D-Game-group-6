@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://cicaunitnybt"]
+[gd_scene load_steps=4 format=3 uid="uid://cicaunitnybt"]
 
 [ext_resource type="Texture2D" uid="uid://d4ld3cn0qvtwa" path="res://Assets/MazeGameBG.png" id="1_rh54l"]
+[ext_resource type="FontFile" uid="uid://vxvy528j05fc" path="res://Fonts/Spac3Tech-Dg7E.ttf" id="2_pifbg"]
+[ext_resource type="FontFile" uid="uid://htx5t07ltj12" path="res://Fonts/Emulogic-zrEw.ttf" id="3_wod7a"]
 
 [node name="MazeGame2" type="Node2D"]
 
@@ -11,6 +13,23 @@ texture = ExtResource("1_rh54l")
 
 [node name="BackGroundMusic" type="AudioStreamPlayer" parent="."]
 
-[node name="MiniGameTitle" type="Label" parent="."]
+[node name="ReadyLabel" type="Label" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("3_wod7a")
+text = "Ready?"
+
+[node name="MinigameTitle" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("2_pifbg")
+text = "alien maze"
+
+[node name="Game2Beat" type="Label" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("3_wod7a")
+text = "Game 2 Complete! Moving on..."
