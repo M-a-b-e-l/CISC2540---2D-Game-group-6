@@ -15,8 +15,8 @@ z_index = -1
 position = Vector2(0, 1)
 
 [node name="Parallax2D" type="Parallax2D" parent="CanvasLayer"]
+scroll_offset = Vector2(0, 1)
 repeat_size = Vector2(1150, 0)
-autoscroll = Vector2(20, 50)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Parallax2D"]
 offset_right = 1155.0
