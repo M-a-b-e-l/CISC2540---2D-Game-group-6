@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ybbe7ysmhslm" path="res://Assets/kisspng-computer-keyboard-vector-graphics-arrow-keys-royal-Тетрис-5b663b6d2d5486.8668868915334265411857.png" id="7_u5mwy"]
 [ext_resource type="Texture2D" uid="uid://dg5sryyl4egq3" path="res://Assets/normalSound.png" id="8_a4ygj"]
 [ext_resource type="Texture2D" uid="uid://cexgmfylam0wu" path="res://Assets/mutedSound.png" id="9_7sns6"]
-[ext_resource type="Script" path="res://Scenes/toggle_sound.gd" id="10_eprmo"]
+[ext_resource type="Script" path="res://Scripts/toggle_sound.gd" id="10_eprmo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ayvck"]
 atlas = ExtResource("2_07q2x")
