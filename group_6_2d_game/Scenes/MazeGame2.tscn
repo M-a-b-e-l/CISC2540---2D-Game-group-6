@@ -1,3 +1,16 @@
-[gd_scene format=3 uid="uid://cicaunitnybt"]
+[gd_scene load_steps=2 format=3 uid="uid://cicaunitnybt"]
 
-[node name="Node2D" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://d4ld3cn0qvtwa" path="res://Assets/MazeGameBG.png" id="1_rh54l"]
+
+[node name="MazeGame2" type="Node2D"]
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(576, 324)
+scale = Vector2(1.2, 1.2)
+texture = ExtResource("1_rh54l")
+
+[node name="BackGroundMusic" type="AudioStreamPlayer" parent="."]
+
+[node name="MiniGameTitle" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
