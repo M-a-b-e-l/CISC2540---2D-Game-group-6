@@ -57,7 +57,7 @@ offset_bottom = 478.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("4_urnen")
 theme_override_font_sizes/font_size = 55
-text = "RETRY"
+text = "Retry?"
 
 [node name="MainMenuButton" type="Button" parent="GameOverContainer"]
 layout_mode = 0
@@ -68,7 +68,7 @@ offset_bottom = 478.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("4_urnen")
 theme_override_font_sizes/font_size = 55
-text = "MAIN MENU"
+text = "Back"
 
 [node name="ResultLabel" type="Label" parent="GameOverContainer"]
 z_index = 1

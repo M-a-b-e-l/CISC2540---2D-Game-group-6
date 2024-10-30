@@ -19,6 +19,7 @@ const MAX_ICON_REPEAT = 2  # Max times an icon can repeat consecutively
 @onready var game_over_label = get_node("GameOverContainer/GameOverLabel")
 @onready var result_label = get_node("GameOverContainer/ResultLabel")
 @onready var game1_beat = get_node("Game1Beat")
+@onready var minigame1_collision = get_node("Minigame1")
 
 # Variables
 var current_pattern = []
@@ -113,6 +114,7 @@ func show_game_over_screen():
 	game_over_container.visible = true
 	game_over_label.text = "GAME OVER!"
 	result_label.text = "YOU REACHED ROUND: " + str(current_round)
+	GlobalState.daBool = false
 
 func hide_game_over_screen():
 	game_over_container.visible = false
@@ -130,6 +132,7 @@ func show_victory_screen():
 	round_label.visible = false
 	minigame_title.visible = false
 	game_over_container.visible = false
+	GlobalState.daBool = true
 	
 	# Show victory label
 	game1_beat.text = "GAME 1 COMPLETE! MOVING ON..."
@@ -143,8 +146,9 @@ func show_victory_screen():
 		background_music.stop()
 	if not BgMusic.playing:
 		BgMusic.play()
-		
+	
 	get_tree().change_scene_to_file("res://scenes/main_scene.tscn")
+	GlobalState.player_position = Vector2(140, 230)
 
 func _on_retry_pressed():
 	hide_game_over_screen()
@@ -156,7 +160,7 @@ func _on_main_menu_pressed():
 		background_music.stop()
 	if not BgMusic.playing:
 		BgMusic.play()
-	get_tree().change_scene_to_file("res://scenes/MainMenu.tscn")
+	get_tree().change_scene_to_file("res://scenes/main_scene.tscn")
 
 func start_round(round_num):
 	print("Starting round %d" % round_num)

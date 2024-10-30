@@ -7,6 +7,9 @@ var direction: Vector2 = Vector2.ZERO
 @onready var sprite = $CollisionShape2D/Player
 @onready var animation_player = $CollisionShape2D/Player/AnimationPlayer
 
+func _ready() -> void:
+	position = GlobalState.player_position
+
 func _physics_process(_delta):
 	# Capture input for movement
 	direction = Vector2.ZERO
@@ -45,6 +48,8 @@ func _physics_process(_delta):
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Minigame1"):
+		GlobalState.player_position = position - Vector2(0, 40)
+
 		#Use call_deferred to change scene safely
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/MatchingGame1.tscn")
 		
@@ -61,8 +66,8 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		position.y = 106
 		
 	if area.is_in_group("AntiPortal1"):
-		position.x = 315
-		position.y = 103
+		position.x = 140
+		position.y = 230
 		
 	if area.is_in_group("AntiPortal2"):
 		position.x = 525

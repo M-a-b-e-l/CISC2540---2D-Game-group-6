@@ -17,6 +17,7 @@ config/features=PackedStringArray("4.3", "GL Compatibility")
 [autoload]
 
 BgMusic="*res://Scenes/bg_music.tscn"
+GlobalState="*res://global_state.tscn"
 
 [display]
 
