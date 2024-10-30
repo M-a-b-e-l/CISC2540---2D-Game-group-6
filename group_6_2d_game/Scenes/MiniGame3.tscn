@@ -15,8 +15,8 @@ z_index = -1
 position = Vector2(0, 1)
 
 [node name="Parallax2D" type="Parallax2D" parent="CanvasLayer"]
-scroll_offset = Vector2(0, 1)
-repeat_size = Vector2(2300, 0)
+scroll_offset = Vector2(-49, -26)
+repeat_size = Vector2(2300, 1301)
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Parallax2D"]
 offset_right = 1155.0
@@ -29,6 +29,7 @@ metadata/_edit_use_anchors_ = true
 position = Vector2(577, 325)
 scale = Vector2(38, 43)
 script = ExtResource("2_i25wp")
+speed = 120.0
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 z_index = 2
