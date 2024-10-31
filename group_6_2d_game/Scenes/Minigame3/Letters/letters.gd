@@ -1,6 +1,13 @@
 extends Area2D
 
 var selected = false
+var rest_point
+var rest_nodes = []
+
+func _ready():
+	rest_nodes = get_tree().get_nodes_in_group("droppable")
+	rest_point = rest_nodes[0].global_position
+	rest_nodes[0].select()
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int):
 	if Input.is_action_just_pressed("click"):

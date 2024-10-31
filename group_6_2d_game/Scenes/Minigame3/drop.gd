@@ -11,7 +11,7 @@ func select():
 	modulate = Color.AQUAMARINE
 
 func deselect():
-	modulate = Color.WHITE
+	modulate = Color.ANTIQUE_WHITE
 	
 
 #var selected = false
