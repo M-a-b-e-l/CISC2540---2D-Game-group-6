@@ -16,8 +16,8 @@ func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int):
 func _physics_process(delta: float):
 	if selected:
 		global_position = lerp(global_position, get_global_mouse_position(), 25 * delta)
-	else:
-		global_position = lerp(global_position, rest_point, 10 * delta)
+	#else:
+		#global_position = lerp(global_position, rest_point, 10 * delta)
 
 func _input(event: InputEvent):
 	if event is InputEventMouseButton:

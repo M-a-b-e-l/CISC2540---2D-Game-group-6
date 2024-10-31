@@ -24,5 +24,4 @@ text = "A"
 position = Vector2(7.84393, 13.1918)
 shape = SubResource("CapsuleShape2D_arj5x")
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="input_event" from="." to="." method="_on_input_event"]
