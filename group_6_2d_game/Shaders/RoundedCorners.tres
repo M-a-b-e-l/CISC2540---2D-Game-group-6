@@ -4,3 +4,8 @@
 
 [resource]
 shader = ExtResource("1_hoaw0")
+shader_parameter/corner_radius = 0.1
+shader_parameter/border_width = 0.0
+shader_parameter/border_color = Color(1, 1, 1, 1)
+shader_parameter/flash_intensity = 0.0
+shader_parameter/flash_color = Color(2, 2, 0.5, 1)
