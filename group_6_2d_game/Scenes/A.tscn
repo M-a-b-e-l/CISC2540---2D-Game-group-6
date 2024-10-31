@@ -1,17 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://o63b4s24xg0f"]
+[gd_scene load_steps=3 format=3 uid="uid://o63b4s24xg0f"]
 
 [ext_resource type="FontFile" uid="uid://htx5t07ltj12" path="res://Fonts/Emulogic-zrEw.ttf" id="1_lhwil"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_arj5x"]
 
 [node name="Area2D" type="Area2D"]
 position = Vector2(-49, -25)
 scale = Vector2(1.78482, 1.6677)
 
 [node name="Label" type="Label" parent="."]
-offset_left = 29.1346
-offset_top = 17.3892
-offset_right = 69.1346
-offset_bottom = 40.3892
+offset_left = 29.0
+offset_top = 17.0
+offset_right = 39.0
+offset_bottom = 29.0
 scale = Vector2(1.9909, 2.41636)
 theme_override_fonts/font = ExtResource("1_lhwil")
 theme_override_font_sizes/font_size = 8
 text = "A"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(38.0991, 31.1807)
+shape = SubResource("CapsuleShape2D_arj5x")
