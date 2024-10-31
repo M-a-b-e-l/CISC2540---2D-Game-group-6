@@ -56,40 +56,67 @@ one_way_collision_margin = 5.0
 
 [node name="A" parent="." instance=ExtResource("3_k0nek")]
 z_index = -1
-position = Vector2(132, 210)
+position = Vector2(127, 123)
 
 [node name="P" parent="." instance=ExtResource("4_8vqc2")]
-position = Vector2(351, 167)
+position = Vector2(354, 104)
 
 [node name="L" parent="." instance=ExtResource("5_0xjut")]
-position = Vector2(268, 393)
+position = Vector2(198, 476)
 
 [node name="C" parent="." instance=ExtResource("6_052o4")]
 position = Vector2(843, 466)
 
 [node name="E" parent="." instance=ExtResource("7_gbyna")]
-position = Vector2(452, 472)
+position = Vector2(435, 521)
 
 [node name="H" parent="." instance=ExtResource("8_evn61")]
-position = Vector2(627, 135)
+position = Vector2(682, 98)
 
 [node name="O" parent="." instance=ExtResource("9_nk7qf")]
-position = Vector2(591, 391)
+position = Vector2(647, 520)
 
 [node name="D" parent="." instance=ExtResource("10_as1sj")]
-position = Vector2(751, 385)
+position = Vector2(1029, 406)
 
 [node name="E2" parent="." instance=ExtResource("7_gbyna")]
-position = Vector2(446, 287)
+position = Vector2(944, 87)
 
 [node name="R" parent="." instance=ExtResource("11_y2h4m")]
-position = Vector2(377, 385)
+position = Vector2(277, 214)
 
 [node name="L2" parent="." instance=ExtResource("5_0xjut")]
-position = Vector2(827, 216)
+position = Vector2(828, 141)
 
 [node name="DraggableArea" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(158, 493)
+position = Vector2(96, 403)
 
 [node name="DraggableArea2" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(938, 132)
+position = Vector2(189, 406)
+
+[node name="DraggableArea3" parent="." instance=ExtResource("12_x7dgv")]
+position = Vector2(286, 401)
+
+[node name="DraggableArea4" parent="." instance=ExtResource("12_x7dgv")]
+position = Vector2(371, 400)
+
+[node name="DraggableArea5" parent="." instance=ExtResource("12_x7dgv")]
+position = Vector2(473, 403)
+
+[node name="DraggableArea6" parent="." instance=ExtResource("12_x7dgv")]
+position = Vector2(562, 399)
+
+[node name="DraggableArea7" parent="." instance=ExtResource("12_x7dgv")]
+position = Vector2(661, 404)
+
+[node name="DraggableArea8" parent="." instance=ExtResource("12_x7dgv")]
+position = Vector2(743, 397)
+
+[node name="DraggableArea9" parent="." instance=ExtResource("12_x7dgv")]
+position = Vector2(823, 346)
+
+[node name="DraggableArea10" parent="." instance=ExtResource("12_x7dgv")]
+position = Vector2(868, 261)
+
+[node name="DraggableArea11" parent="." instance=ExtResource("12_x7dgv")]
+position = Vector2(955, 215)

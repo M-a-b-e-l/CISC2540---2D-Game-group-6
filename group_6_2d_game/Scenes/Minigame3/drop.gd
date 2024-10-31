@@ -3,7 +3,7 @@ extends Marker2D
 
 
 func _draw():
-	draw_circle(Vector2.ZERO, 10, Color.ANTIQUE_WHITE, true)
+	draw_circle(Vector2.ZERO, 30, Color.ANTIQUE_WHITE, true)
 	
 func select():
 	for child in get_tree().get_nodes_in_group("droppable"):
