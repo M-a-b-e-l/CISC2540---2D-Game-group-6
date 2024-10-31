@@ -1,9 +1,16 @@
-[gd_scene load_steps=7 format=3 uid="uid://r0ewdxhwercq"]
+[gd_scene load_steps=14 format=3 uid="uid://r0ewdxhwercq"]
 
 [ext_resource type="Texture2D" uid="uid://gkdr5fc3r3sj" path="res://Assets/space_background_pack copy/Assets/Blue Version/layered/blue-with-stars.png" id="1_pebax"]
 [ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="2_qthtj"]
 [ext_resource type="PackedScene" uid="uid://o63b4s24xg0f" path="res://Scenes/Minigame3/Letters/A.tscn" id="3_k0nek"]
 [ext_resource type="PackedScene" uid="uid://wcseyh85py0l" path="res://Scenes/Minigame3/Letters/P.tscn" id="4_8vqc2"]
+[ext_resource type="PackedScene" uid="uid://d1nbae4eg5ymk" path="res://Scenes/Minigame3/Letters/L.tscn" id="5_0xjut"]
+[ext_resource type="PackedScene" uid="uid://ca384vjutne08" path="res://Scenes/Minigame3/Letters/C.tscn" id="6_052o4"]
+[ext_resource type="PackedScene" uid="uid://cr7ku20vgnlrw" path="res://Scenes/Minigame3/Letters/E.tscn" id="7_gbyna"]
+[ext_resource type="PackedScene" uid="uid://c2nfakgcpaf57" path="res://Scenes/Minigame3/Letters/H.tscn" id="8_evn61"]
+[ext_resource type="PackedScene" uid="uid://lajh7fatllmb" path="res://Scenes/Minigame3/Letters/O.tscn" id="9_nk7qf"]
+[ext_resource type="PackedScene" uid="uid://gchjy45n0qob" path="res://Scenes/Minigame3/Letters/D.tscn" id="10_as1sj"]
+[ext_resource type="PackedScene" uid="uid://cnyqgdqf6gvuc" path="res://Scenes/Minigame3/Letters/R.tscn" id="11_y2h4m"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j24r7"]
 
@@ -52,3 +59,27 @@ position = Vector2(132, 210)
 
 [node name="P" parent="." instance=ExtResource("4_8vqc2")]
 position = Vector2(351, 167)
+
+[node name="L" parent="." instance=ExtResource("5_0xjut")]
+position = Vector2(268, 393)
+
+[node name="C" parent="." instance=ExtResource("6_052o4")]
+position = Vector2(843, 466)
+
+[node name="E" parent="." instance=ExtResource("7_gbyna")]
+position = Vector2(452, 472)
+
+[node name="H" parent="." instance=ExtResource("8_evn61")]
+position = Vector2(627, 135)
+
+[node name="O" parent="." instance=ExtResource("9_nk7qf")]
+position = Vector2(591, 391)
+
+[node name="D" parent="." instance=ExtResource("10_as1sj")]
+position = Vector2(751, 385)
+
+[node name="E2" parent="." instance=ExtResource("7_gbyna")]
+position = Vector2(446, 287)
+
+[node name="R" parent="." instance=ExtResource("11_y2h4m")]
+position = Vector2(377, 385)
