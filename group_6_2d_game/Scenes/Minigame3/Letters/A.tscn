@@ -6,23 +6,23 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_arj5x"]
 
 [node name="Area2D" type="Area2D"]
-position = Vector2(-49, -25)
+position = Vector2(-3.8147e-06, 0)
 scale = Vector2(1.78482, 1.6677)
 collision_mask = 2
 script = ExtResource("1_8ooy4")
 
 [node name="Label" type="Label" parent="."]
-offset_left = 29.0
-offset_top = 17.0
-offset_right = 39.0
-offset_bottom = 29.0
+offset_left = -0.56028
+offset_right = 9.43972
+offset_bottom = 12.0
 scale = Vector2(1.9909, 2.41636)
 theme_override_fonts/font = ExtResource("1_lhwil")
 theme_override_font_sizes/font_size = 8
 text = "A"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(38.0991, 31.1807)
+position = Vector2(7.84393, 13.1918)
 shape = SubResource("CapsuleShape2D_arj5x")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="input_event" from="." to="." method="_on_input_event"]

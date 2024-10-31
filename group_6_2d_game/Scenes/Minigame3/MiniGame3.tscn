@@ -39,7 +39,7 @@ position = Vector2(577, 325)
 scale = Vector2(38, 43)
 collision_layer = 2
 script = ExtResource("2_qthtj")
-speed = 120.0
+speed = 200.0
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
 z_index = 2
@@ -83,3 +83,6 @@ position = Vector2(446, 287)
 
 [node name="R" parent="." instance=ExtResource("11_y2h4m")]
 position = Vector2(377, 385)
+
+[node name="L2" parent="." instance=ExtResource("5_0xjut")]
+position = Vector2(827, 216)
