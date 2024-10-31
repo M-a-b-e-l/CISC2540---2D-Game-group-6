@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://gchjy45n0qob"]
+
+[ext_resource type="PackedScene" uid="uid://o63b4s24xg0f" path="res://Scenes/Minigame3/Letters/A.tscn" id="1_4xe3y"]
+
+[node name="D" type="Node2D"]
+
+[node name="Area2D" parent="." instance=ExtResource("1_4xe3y")]
+
+[node name="Label" parent="Area2D" index="0"]
+text = "D"
+
+[editable path="Area2D"]
