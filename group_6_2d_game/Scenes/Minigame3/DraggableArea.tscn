@@ -5,7 +5,7 @@ size = Vector2(126, 126)
 
 [node name="DraggableArea" type="Node2D"]
 
-[node name="Area2D" type="StaticBody2D" parent="."]
+[node name="Area2D" type="StaticBody2D" parent="." groups=["droppable"]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_6hbnc")
