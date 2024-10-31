@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://r0ewdxhwercq"]
+[gd_scene load_steps=15 format=3 uid="uid://r0ewdxhwercq"]
 
 [ext_resource type="Texture2D" uid="uid://gkdr5fc3r3sj" path="res://Assets/space_background_pack copy/Assets/Blue Version/layered/blue-with-stars.png" id="1_pebax"]
 [ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="2_qthtj"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://lajh7fatllmb" path="res://Scenes/Minigame3/Letters/O.tscn" id="9_nk7qf"]
 [ext_resource type="PackedScene" uid="uid://gchjy45n0qob" path="res://Scenes/Minigame3/Letters/D.tscn" id="10_as1sj"]
 [ext_resource type="PackedScene" uid="uid://cnyqgdqf6gvuc" path="res://Scenes/Minigame3/Letters/R.tscn" id="11_y2h4m"]
+[ext_resource type="PackedScene" uid="uid://dv4a64hrg8wic" path="res://Scenes/Minigame3/DraggableArea.tscn" id="12_x7dgv"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j24r7"]
 
@@ -86,3 +87,9 @@ position = Vector2(377, 385)
 
 [node name="L2" parent="." instance=ExtResource("5_0xjut")]
 position = Vector2(827, 216)
+
+[node name="DraggableArea" parent="." instance=ExtResource("12_x7dgv")]
+position = Vector2(158, 493)
+
+[node name="DraggableArea2" parent="." instance=ExtResource("12_x7dgv")]
+position = Vector2(938, 132)

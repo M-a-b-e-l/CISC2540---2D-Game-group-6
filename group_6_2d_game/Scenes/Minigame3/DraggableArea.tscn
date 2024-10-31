@@ -1,17 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://dv4a64hrg8wic"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6hbnc"]
-size = Vector2(126, 126)
+[ext_resource type="Script" path="res://Scenes/Minigame3/drop.gd" id="1_7kkq8"]
 
 [node name="DraggableArea" type="Node2D"]
 
-[node name="Area2D" type="StaticBody2D" parent="." groups=["droppable"]]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource("RectangleShape2D_6hbnc")
-
-[node name="ColorRect" type="ColorRect" parent="Area2D"]
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 64.0
-offset_bottom = 64.0
+[node name="DropZone" type="Marker2D" parent="." groups=["droppable"]]
+script = ExtResource("1_7kkq8")
