@@ -151,7 +151,7 @@ func start_game():
 	else:
 		print("WARNING: Ending/Area2D not found!")
 	
-	# Connect dead-end areas to trigger a transport to Choices scene
+	# Connect dead-end areas to trigger a transport to the beg. of the game
 	print("Searching for dead-end areas...")
 	for area_name in dead_end_areas:
 		var choice_area = get_node_or_null(area_name + "/Area2D")
