@@ -2,43 +2,59 @@ extends Node2D
 
 # Paths for dead-end areas (adjust these to match your scene structure)
 @export var dead_end_areas := ["Choices1", "Choices2", "Choices3", "Choices4"]
-# Define music nodes and player path
+# Define player path
 @export var player := "CharacterBody2D"
 var autoloader_music
 var background_music
 var camera
+var time_remaining = 300  # 5 minutes in seconds
+var timer_label
 
-func _ready():
+# Initialize a Timer node at the beginning
+@onready var game_timer = Timer.new()  
+
+func _ready() -> void:
 	print("MazeGame2 _ready() started")
-	
+
 	# Stop autoloader music immediately
 	autoloader_music = get_node("/root/BgMusic")
 	if autoloader_music:
 		autoloader_music.stop()
 		print("Stopped autoloader music")
-	
+
+	# Start background music
 	background_music = $BackGroundMusic
 	if background_music:
 		background_music.play()
 		print("Started background music")
-	
+
 	# Make the background visible initially
 	var background = $Background
 	if background:
 		background.visible = true
 
-	# Hide everything initially except AudioStreamPlayer nodes, Background, and ReadyLabel
+	# Hide all nodes except AudioStreamPlayer nodes, Background, and ReadyLabel
 	for child in get_children():
 		if not (child is AudioStreamPlayer or child.name == "ReadyLabel" or child.name == "Background"):
 			child.visible = false
 	
-	# Show only ReadyLabel along with the background
+	# Show only ReadyLabel
 	var ready_label = $ReadyLabel
 	if ready_label:
 		ready_label.visible = true
 		ready_label.text = "Ready?"
-	
-	# Create camera with initial zoomed out view
+
+	# Hide Game Over container initially
+	var game_over_container = $GameOverContainer
+	if game_over_container:
+		game_over_container.visible = false
+
+	# Hide Game2Beat label initially
+	var game2beat = $Game2Beat
+	if game2beat:
+		game2beat.visible = false  # Hide Game2Beat at the start
+
+	# Create camera with initial settings
 	var player_node = find_child("CharacterBody2D", true, false)
 	if player_node:
 		player_node.global_position = Vector2(105, 327)
@@ -51,12 +67,10 @@ func _ready():
 		camera.limit_bottom = 600
 		player_node.add_child(camera)
 		camera.make_current()
-		player_node.add_child(camera)
-		camera.make_current()
-	
+
 	# Wait for 3 seconds before starting the game
 	await get_tree().create_timer(3.0).timeout
-	
+
 	# Start the game after the countdown
 	start_game()
 
@@ -66,22 +80,51 @@ func start_game():
 	if ready_label:
 		ready_label.visible = false
 	
-	# Show everything again except Game2Beat and AudioStreamPlayer nodes
+	# Hide Game Over container and label during gameplay
+	var game_over_container = $GameOverContainer
+	if game_over_container:
+		game_over_container.visible = false
+	
+	# Hide Game2Beat label initially
+	var game2beat = $Game2Beat
+	if game2beat:
+		game2beat.visible = false  # Hide Game2Beat at the start
+	
+	var game_over_label = $GameOverContainer/DeadEndLabel  # Get the GameOverLabel node
+	if game_over_label:
+		game_over_label.visible = false
+	
+	# Show everything again except GameOverContainer and AudioStreamPlayer nodes
 	for child in get_children():
-		if not (child is AudioStreamPlayer or child.name == "Game2Beat"):
+		if not (child is AudioStreamPlayer or child.name == "GameOverContainer" or child.name == "DeadEndLabel"):
 			child.visible = true
 	
-	# Now setup the camera for gameplay
+	# Set up the camera for gameplay
 	var player_node = find_child("CharacterBody2D", true, false)
 	if player_node and camera:
 		camera.position_smoothing_enabled = true
 		camera.position_smoothing_speed = 7.0
 		camera.limit_left = 0
 		camera.limit_right = 1600
-		camera.limit_top = 250
+		camera.limit_top = 0
 		camera.limit_bottom = 800
 		camera.zoom = Vector2(4.6, 4.6)  # Zoom in for gameplay
 
+	# Initialize the timer and start the countdown
+	timer_label = $Timer/TimerLabel
+	var custom_font = load("res://Fonts/Emulogic-zrEw.ttf")
+	
+	if timer_label and custom_font:
+		timer_label.add_theme_font_override("font", custom_font)
+	else:
+		print("Failed to load either TimerLabel or the custom font.")
+	
+	# Setup the timer
+	add_child(game_timer)  # Add timer to scene
+	game_timer.wait_time = 1.0
+	game_timer.timeout.connect(_on_timer_tick)
+	game_timer.start()
+	
 	# Connect the ending area signal
 	var ending_area = $Ending/Area2D
 	if ending_area:
@@ -106,9 +149,9 @@ func start_game():
 func _on_ending_entered(body: Node2D) -> void:
 	var player_node = find_child(player, true, false)
 	if body == player_node:
-		# Hide everything except Game2Beat and AudioStreamPlayer nodes
+		# Hide everything except AudioStreamPlayer nodes
 		for child in get_children():
-			if not child is AudioStreamPlayer and child.name != "Game2Beat":
+			if not (child is AudioStreamPlayer):
 				child.visible = false
 		
 		# Show Game2Beat label
@@ -118,20 +161,110 @@ func _on_ending_entered(body: Node2D) -> void:
 		
 		# Wait for 2 seconds then change scene
 		await get_tree().create_timer(2.0).timeout
-		get_tree().change_scene_to_file("res://Scenes/MiniGame3.tscn")
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/MiniGame3.tscn")
 
 # Called when the player enters a dead-end area
 func _on_dead_end_entered(body: Node2D) -> void:
 	print("Dead end area entered by: ", body)
 	var player_node = find_child(player, true, false)
 	if body == player_node:
-		print("Player entered dead-end area! Transporting to choices scene...")
-		transport_to_choices_scene()
+		print("Player entered dead-end area! Showing GameOver options...")
 
-# Function to transport to the choices scene
-func transport_to_choices_scene() -> void:
-	# Store the position for other scenes before changing
-	GlobalState.player_position = Vector2(298, 307)
-	print("Set GlobalState.player_position to: ", GlobalState.player_position)
-	# Change to the Choices scene
-	get_tree().change_scene_to_file("res://Scenes/Choices.tscn")
+		# Hide everything except background and GameOverContainer
+		for child in get_children():
+			if child is Node2D or child is Control:
+				if not (child is AudioStreamPlayer or child.name == "Background" or child.name == "GameOverContainer"):
+					child.visible = false
+
+		# Show GameOverContainer and its buttons
+		var game_over_container = $GameOverContainer
+		if game_over_container:
+			game_over_container.visible = true
+			
+			# Show retry and main menu buttons
+			var retry_button = game_over_container.get_node("RetryButton")
+			var main_menu_button = game_over_container.get_node("MainMenuButton")
+
+			retry_button.visible = true
+			main_menu_button.visible = true
+			
+			# Connect button signals if not already connected
+			if !retry_button.is_connected("pressed", Callable(self, "_on_retry_pressed")):
+				retry_button.pressed.connect(Callable(self, "_on_retry_pressed"))
+			if !main_menu_button.is_connected("pressed", Callable(self, "_on_main_menu_pressed")):
+				main_menu_button.pressed.connect(Callable(self, "_on_main_menu_pressed"))
+
+		# Reset camera settings to show everything
+		if camera:
+			camera.position = Vector2(0, 0)  # Center the camera
+			camera.zoom = Vector2(1, 1)  # Set zoom level to show everything
+			camera.limit_left = 0
+			camera.limit_right = 1600  # Adjust according to your scene width
+			camera.limit_top = 0
+			camera.limit_bottom = 800  # Adjust according to your scene height
+			camera.make_current()  # Ensure this camera is the current one
+
+# Function to reset the minigame
+func _on_retry_pressed() -> void:
+	print("Retrying minigame...")
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/MazeGame2.tscn")  # Reload the same scene
+
+# Function to go to the main menu
+func _on_main_menu_pressed() -> void:
+	print("Going to Main Menu...")
+	get_tree().change_scene("res://Scenes/MainMenu.tscn")  # Change to main menu scene
+
+# Countdown timer tick function
+func _on_timer_tick():
+	time_remaining -= 1
+
+	if time_remaining < 0:
+		time_remaining = 0  # Prevent negative values
+	# Update the timer label
+	var minutes = int(time_remaining / 60)
+	var seconds = time_remaining % 60    # Modulus to get remaining seconds
+	timer_label.text = "%02d:%02d" % [minutes, seconds]
+	
+	# Change color to red in final 30 seconds
+	if time_remaining <= 30:
+		timer_label.modulate = Color(1, 0, 0)  # Set color to red
+	
+	# End game if timer reaches zero
+	if time_remaining <= 0:
+		_trigger_game_over()
+
+func _trigger_game_over():
+	# Stop the timer
+	if game_timer:
+		game_timer.stop()
+	
+	# Hide everything except GameOverContainer and AudioStreamPlayer nodes
+	for child in get_children():
+		if not (child is AudioStreamPlayer or child.name == "GameOverContainer"):
+			child.visible = false
+	
+	# Show Game Over container
+	var game_over_container = $GameOverContainer
+	if game_over_container:
+		game_over_container.visible = true
+	
+	# Set the Game Over label
+	var game_over_label = game_over_container.get_node("DeadEndLabel")
+	if game_over_label:
+		game_over_label.visible = true
+		game_over_label.text = "Game Over!"
+
+	# Optionally, you can connect the signals to retry or go to the main menu again
+	var retry_button = game_over_container.get_node("RetryButton")
+	var main_menu_button = game_over_container.get_node("MainMenuButton")
+	
+	if !retry_button.is_connected("pressed", Callable(self, "_on_retry_pressed")):
+		retry_button.pressed.connect(Callable(self, "_on_retry_pressed"))
+	if !main_menu_button.is_connected("pressed", Callable(self, "_on_main_menu_pressed")):
+		main_menu_button.pressed.connect(Callable(self, "_on_main_menu_pressed"))
+
+	# Reset camera to Game Over view if necessary
+	if camera:
+		camera.position = Vector2(0, 0)  # Center camera for Game Over view
+		camera.zoom = Vector2(1, 1)  # Reset zoom to default
+		camera.make_current()  # Ensure this camera is the current one

@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 @export var speed: float = 40.0
 var direction: Vector2 = Vector2.ZERO
+@export var run_multiplier: float = 2.0  # How much faster running is
 
 # Reference to the Player Sprite2D node and its AnimationPlayer
 @onready var sprite = $CollisionShape2D/Player
@@ -29,8 +30,10 @@ func _physics_process(_delta):
 	if direction != Vector2.ZERO:
 		direction = direction.normalized()
 		
+		# Check if shift is held for running
+		var current_speed = speed * (2.0 if Input.is_action_pressed("ui_shift") else 1.0)
 		# Move the character
-		velocity = direction * speed
+		velocity = direction * current_speed
 		move_and_slide()
 		# Play corresponding animation based on movement direction
 		if direction.x > 0:
