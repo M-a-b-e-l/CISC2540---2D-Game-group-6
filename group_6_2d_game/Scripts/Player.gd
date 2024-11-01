@@ -48,10 +48,23 @@ func _physics_process(_delta):
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Minigame1"):
+		#Store the player's position before colliding with the minigame collider 
 		GlobalState.player_position = position - Vector2(0, 40)
 
-		#Use call_deferred to change scene safely
+		#change scene 
 		get_tree().call_deferred("change_scene_to_file", "res://scenes/MatchingGame1.tscn")
+		
+	if area.is_in_group("Minigame2"):
+		#Store the player's position before colliding with the minigame collider 
+		GlobalState.player_position = position - Vector2(0, 20)
+		
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/MazeGame2.tscn")
+		
+	if area.is_in_group("Minigame3"):
+		#Store the player's position before colliding with the minigame collider 
+		GlobalState.player_position = position - Vector2(20, 0)
+		
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/Minigame3/MiniGame3.tscn")
 		
 	if area.is_in_group("Portal"):
 		position.x = 525
@@ -76,3 +89,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("AntiPortal3"):
 		position.x = 613
 		position.y = 490
+		
+	if area.is_in_group("EndPortal"):
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/EndofGame.tscn")

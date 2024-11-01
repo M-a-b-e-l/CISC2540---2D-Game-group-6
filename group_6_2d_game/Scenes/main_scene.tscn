@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=4 uid="uid://b7a7f7hpf8p0k"]
+[gd_scene load_steps=34 format=4 uid="uid://b7a7f7hpf8p0k"]
 
 [ext_resource type="PackedScene" uid="uid://bkwud4epbvkxc" path="res://portal.tscn" id="1_5nmis"]
 [ext_resource type="Script" path="res://Scripts/main_scene.gd" id="1_i0ynh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://Scripts/control.gd" id="3_n00oh"]
 [ext_resource type="Theme" uid="uid://d0lvdha57nic3" path="res://Themes/main_menu_theme.tres" id="4_rwkct"]
 [ext_resource type="FontFile" uid="uid://htx5t07ltj12" path="res://Fonts/Emulogic-zrEw.ttf" id="5_5b3j5"]
+[ext_resource type="Texture2D" uid="uid://dykdgq32vpr4q" path="res://Assets/CosmicLilac_AnimatedSpriteSheet/CosmicLilac_AnimatedSpriteSheet.png" id="8_chucg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y5l8g"]
 texture = ExtResource("1_p53sb")
@@ -29,6 +30,7 @@ texture = ExtResource("1_p53sb")
 10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, -0.794598, -8, -0.529732)
 11:0/0 = 0
 12:0/0 = 0
+12:0/0/z_index = 1
 12:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 0:1/0 = 0
 0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -58,6 +60,7 @@ texture = ExtResource("1_p53sb")
 3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 4:2/0 = 0
 5:2/0 = 0
+5:2/0/z_index = 1
 6:2/0 = 0
 7:2/0 = 0
 8:2/0 = 0
@@ -106,6 +109,7 @@ texture = ExtResource("1_p53sb")
 11:4/0 = 0
 12:4/0 = 0
 0:5/0 = 0
+0:5/0/z_index = 1
 1:5/0 = 0
 1:5/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 2:5/0 = 0
@@ -178,6 +182,89 @@ sources/0 = SubResource("TileSetAtlasSource_y5l8g")
 radius = 5.0
 height = 18.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_06yqn"]
+atlas = ExtResource("8_chucg")
+region = Rect2(144, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_i50mg"]
+atlas = ExtResource("8_chucg")
+region = Rect2(160, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_puf6s"]
+atlas = ExtResource("8_chucg")
+region = Rect2(176, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_50t34"]
+atlas = ExtResource("8_chucg")
+region = Rect2(192, 16, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tmy5f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_06yqn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_i50mg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_puf6s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_50t34")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ct21w"]
+radius = 5.0
+height = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nl00q"]
+atlas = ExtResource("8_chucg")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ksby1"]
+atlas = ExtResource("8_chucg")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ygaiq"]
+atlas = ExtResource("8_chucg")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h13eb"]
+atlas = ExtResource("8_chucg")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ppde5"]
+atlas = ExtResource("8_chucg")
+region = Rect2(208, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_d433w"]
+animations = [{
+"frames": [{
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_nl00q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ksby1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ygaiq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h13eb")
+}, {
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_ppde5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wbm68"]
 size = Vector2(16, 22)
 
@@ -196,11 +283,13 @@ size = Vector2(16, 13)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_nx1js"]
 size = Vector2(17, 12)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ikocu"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qp7s7"]
 size = Vector2(52, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_icxem"]
-size = Vector2(50, 17)
+size = Vector2(50, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xo6ti"]
 size = Vector2(19, 36)
@@ -216,7 +305,7 @@ tile_set = SubResource("TileSet_q8urb")
 
 [node name="TileMapLayer2" type="TileMapLayer" parent="."]
 show_behind_parent = true
-tile_map_data = PackedByteArray("AAAYABAAAAAMAAcAAAAHAAYAAAAMAAEAAAAHAAcAAAAMAAIAAAAHAAgAAAAIAAIAAAAHAAkAAAAJAAIAAAAHAAoAAAAJAAIAAAAHAAsAAAAJAAIAAAAHAAwAAAALAAAAAAAHAA0AAAAJAAIAAAAHAA4AAAAJAAIAAAAHAA8AAAAJAAIAAAAHABAAAAAJAAIAAAAHABEAAAAJAAIAAAAHABIAAAAJAAIAAAAHABQAAAAAAAIAAAAIAAYAAAAMAAEAAAAIAAcAAAAMAAIAAAAIAAgAAAAGAAMAAAAIAAsAAAABAAIAAAAIAA0AAAABAAIAAAAIAA8AAAABAAIAAAAIABEAAAABAAIAAAAIABMAAAACAAIAAAAIABQAAAAMAAQAAAAJAAYAAAAMAAEAAAAJAAcAAAAMAAIAAAAJAAgAAAAIAAMAAAAJABQAAAADAAIAAAAKAAgAAAAGAAMAAAAOAAYAAAAMAAUAAAAOABIAAAAHAAMAAAAPAAkAAAAGAAMAAAAQABMAAAAIAAMAAAARAAUAAAAFAAIAAAARAAYAAAAJAAEAAAARAAcAAAAIAAEAAAARAA0AAAAKAAYAAFARAA8AAAADAAQAAAARABIAAAADAAQAAAASAAUAAAAAAAUAAAASAAYAAAAHAAEAAAASAA4AAAAFAAAAAAASAA8AAAAFAAAAAAASABAAAAAFAAAAAAASABEAAAAFAAAAAAASABIAAAAFAAAAAAASABMAAAAFAAAAAAATAAUAAAAMAAAAAAATAAYAAAAHAAEAAAATAAcAAAAHAAMAAAATAA4AAAAKAAEAAAATAA8AAAAKAAIAAAATABAAAAAFAAAAAAATABEAAAAKAAEAAAATABIAAAAKAAIAAAATABMAAAAFAAAAAAAgABYAAAALAAEAAAAkABYAAAALAAQAAAAgABQAAAAIAAQAAAAhABQAAAAJAAQAAAAiABQAAAAKAAQAAAA1AAUAAAAKAAMAAAA6AAYAAAALAAEAAAA6AAUAAAALAAQAAAA7AAUAAAAEAAIAAAA1AAkAAAAAAAYAAAA1AAoAAAABAAUAAAA5AAkAAAAAAAYAAAA6AAkAAAAJAAUAAAA7AAoAAAABAAUAAAA8AAoAAAAAAAYAAAArAB8AAAAMAAEAAAArACAAAAAMAAIAAAA4AAoAAAABAAUAAAArACMAAAAMAAQAAAA7AA0AAAAMAAQAAAAIAAwAAAALAAAAAAAJAAwAAAALAAAAAAAgABgAAAALAAAAAAAhABgAAAALAAAAAAAiABgAAAALAAAAAAA5AAYAAAALAAAAAAA5AAcAAAALAAAAAAA=")
+tile_map_data = PackedByteArray("AAAYABAAAAAMAAcAAAAHAAYAAAAMAAEAAAAHAAcAAAAMAAIAAAAHAAgAAAAIAAIAAAAHAAkAAAAJAAIAAAAHAAoAAAAJAAIAAAAHAAsAAAAJAAIAAAAHAAwAAAALAAAAAAAHAA0AAAAJAAIAAAAHAA4AAAAJAAIAAAAHAA8AAAAJAAIAAAAHABAAAAAJAAIAAAAHABEAAAAJAAIAAAAHABIAAAAJAAIAAAAHABQAAAAAAAIAAAAIAAYAAAAMAAEAAAAIAAcAAAAMAAIAAAAIAAgAAAAGAAMAAAAIAAsAAAABAAIAAAAIAA0AAAABAAIAAAAIAA8AAAABAAIAAAAIABEAAAABAAIAAAAIABMAAAACAAIAAAAIABQAAAAMAAQAAAAJAAYAAAAMAAEAAAAJAAcAAAAMAAIAAAAJAAgAAAAIAAMAAAAJABQAAAADAAIAAAAKAAgAAAAGAAMAAAAOAAYAAAAMAAUAAAAOABIAAAAHAAMAAAAPAAkAAAAGAAMAAAAQABMAAAAIAAMAAAARAAUAAAAFAAIAAAARAAYAAAAJAAEAAAARAAcAAAAIAAEAAAARAA0AAAAKAAYAAFARAA8AAAADAAQAAAARABIAAAADAAQAAAASAAUAAAAAAAUAAAASAAYAAAAHAAEAAAASAA4AAAAFAAAAAAASAA8AAAAFAAAAAAASABAAAAAFAAAAAAASABEAAAAFAAAAAAASABIAAAAFAAAAAAASABMAAAAFAAAAAAATAAUAAAAMAAAAAAATAAYAAAAHAAEAAAATAAcAAAAHAAMAAAATAA4AAAAKAAEAAAATAA8AAAAKAAIAAAATABAAAAAFAAAAAAATABEAAAAKAAEAAAATABIAAAAKAAIAAAATABMAAAAFAAAAAAAgABYAAAALAAEAAAAkABYAAAALAAQAAAAgABQAAAAIAAQAAAAhABQAAAAJAAQAAAAiABQAAAAKAAQAAAA1AAUAAAAKAAMAAAA6AAYAAAALAAEAAAA6AAUAAAALAAQAAAA7AAUAAAAEAAIAAAA1AAkAAAAAAAYAAAA1AAoAAAABAAUAAAA5AAkAAAAAAAYAAAA6AAkAAAAJAAUAAAA7AAoAAAABAAUAAAA8AAoAAAAAAAYAAAArAB8AAAAMAAEAAAArACAAAAAMAAIAAAA4AAoAAAABAAUAAAArACMAAAAMAAQAAAA7AA0AAAAMAAQAAAAIAAwAAAALAAAAAAAJAAwAAAALAAAAAAAgABgAAAALAAAAAAAhABgAAAALAAAAAAAiABgAAAALAAAAAAA5AAYAAAALAAAAAAA5AAcAAAALAAAAAAANAAwAAAAJAAUAAAAKABQAAAAJAAUAAAAFAA0AAAAJAAUAAAADAAUAAAAJAAUAAAAVAAkAAAAJAAUAAAAYABIAAAAJAAUAAAAHABgAAAAJAAUAAAAJAB4AAAAJAAUAAAAGACQAAAAJAAUAAAAQACQAAAAJAAUAAAAaABkAAAAJAAUAAAAcABQAAAAJAAUAAAAcABIAAAAJAAUAAAAbAAsAAAAJAAUAAAA0ABcAAAAJAAUAAAA3ABgAAAAJAAUAAAA8ABsAAAAJAAUAAAA5ACMAAAAJAAUAAAA0ACIAAAAJAAUAAAA1ACEAAAAJAAUAAAAxABoAAAAJAAUAAAAuABkAAAAJAAUAAAAqABIAAAAJAAUAAAA5ABIAAAAJAAUAAAA6ABIAAAAJAAUAAAAvAA8AAAAJAAUAAAAtAAkAAAAJAAUAAAAKABsAAAAJAAUAAAAVABwAAAAJAAUAAAAdAA0AAAAJAAUAAAAdAAsAAAAJAAUAAAAaAAIAAAAJAAUAAAAfAAIAAAAJAAUAAAAqAAQAAAAJAAUAAAApABAAAAAJAAUAAAAjAAkAAAAJAAUAAAAUAAAAAAAJAAUAAAAFAAEAAAAJAAUAAAAAAAsAAAAJAAUAAAAPACEAAAAJAAUAAAATACUAAAAJAAUAAAAZACYAAAAJAAUAAAAbACUAAAAJAAUAAAA+AAUAAAAJAAUAAABBAAgAAAAJAAUAAABEAAkAAAAAAAYAAABGAAoAAAAJAAUAAABFAA0AAAAJAAUAAABCACEAAAAJAAUAAAAUACEAAAAAAAYAAAAHAB8AAAAAAAYAAAARABsAAAAAAAYAAAAZAA8AAAAAAAYAAAArAAsAAAAAAAYAAAAwABgAAAAAAAYAAAA4ACYAAAAAAAYAAAA+ABkAAAAAAAYAAAA4ABYAAAAAAAYAAAAvAAUAAAAAAAYAAAAtABoAAAAAAAYAAAAHACIAAAAAAAYAAAADABsAAAAAAAYAAAAJAAEAAAAAAAYAAAAkACUAAAAAAAYAAABFAB4AAAAAAAYAAAAFABEAAAAAAAYAAAAVABQAAAAAAAYAAAAjABwAAAAAAAYAAAAtAB0AAAAAAAYAAAAeABcAAAAAAAYAAAA1AA8AAAAAAAYAAABAAA0AAAAAAAYAAAA2AAIAAAAAAAYAAAA=")
 tile_set = SubResource("TileSet_q8urb")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("2_p8c7s")]
@@ -271,85 +360,226 @@ text = "Main Menu"
 position = Vector2(-1, 0)
 shape = SubResource("CapsuleShape2D_e8wxy")
 
-[node name="Portal" parent="." instance=ExtResource("1_5nmis")]
-position = Vector2(136, 294)
+[node name="Aliens" type="Node" parent="."]
 
-[node name="Area2D" type="Area2D" parent="Portal" groups=["Portal"]]
+[node name="Alien" type="AnimatedSprite2D" parent="Aliens"]
+position = Vector2(-225, -100)
+sprite_frames = SubResource("SpriteFrames_tmy5f")
+autoplay = "default"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal/Area2D"]
+[node name="Area2D" type="Area2D" parent="Aliens/Alien"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/Alien/Area2D"]
+position = Vector2(-2, -1)
+shape = SubResource("CapsuleShape2D_ct21w")
+
+[node name="Alien2" type="AnimatedSprite2D" parent="Aliens"]
+position = Vector2(-319, 61)
+sprite_frames = SubResource("SpriteFrames_tmy5f")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="Aliens/Alien2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/Alien2/Area2D"]
+position = Vector2(-2, -1)
+shape = SubResource("CapsuleShape2D_ct21w")
+
+[node name="Alien3" type="AnimatedSprite2D" parent="Aliens"]
+position = Vector2(-208, 51)
+sprite_frames = SubResource("SpriteFrames_tmy5f")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="Aliens/Alien3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/Alien3/Area2D"]
+position = Vector2(-2, -1)
+shape = SubResource("CapsuleShape2D_ct21w")
+
+[node name="Alien4" type="AnimatedSprite2D" parent="Aliens"]
+position = Vector2(-383, -86)
+sprite_frames = SubResource("SpriteFrames_tmy5f")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="Aliens/Alien4"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/Alien4/Area2D"]
+position = Vector2(-2, -1)
+shape = SubResource("CapsuleShape2D_ct21w")
+
+[node name="Alien5" type="AnimatedSprite2D" parent="Aliens"]
+position = Vector2(70, 192)
+sprite_frames = SubResource("SpriteFrames_d433w")
+autoplay = "default"
+frame = 3
+frame_progress = 0.152998
+
+[node name="Area2D" type="Area2D" parent="Aliens/Alien5"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/Alien5/Area2D"]
+shape = SubResource("CapsuleShape2D_ct21w")
+
+[node name="Alien6" type="AnimatedSprite2D" parent="Aliens"]
+position = Vector2(111, 312)
+sprite_frames = SubResource("SpriteFrames_d433w")
+autoplay = "default"
+frame_progress = 0.664208
+
+[node name="Area2D" type="Area2D" parent="Aliens/Alien6"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/Alien6/Area2D"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_ct21w")
+
+[node name="Alien7" type="AnimatedSprite2D" parent="Aliens"]
+position = Vector2(190, 304)
+sprite_frames = SubResource("SpriteFrames_d433w")
+autoplay = "default"
+frame_progress = 0.664208
+
+[node name="Area2D" type="Area2D" parent="Aliens/Alien7"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/Alien7/Area2D"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_ct21w")
+
+[node name="Alien8" type="AnimatedSprite2D" parent="Aliens"]
+position = Vector2(342, -30)
+sprite_frames = SubResource("SpriteFrames_d433w")
+autoplay = "default"
+frame_progress = 0.664208
+
+[node name="Area2D" type="Area2D" parent="Aliens/Alien8"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/Alien8/Area2D"]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_ct21w")
+
+[node name="Alien9" type="AnimatedSprite2D" parent="Aliens"]
+position = Vector2(442, -21)
+sprite_frames = SubResource("SpriteFrames_d433w")
+autoplay = "default"
+frame_progress = 0.664208
+
+[node name="Area2D" type="Area2D" parent="Aliens/Alien9"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/Alien9/Area2D"]
+position = Vector2(0, 3)
+shape = SubResource("CapsuleShape2D_ct21w")
+
+[node name="Alien10" type="AnimatedSprite2D" parent="Aliens"]
+position = Vector2(361, -14)
+sprite_frames = SubResource("SpriteFrames_tmy5f")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="Aliens/Alien10"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/Alien10/Area2D"]
+position = Vector2(-2, -1)
+shape = SubResource("CapsuleShape2D_ct21w")
+
+[node name="Alien11" type="AnimatedSprite2D" parent="Aliens"]
+position = Vector2(422, -29)
+sprite_frames = SubResource("SpriteFrames_tmy5f")
+autoplay = "default"
+
+[node name="Area2D" type="Area2D" parent="Aliens/Alien11"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/Alien11/Area2D"]
+position = Vector2(-2, -1)
+shape = SubResource("CapsuleShape2D_ct21w")
+
+[node name="Portals" type="Node" parent="."]
+
+[node name="Portal" parent="Portals" instance=ExtResource("1_5nmis")]
+position = Vector2(-385, 82)
+
+[node name="Area2D" type="Area2D" parent="Portals/Portal" groups=["Portal"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portals/Portal/Area2D"]
 position = Vector2(0, 30)
 shape = SubResource("RectangleShape2D_wbm68")
 
-[node name="Portal2" type="Sprite2D" parent="."]
-position = Vector2(551, 424)
+[node name="Portal2" type="Sprite2D" parent="Portals"]
+position = Vector2(30, 220)
 
-[node name="Area2D" type="Area2D" parent="Portal2" groups=["Portal2"]]
+[node name="Area2D" type="Area2D" parent="Portals/Portal2" groups=["Portal2"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal2/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portals/Portal2/Area2D"]
 position = Vector2(-11, -1)
 shape = SubResource("RectangleShape2D_ouw3s")
 
-[node name="Portal3" type="Sprite2D" parent="."]
-position = Vector2(696, 564)
+[node name="Portal3" type="Sprite2D" parent="Portals"]
+position = Vector2(175, 352)
 
-[node name="Area2D" type="Area2D" parent="Portal3" groups=["Portal3"]]
+[node name="Area2D" type="Area2D" parent="Portals/Portal3" groups=["Portal3"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Portal3/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portals/Portal3/Area2D"]
 position = Vector2(0, 4)
 shape = SubResource("RectangleShape2D_1k3fo")
 
-[node name="Portal4" type="Sprite2D" parent="."]
-position = Vector2(951, 198)
+[node name="Portal4" type="Sprite2D" parent="Portals"]
+position = Vector2(430, -14)
 
-[node name="AntiPortal1" type="Sprite2D" parent="."]
-position = Vector2(520, 349)
+[node name="AntiPortal1" type="Sprite2D" parent="Portals"]
+position = Vector2(-1, 137)
 
-[node name="Area2D" type="Area2D" parent="AntiPortal1" groups=["AntiPortal1"]]
+[node name="Area2D" type="Area2D" parent="Portals/AntiPortal1" groups=["AntiPortal1"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AntiPortal1/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portals/AntiPortal1/Area2D"]
 position = Vector2(32, -7)
 shape = SubResource("RectangleShape2D_w1lkp")
 
-[node name="AntiPortal2" type="Sprite2D" parent="."]
-position = Vector2(680, 502)
+[node name="AntiPortal2" type="Sprite2D" parent="Portals"]
+position = Vector2(159, 290)
 
-[node name="Area2D" type="Area2D" parent="AntiPortal2" groups=["AntiPortal2"]]
+[node name="Area2D" type="Area2D" parent="Portals/AntiPortal2" groups=["AntiPortal2"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AntiPortal2/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portals/AntiPortal2/Area2D"]
 shape = SubResource("RectangleShape2D_6la43")
 
-[node name="AntiPortal3" type="Sprite2D" parent="."]
-position = Vector2(873, 104)
+[node name="AntiPortal3" type="Sprite2D" parent="Portals"]
+position = Vector2(352, -108)
 
-[node name="Area2D" type="Area2D" parent="AntiPortal3" groups=["AntiPortal3"]]
+[node name="Area2D" type="Area2D" parent="Portals/AntiPortal3" groups=["AntiPortal3"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AntiPortal3/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portals/AntiPortal3/Area2D"]
 position = Vector2(-1, -18)
 shape = SubResource("RectangleShape2D_nx1js")
 
-[node name="Minigame1" type="Sprite2D" parent="."]
-position = Vector2(136, 199)
+[node name="EndPortal" type="Sprite2D" parent="Portals"]
+position = Vector2(431, 4)
 
-[node name="Area2D" type="Area2D" parent="Minigame1" groups=["Minigame1"]]
+[node name="Area2D" type="Area2D" parent="Portals/EndPortal" groups=["EndPortal"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Minigame1/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Portals/EndPortal/Area2D"]
+position = Vector2(-1, 2)
+shape = SubResource("RectangleShape2D_ikocu")
+
+[node name="Minigames" type="Node" parent="."]
+
+[node name="Minigame1" type="Sprite2D" parent="Minigames"]
+position = Vector2(-385, -13)
+
+[node name="Area2D" type="Area2D" parent="Minigames/Minigame1" groups=["Minigame1"]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Minigames/Minigame1/Area2D"]
 shape = SubResource("RectangleShape2D_qp7s7")
 
-[node name="Minigame2" type="Sprite2D" parent="."]
-position = Vector2(535, 391)
+[node name="Minigame2" type="Sprite2D" parent="Minigames"]
+position = Vector2(14, 179)
 
-[node name="Area2D" type="Area2D" parent="Minigame2" groups=["Minigame2"]]
+[node name="Area2D" type="Area2D" parent="Minigames/Minigame2" groups=["Minigame2"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Minigame2/Area2D"]
-position = Vector2(1, 1.5)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Minigames/Minigame2/Area2D"]
+position = Vector2(1, -1)
 shape = SubResource("RectangleShape2D_icxem")
 
-[node name="Minigame3" type="Sprite2D" parent="."]
-position = Vector2(920, 111)
+[node name="Minigame3" type="Sprite2D" parent="Minigames"]
+position = Vector2(399, -101)
 
-[node name="Area2D" type="Area2D" parent="Minigame3" groups=["Minigame3"]]
+[node name="Area2D" type="Area2D" parent="Minigames/Minigame3" groups=["Minigame3"]]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Minigame3/Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Minigames/Minigame3/Area2D"]
 position = Vector2(-0.5, 3)
 shape = SubResource("RectangleShape2D_xo6ti")
 
