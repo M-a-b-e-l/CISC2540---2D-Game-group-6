@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://cicaunitnybt"]
+[gd_scene load_steps=18 format=4 uid="uid://cicaunitnybt"]
 
 [ext_resource type="Texture2D" uid="uid://d4ld3cn0qvtwa" path="res://Assets/MazeGameBG.png" id="1_rh54l"]
 [ext_resource type="AudioStream" uid="uid://dpp3idaura5ic" path="res://Music/MazeGameBGMTrimmed.mp3" id="2_iqmy7"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://codqmq87vr5pb" path="res://Scenes/Player.tscn" id="3_tigb0"]
 [ext_resource type="FontFile" uid="uid://htx5t07ltj12" path="res://Fonts/Emulogic-zrEw.ttf" id="3_wod7a"]
 [ext_resource type="Texture2D" uid="uid://wrexuv0b4fxn" path="res://Assets/MazeGameTileset.png" id="4_6k5r4"]
-[ext_resource type="Texture2D" uid="uid://dr88s8q3p4a2" path="res://Sprites/square-labyrinth-dark-abstract-maze-labyrinth-isolated-white-background-game-kids-vector-illustration_515038-2425 (1).png" id="7_w04k5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1sxaw"]
 texture = ExtResource("4_6k5r4")
@@ -239,6 +238,23 @@ texture = ExtResource("4_6k5r4")
 [sub_resource type="TileSet" id="TileSet_ymesv"]
 sources/0 = SubResource("TileSetAtlasSource_f01t3")
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pu2eo"]
+radius = 8.0
+height = 28.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1icwn"]
+radius = 8.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p4dlp"]
+radius = 9.0
+height = 26.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_8dwam"]
+radius = 16.0
+height = 32.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wpnwt"]
+
 [node name="MazeGame2" type="Node2D"]
 
 [node name="Background" type="Sprite2D" parent="."]
@@ -342,11 +358,53 @@ z_index = 1
 tile_map_data = PackedByteArray("AAAsAAsAAAAKAAEAAAAsAAwAAAAKAAIAAAAoACIAAAAKAAEAAAAoACMAAAAKAAIAAAApACIAAAAKAAEAAAApACMAAAAKAAIAAAAqACIAAAAKAAEAAAAqACMAAAAKAAIAAAASACQAAAAKAAMAAAA0AAgAAAALAAQAAAArABoAAAALAAQAAAAbACIAAAAMAAEAAAAbACMAAAAMAAIAAAAgAAsAAAAMAAEAAAAgAAwAAAAMAAIAAAAhAAQAAAAIAAQAAAAiAAQAAAAJAAQAAAAjAAQAAAAKAAQAAAAbAAQAAAAIAAQAAAAcAAQAAAAJAAQAAAAdAAQAAAAKAAQAAAAhABoAAAAKAAMAAAASABEAAAAKAAMAAAA=")
 tile_set = SubResource("TileSet_ymesv")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-visible = false
-z_index = 2
-position = Vector2(569, 321.219)
-scale = Vector2(1.14902, 1.06639)
-texture = ExtResource("7_w04k5")
+[node name="Choices1" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Choices1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Choices1/Area2D"]
+z_index = 1
+position = Vector2(568, 476)
+shape = SubResource("CapsuleShape2D_pu2eo")
+
+[node name="Choices2" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Choices2"]
+position = Vector2(37, 30)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Choices2/Area2D"]
+z_index = 1
+position = Vector2(419, 272)
+shape = SubResource("CapsuleShape2D_1icwn")
+
+[node name="Choices3" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Choices3"]
+position = Vector2(184, 117)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Choices3/Area2D"]
+z_index = 1
+position = Vector2(672, 155)
+shape = SubResource("CapsuleShape2D_p4dlp")
+
+[node name="Choices4" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Choices4"]
+position = Vector2(184, 117)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Choices4/Area2D"]
+z_index = 1
+position = Vector2(408, 301)
+shape = SubResource("CapsuleShape2D_8dwam")
+
+[node name="Ending" type="Sprite2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="Ending"]
+position = Vector2(90, 84)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ending/Area2D"]
+z_index = 1
+position = Vector2(846, 196)
+shape = SubResource("CircleShape2D_wpnwt")
 
 [editable path="CharacterBody2D"]
