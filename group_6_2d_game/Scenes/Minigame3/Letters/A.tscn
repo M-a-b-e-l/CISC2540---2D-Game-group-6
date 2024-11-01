@@ -16,9 +16,9 @@ offset_left = -14.5673
 offset_top = -21.5866
 offset_right = -4.56729
 offset_bottom = -9.58662
-scale = Vector2(3.21991, 3.75683)
+scale = Vector2(0.172789, 0.206901)
 theme_override_fonts/font = ExtResource("1_lhwil")
-theme_override_font_sizes/font_size = 8
+theme_override_font_sizes/font_size = 150
 text = "A"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

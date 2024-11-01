@@ -5,4 +5,4 @@ extends Node2D
 var gridRect = Rect2(Vector2(gridBorder, gridBorder), Vector2(gridBorder, gridBorder))
 
 func _draw():
-	draw_rect(gridRect, Color.ANTIQUE_WHITE, false, 5, true)
+	draw_rect(gridRect, Color.WHITE, false, 5, true)
