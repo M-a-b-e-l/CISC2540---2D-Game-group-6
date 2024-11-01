@@ -3,10 +3,6 @@ extends CharacterBody2D
 @export var speed: float = 40.0
 var direction: Vector2 = Vector2.ZERO
 
-# Reference to the Player Sprite2D node and its AnimationPlayer
-@onready var sprite = $CollisionShape2D/Player
-@onready var animation_player = $CollisionShape2D/Player/AnimationPlayer
-
 func _physics_process(_delta):
 	# Capture input for movement
 	direction = Vector2.ZERO
@@ -23,7 +19,6 @@ func _physics_process(_delta):
 	# Normalize direction to ensure consistent movement speed
 	if direction != Vector2.ZERO:
 		direction = direction.normalized()
-		
 		# Move the character
 		velocity = direction * speed
 		move_and_slide()
