@@ -87,7 +87,7 @@ position = Vector2(681, 517)
 
 [node name="R" parent="." instance=ExtResource("11_y2h4m")]
 z_index = 1
-position = Vector2(229, 139)
+position = Vector2(265, 188)
 
 [node name="DraggableArea" parent="." instance=ExtResource("12_x7dgv")]
 position = Vector2(425, 240)

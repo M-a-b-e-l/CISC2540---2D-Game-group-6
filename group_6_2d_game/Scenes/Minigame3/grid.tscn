@@ -3,5 +3,5 @@
 [ext_resource type="Script" path="res://Scenes/Minigame3/grid.gd" id="1_c1brr"]
 
 [node name="Grid" type="Node2D"]
-position = Vector2(-30, -30)
+position = Vector2(-5, -5)
 script = ExtResource("1_c1brr")
