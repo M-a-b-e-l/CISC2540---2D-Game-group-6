@@ -6,6 +6,7 @@ extends Node2D
 @export var player := "CharacterBody2D"
 var autoloader_music
 var background_music
+var camera
 
 func _ready():
 	print("MazeGame2 _ready() started")
@@ -21,61 +22,75 @@ func _ready():
 		background_music.play()
 		print("Started background music")
 	
-	# Hide everything initially except AudioStreamPlayer nodes and ReadyLabel
+	# Make the background visible initially
+	var background = $Background
+	if background:
+		background.visible = true
+
+	# Hide everything initially except AudioStreamPlayer nodes, Background, and ReadyLabel
 	for child in get_children():
-		if not child is AudioStreamPlayer and child.name != "ReadyLabel":
+		if not (child is AudioStreamPlayer or child.name == "ReadyLabel" or child.name == "Background"):
 			child.visible = false
 	
-	# Show only ReadyLabel
+	# Show only ReadyLabel along with the background
 	var ready_label = $ReadyLabel
 	if ready_label:
 		ready_label.visible = true
+		ready_label.text = "Ready?"
 	
-	# Wait for 2 seconds then start game
-	await get_tree().create_timer(2.0).timeout
+	# Create camera with initial zoomed out view
+	var player_node = find_child("CharacterBody2D", true, false)
+	if player_node:
+		player_node.global_position = Vector2(105, 327)
+		camera = Camera2D.new()
+		camera.enabled = true  # Enable for the ready screen
+		camera.zoom = Vector2(1, 1)  # Zoomed out view
+		camera.limit_left = 100      # Adjust these values
+		camera.limit_right = 1152     # to match your maze boundaries
+		camera.limit_top = 0       # and prevent seeing grey space
+		camera.limit_bottom = 600
+		player_node.add_child(camera)
+		camera.make_current()
+		player_node.add_child(camera)
+		camera.make_current()
+	
+	# Wait for 3 seconds before starting the game
+	await get_tree().create_timer(3.0).timeout
+	
+	# Start the game after the countdown
 	start_game()
 
 func start_game():
+	# Hide the ReadyLabel
+	var ready_label = $ReadyLabel
+	if ready_label:
+		ready_label.visible = false
+	
 	# Show everything again except Game2Beat and AudioStreamPlayer nodes
 	for child in get_children():
-		if not child is AudioStreamPlayer and child.name != "Game2Beat":
+		if not (child is AudioStreamPlayer or child.name == "Game2Beat"):
 			child.visible = true
 	
-	# Get the character body reference and set its position
+	# Now setup the camera for gameplay
 	var player_node = find_child("CharacterBody2D", true, false)
-	print("Looking for player node...")
-	
-	if player_node:
-		print("Found player node at: ", player_node.global_position)
-		player_node.global_position = Vector2(105, 327)
-		
-		# Set up camera now that ready label is gone
-		var camera = Camera2D.new()
-		player_node.add_child(camera)
-		camera.make_current()
+	if player_node and camera:
 		camera.position_smoothing_enabled = true
 		camera.position_smoothing_speed = 7.0
 		camera.limit_left = 0
 		camera.limit_right = 1600
 		camera.limit_top = 250
 		camera.limit_bottom = 800
-		camera.zoom = Vector2(4.6, 4.6)
-		
-		# Connect the ending area signal
-		var ending_area = $Ending/Area2D
-		if ending_area:
-			ending_area.body_entered.connect(_on_ending_entered)
-			print("Connected ending area signal")
-		else:
-			print("WARNING: Ending/Area2D not found!")
-		
-		print("Set player position to: ", player_node.global_position)
-		await get_tree().create_timer(0.1).timeout
-		print("Player position after delay: ", player_node.global_position)
+		camera.zoom = Vector2(4.6, 4.6)  # Zoom in for gameplay
+
+	# Connect the ending area signal
+	var ending_area = $Ending/Area2D
+	if ending_area:
+		ending_area.body_entered.connect(_on_ending_entered)
+		print("Connected ending area signal")
 	else:
-		print("ERROR: Player node not found!")
+		print("WARNING: Ending/Area2D not found!")
 	
-	# Connect the dead-end areas to trigger a transport to Choices scene
+	# Connect dead-end areas to trigger a transport to Choices scene
 	print("Searching for dead-end areas...")
 	for area_name in dead_end_areas:
 		var choice_area = get_node_or_null(area_name + "/Area2D")
