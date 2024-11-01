@@ -12,16 +12,18 @@ collision_mask = 2
 script = ExtResource("1_8ooy4")
 
 [node name="Label" type="Label" parent="."]
-offset_left = -0.56028
-offset_right = 9.43972
-offset_bottom = 12.0
-scale = Vector2(1.9909, 2.41636)
+offset_left = -14.5673
+offset_top = -21.5866
+offset_right = -4.56729
+offset_bottom = -9.58662
+scale = Vector2(3.21991, 3.75683)
 theme_override_fonts/font = ExtResource("1_lhwil")
 theme_override_font_sizes/font_size = 8
 text = "A"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7.84393, 13.1918)
+position = Vector2(2.1373e-06, 0)
+scale = Vector2(1.35343, 1.35978)
 shape = SubResource("CapsuleShape2D_arj5x")
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]

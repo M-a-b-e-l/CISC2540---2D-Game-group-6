@@ -1,8 +1,12 @@
-[gd_scene load_steps=2 format=3 uid="uid://dv4a64hrg8wic"]
+[gd_scene load_steps=3 format=3 uid="uid://dv4a64hrg8wic"]
 
 [ext_resource type="Script" path="res://Scenes/Minigame3/drop.gd" id="1_7kkq8"]
+[ext_resource type="PackedScene" uid="uid://d1tt3ajfacp5p" path="res://Scenes/Minigame3/grid.tscn" id="2_7l5uh"]
 
 [node name="DraggableArea" type="Node2D"]
 
 [node name="DropZone" type="Marker2D" parent="." groups=["droppable"]]
 script = ExtResource("1_7kkq8")
+
+[node name="Grid" parent="." instance=ExtResource("2_7l5uh")]
+position = Vector2(-60, -60)

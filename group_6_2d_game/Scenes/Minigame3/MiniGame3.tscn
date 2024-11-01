@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://gkdr5fc3r3sj" path="res://Assets/space_background_pack copy/Assets/Blue Version/layered/blue-with-stars.png" id="1_pebax"]
 [ext_resource type="Script" path="res://Scenes/Minigame3/Cipher.gd" id="1_pw0h5"]
 [ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="2_qthtj"]
+[ext_resource type="FontFile" uid="uid://htx5t07ltj12" path="res://Fonts/Emulogic-zrEw.ttf" id="2_xqvsj"]
 [ext_resource type="PackedScene" uid="uid://o63b4s24xg0f" path="res://Scenes/Minigame3/Letters/A.tscn" id="3_k0nek"]
 [ext_resource type="PackedScene" uid="uid://c2nfakgcpaf57" path="res://Scenes/Minigame3/Letters/H.tscn" id="8_evn61"]
 [ext_resource type="PackedScene" uid="uid://lajh7fatllmb" path="res://Scenes/Minigame3/Letters/O.tscn" id="9_nk7qf"]
@@ -10,7 +11,6 @@
 [ext_resource type="PackedScene" uid="uid://cdlbdk3oke5d" path="res://Scenes/Minigame3/Letters/N.tscn" id="11_y8gk6"]
 [ext_resource type="PackedScene" uid="uid://c4yjk8yutdkn3" path="res://Scenes/Minigame3/Letters/T.tscn" id="12_sbquv"]
 [ext_resource type="PackedScene" uid="uid://dv4a64hrg8wic" path="res://Scenes/Minigame3/DraggableArea.tscn" id="12_x7dgv"]
-[ext_resource type="FontFile" uid="uid://vxvy528j05fc" path="res://Fonts/Spac3Tech-Dg7E.ttf" id="13_2bnwv"]
 [ext_resource type="PackedScene" uid="uid://deolsg6iaqkgw" path="res://Scenes/Minigame3/Letters/S.tscn" id="13_25q7h"]
 [ext_resource type="AudioStream" uid="uid://y5n6cioraxg4" path="res://Music/LEMMiNO - Cipher (BGM).mp3" id="14_io303"]
 
@@ -23,14 +23,14 @@ radius = 0.685789
 script = ExtResource("1_pw0h5")
 
 [node name="GameTitle" type="Label" parent="."]
-offset_left = 300.0
-offset_top = 45.0
-offset_right = 2110.0
-offset_bottom = 202.0
+offset_left = 189.0
+offset_top = 47.0
+offset_right = 2739.0
+offset_bottom = 235.0
 scale = Vector2(0.3, 0.3)
-theme_override_fonts/font = ExtResource("13_2bnwv")
+theme_override_fonts/font = ExtResource("2_xqvsj")
 theme_override_font_sizes/font_size = 150
-text = "solve the cipher"
+text = "solve the anagram"
 
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_io303")
@@ -90,31 +90,31 @@ z_index = 1
 position = Vector2(229, 139)
 
 [node name="DraggableArea" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(319, 252)
+position = Vector2(425, 240)
 
 [node name="DraggableArea2" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(415, 251)
+position = Vector2(485, 240)
 
 [node name="DraggableArea3" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(523, 251)
+position = Vector2(545, 240)
 
 [node name="DraggableArea4" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(623, 248)
+position = Vector2(605, 240)
 
 [node name="DraggableArea5" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(711, 257)
+position = Vector2(665, 240)
 
 [node name="DraggableArea6" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(398, 373)
+position = Vector2(455, 375)
 
 [node name="DraggableArea7" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(496, 375)
+position = Vector2(515, 375)
 
 [node name="DraggableArea8" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(583, 376)
+position = Vector2(575, 375)
 
 [node name="DraggableArea9" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(677, 371)
+position = Vector2(636, 375)
 
 [node name="N" parent="." instance=ExtResource("11_y8gk6")]
 position = Vector2(899, 196)
