@@ -90,37 +90,31 @@ z_index = 1
 position = Vector2(229, 139)
 
 [node name="DraggableArea" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(234, 367)
+position = Vector2(319, 252)
 
 [node name="DraggableArea2" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(320, 367)
+position = Vector2(415, 251)
 
 [node name="DraggableArea3" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(403, 366)
+position = Vector2(523, 251)
 
 [node name="DraggableArea4" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(479, 364)
+position = Vector2(623, 248)
 
 [node name="DraggableArea5" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(553, 363)
+position = Vector2(711, 257)
 
 [node name="DraggableArea6" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(625, 361)
+position = Vector2(398, 373)
 
 [node name="DraggableArea7" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(700, 361)
+position = Vector2(496, 375)
 
 [node name="DraggableArea8" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(775, 360)
+position = Vector2(583, 376)
 
 [node name="DraggableArea9" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(853, 360)
-
-[node name="DraggableArea10" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(932, 360)
-
-[node name="DraggableArea11" parent="." instance=ExtResource("12_x7dgv")]
-position = Vector2(1005, 358)
+position = Vector2(677, 371)
 
 [node name="N" parent="." instance=ExtResource("11_y8gk6")]
 position = Vector2(899, 196)
@@ -133,9 +127,6 @@ position = Vector2(184, 491)
 
 [node name="T2" parent="." instance=ExtResource("12_sbquv")]
 position = Vector2(854, 429)
-
-[node name="Area2D" parent="." instance=ExtResource("3_k0nek")]
-position = Vector2(348, 453)
 
 [node name="R2" parent="." instance=ExtResource("11_y2h4m")]
 position = Vector2(726, 191)
