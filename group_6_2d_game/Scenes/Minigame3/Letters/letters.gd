@@ -9,7 +9,7 @@ func _ready():
 	rest_point = rest_nodes[0].global_position
 	rest_nodes[0].select()
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int):
+func _on_input_event(_viewport: Node, _event: InputEvent, _shape_idx: int):
 	if Input.is_action_just_pressed("click"):
 		selected = true
 		

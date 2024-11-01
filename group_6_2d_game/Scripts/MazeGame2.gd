@@ -107,7 +107,7 @@ func start_game():
 		camera.limit_left = 0
 		camera.limit_right = 1600
 		camera.limit_top = 0
-		camera.limit_bottom = 800
+		camera.limit_bottom = 600
 		camera.zoom = Vector2(4.6, 4.6)  # Zoom in for gameplay
 
 	# Initialize the timer and start the countdown
@@ -151,17 +151,38 @@ func _on_ending_entered(body: Node2D) -> void:
 	if body == player_node:
 		# Hide everything except AudioStreamPlayer nodes
 		for child in get_children():
-			if not (child is AudioStreamPlayer):
+			if not (child is AudioStreamPlayer) and has_method("set_visible") and (child is Node2D):
 				child.visible = false
-		
-		# Show Game2Beat label
+
+		# Explicitly hide ReadyLabel if it exists
+		var ready_label = $ReadyLabel  # Ensure this path is correct for your ReadyLabel
+		if ready_label:
+			ready_label.visible = false  # Hide the ReadyLabel explicitly
+
+		# Reset camera to Game Over view if necessary
+		if camera:
+			camera.position = Vector2(0, 0)  # Center camera for Game Over view
+			camera.zoom = Vector2(1, 1)  # Zoomed out view
+			camera.limit_left = 100      # Adjust these values
+			camera.limit_right = 1152     # to match your maze boundaries
+			camera.limit_top = 0       # and prevent seeing grey space
+			camera.limit_bottom = 600
+			camera.make_current()  # Ensure this camera is the current one
+
+		# Ensure background is visible
+		var background = $Background  # Adjust this path to your background node's path
+		if background:
+			background.visible = true
+
+		# Show Game2Beat label and set its z-index back to 1
 		var game2beat = $Game2Beat
 		if game2beat:
 			game2beat.visible = true
-		
+			game2beat.z_index = 1  # Set z-index back to 1
+
 		# Wait for 2 seconds then change scene
-		await get_tree().create_timer(2.0).timeout
-		get_tree().call_deferred("change_scene_to_file", "res://Scenes/MiniGame3.tscn")
+		await get_tree().create_timer(3.0).timeout
+		get_tree().change_scene_to_file("res://Scenes/Minigame3/MiniGame3.tscn")
 
 # Called when the player enters a dead-end area
 func _on_dead_end_entered(body: Node2D) -> void:
@@ -184,9 +205,11 @@ func _on_dead_end_entered(body: Node2D) -> void:
 			# Show retry and main menu buttons
 			var retry_button = game_over_container.get_node("RetryButton")
 			var main_menu_button = game_over_container.get_node("MainMenuButton")
+			var game_over_label = game_over_container.get_node("DeadEndLabel")
 
 			retry_button.visible = true
 			main_menu_button.visible = true
+			game_over_label.visible = true
 			
 			# Connect button signals if not already connected
 			if !retry_button.is_connected("pressed", Callable(self, "_on_retry_pressed")):
@@ -207,12 +230,12 @@ func _on_dead_end_entered(body: Node2D) -> void:
 # Function to reset the minigame
 func _on_retry_pressed() -> void:
 	print("Retrying minigame...")
-	get_tree().call_deferred("change_scene_to_file", "res://Scenes/MazeGame2.tscn")  # Reload the same scene
+	get_tree().change_scene_to_file("res://Scenes/MazeGame2.tscn")  # Reload the same scene
 
 # Function to go to the main menu
 func _on_main_menu_pressed() -> void:
 	print("Going to Main Menu...")
-	get_tree().change_scene("res://Scenes/MainMenu.tscn")  # Change to main menu scene
+	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")  # Change to main menu scene
 
 # Countdown timer tick function
 func _on_timer_tick():
@@ -247,12 +270,6 @@ func _trigger_game_over():
 	var game_over_container = $GameOverContainer
 	if game_over_container:
 		game_over_container.visible = true
-	
-	# Set the Game Over label
-	var game_over_label = game_over_container.get_node("DeadEndLabel")
-	if game_over_label:
-		game_over_label.visible = true
-		game_over_label.text = "Game Over!"
 
 	# Optionally, you can connect the signals to retry or go to the main menu again
 	var retry_button = game_over_container.get_node("RetryButton")
