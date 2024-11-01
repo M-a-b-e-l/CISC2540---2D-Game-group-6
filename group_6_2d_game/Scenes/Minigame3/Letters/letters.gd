@@ -3,6 +3,7 @@ extends Area2D
 var selected = false
 var rest_point
 var rest_nodes = []
+@export var char = "A"
 
 func _ready():
 	rest_nodes = get_tree().get_nodes_in_group("droppable")

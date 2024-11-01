@@ -8,4 +8,3 @@ func select():
 
 func deselect():
 	modulate = Color.ANTIQUE_WHITE
-	
