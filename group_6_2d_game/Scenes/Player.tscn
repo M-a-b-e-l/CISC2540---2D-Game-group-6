@@ -124,7 +124,7 @@ script = ExtResource("1_xaulu")
 shape = SubResource("CapsuleShape2D_ktcub")
 
 [node name="Player" type="Sprite2D" parent="CollisionShape2D"]
-position = Vector2(1, 1)
+position = Vector2(158, 503)
 texture = ExtResource("1_p28xm")
 hframes = 15
 vframes = 6

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cuxkd0kuhxm5u"
+path="res://.godot/imported/chiphead64 - 11pm.mp3-846bd2656217b8e068ecc0854287bd13.mp3str"
+
+[deps]
+
+source_file="res://Music/chiphead64 - 11pm.mp3"
+dest_files=["res://.godot/imported/chiphead64 - 11pm.mp3-846bd2656217b8e068ecc0854287bd13.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://f6mul1now1n8"]
 
-[ext_resource type="AudioStream" uid="uid://cuxkd0kuhxm5u" path="res://Assets/chiphead64 - 11pm.mp3" id="1_7l3hh"]
+[ext_resource type="AudioStream" uid="uid://cuxkd0kuhxm5u" path="res://Music/chiphead64 - 11pm.mp3" id="1_7l3hh"]
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
 stream = ExtResource("1_7l3hh")

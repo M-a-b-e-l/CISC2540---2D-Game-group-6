@@ -1,5 +1,6 @@
-[gd_scene load_steps=18 format=4 uid="uid://cicaunitnybt"]
+[gd_scene load_steps=19 format=4 uid="uid://cicaunitnybt"]
 
+[ext_resource type="Script" path="res://Scripts/MazeGame2.gd" id="1_6rlaw"]
 [ext_resource type="Texture2D" uid="uid://d4ld3cn0qvtwa" path="res://Assets/MazeGameBG.png" id="1_rh54l"]
 [ext_resource type="AudioStream" uid="uid://dpp3idaura5ic" path="res://Music/MazeGameBGMTrimmed.mp3" id="2_iqmy7"]
 [ext_resource type="FontFile" uid="uid://vxvy528j05fc" path="res://Fonts/Spac3Tech-Dg7E.ttf" id="2_pifbg"]
@@ -256,6 +257,7 @@ height = 32.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_wpnwt"]
 
 [node name="MazeGame2" type="Node2D"]
+script = ExtResource("1_6rlaw")
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(576, 324)
@@ -268,10 +270,12 @@ volume_db = -15.0
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_tigb0")]
 z_index = 2
+position = Vector2(105, 327)
 scale = Vector2(0.65, 0.65)
 
 [node name="Player" parent="CharacterBody2D/CollisionShape2D" index="0"]
-position = Vector2(158.462, 503.077)
+z_index = 2
+position = Vector2(0, 0)
 
 [node name="ReadyLabel" type="Label" parent="."]
 visible = false
