@@ -19,7 +19,6 @@ const MAX_ICON_REPEAT = 2  # Max times an icon can repeat consecutively
 @onready var game_over_label = get_node("GameOverContainer/GameOverLabel")
 @onready var result_label = get_node("GameOverContainer/ResultLabel")
 @onready var game1_beat = get_node("Game1Beat")
-@onready var minigame1_collision = get_node("Minigame1")
 
 # Variables
 var current_pattern = []

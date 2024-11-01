@@ -311,6 +311,19 @@ zoom = Vector2(4.6, 4.6)
 position_smoothing_enabled = true
 position_smoothing_speed = 4.0
 
+[node name="InstructionLabel" type="Label" parent="."]
+visible = false
+z_index = 1
+offset_left = 122.0
+offset_top = 245.0
+offset_right = 1942.0
+offset_bottom = 500.0
+scale = Vector2(0.5, 0.5)
+theme_override_fonts/font = ExtResource("3_wod7a")
+theme_override_font_sizes/font_size = 100
+text = "Find your way thru 
+ this alien maze!"
+
 [node name="ReadyLabel" type="Label" parent="."]
 visible = false
 offset_left = 403.0
@@ -351,6 +364,17 @@ scale = Vector2(4, 4)
 theme_override_colors/font_color = Color(0.980392, 0, 0, 1)
 theme_override_fonts/font = ExtResource("3_wod7a")
 text = "Dead End!"
+
+[node name="TimeUpLabel" type="Label" parent="GameOverContainer"]
+z_index = 2
+offset_left = 250.0
+offset_top = 220.0
+offset_right = 410.0
+offset_bottom = 243.0
+scale = Vector2(4, 4)
+theme_override_colors/font_color = Color(0.980392, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_wod7a")
+text = "time's up!"
 
 [node name="RetryButton" type="Button" parent="GameOverContainer"]
 layout_mode = 0

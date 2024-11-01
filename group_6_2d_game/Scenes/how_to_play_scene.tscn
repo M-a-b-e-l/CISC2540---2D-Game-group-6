@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://crc2hijb7nbku"]
+[gd_scene load_steps=32 format=3 uid="uid://crc2hijb7nbku"]
 
 [ext_resource type="Script" path="res://Scripts/how_to_play_scene.gd" id="1_2ljhf"]
 [ext_resource type="Texture2D" uid="uid://csv4hyqyb8fo3" path="res://Assets/Starry background  - Layer 01 - Void.png" id="2_07q2x"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dg5sryyl4egq3" path="res://Assets/normalSound.png" id="8_a4ygj"]
 [ext_resource type="Texture2D" uid="uid://cexgmfylam0wu" path="res://Assets/mutedSound.png" id="9_7sns6"]
 [ext_resource type="Script" path="res://Scripts/toggle_sound.gd" id="10_eprmo"]
+[ext_resource type="Texture2D" uid="uid://cm576sv3s3wb7" path="res://Assets/5433740.png" id="11_a8y5f"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ayvck"]
 atlas = ExtResource("2_07q2x")
@@ -194,18 +195,18 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -187.0
+offset_left = -471.0
 offset_top = 403.0
-offset_right = 87.0
+offset_right = -335.0
 offset_bottom = 436.0
 grow_horizontal = 2
 scale = Vector2(1.2, 1.2)
 theme_override_fonts/font = ExtResource("5_euot5")
 theme_override_font_sizes/font_size = 15
-text = "Movement"
+text = "Movement:"
 
 [node name="Kisspng-computer-keyboard-vector-graphics-arrow-keys-royal-тетрис-5b663b6d2d5486_8668868915334265411857" type="Sprite2D" parent="Label2"]
-position = Vector2(312.5, 9.16666)
+position = Vector2(248.333, 2.49999)
 scale = Vector2(0.333333, 0.333333)
 texture = ExtResource("7_u5mwy")
 
@@ -271,6 +272,26 @@ toggle_mode = true
 texture_normal = ExtResource("8_a4ygj")
 texture_pressed = ExtResource("9_7sns6")
 script = ExtResource("10_eprmo")
+
+[node name="Label5" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 6.0
+offset_top = 403.0
+offset_right = 209.0
+offset_bottom = 436.0
+grow_horizontal = 2
+scale = Vector2(1.2, 1.2)
+theme_override_fonts/font = ExtResource("5_euot5")
+theme_override_font_sizes/font_size = 15
+text = "To run, hold:"
+
+[node name="Sprite2D" type="Sprite2D" parent="Label5"]
+position = Vector2(318.333, 10.8333)
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("11_a8y5f")
 
 [connection signal="pressed" from="VBoxContainer/Back to Main" to="." method="_on_back_to_main_pressed"]
 [connection signal="pressed" from="ToggleSound" to="ToggleSound" method="_on_pressed"]
