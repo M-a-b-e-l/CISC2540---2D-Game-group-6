@@ -1,4 +1,4 @@
-extends Area2D
+extends RigidBody2D
 
 var selected = false
 var rest_point

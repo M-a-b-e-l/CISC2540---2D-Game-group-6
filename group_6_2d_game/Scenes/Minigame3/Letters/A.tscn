@@ -1,14 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://o63b4s24xg0f"]
+[gd_scene load_steps=5 format=3 uid="uid://o63b4s24xg0f"]
 
 [ext_resource type="Script" path="res://Scenes/Minigame3/Letters/letters.gd" id="1_8ooy4"]
 [ext_resource type="FontFile" uid="uid://htx5t07ltj12" path="res://Fonts/Emulogic-zrEw.ttf" id="1_lhwil"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_0mqh1"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_arj5x"]
 
-[node name="Area2D" type="Area2D"]
+[node name="Area2D" type="RigidBody2D"]
 position = Vector2(-3.8147e-06, 0)
 scale = Vector2(1.78482, 1.6677)
 collision_mask = 2
+mass = 0.1
+physics_material_override = SubResource("PhysicsMaterial_0mqh1")
+gravity_scale = 0.0
 script = ExtResource("1_8ooy4")
 
 [node name="Label" type="Label" parent="."]
