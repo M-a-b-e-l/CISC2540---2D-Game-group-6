@@ -83,7 +83,7 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		
 	if area.is_in_group("AntiPortal1"):
 		position.x = 140
-		position.y = 230
+		position.y = 220
 		
 	if area.is_in_group("AntiPortal2"):
 		position.x = 525

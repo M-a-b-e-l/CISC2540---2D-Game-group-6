@@ -397,7 +397,7 @@ offset_bottom = 477.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("3_wod7a")
 theme_override_font_sizes/font_size = 55
-text = "MAIN MENU"
+text = "BACK"
 
 [node name="MazeTileMap" type="TileMapLayer" parent="."]
 z_index = 1

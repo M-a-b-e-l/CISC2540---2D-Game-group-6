@@ -199,7 +199,10 @@ func _on_ending_entered(body: Node2D) -> void:
 
 		# Wait for 2 seconds then change scene
 		await get_tree().create_timer(3.0).timeout
-		get_tree().change_scene_to_file("res://Scenes/Minigame3/MiniGame3.tscn")
+		GlobalState.daBool2 = true
+		get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")
+		GlobalState.player_position = Vector2(613, 490)
+
 
 # Called when the player enters a dead-end area
 func _on_dead_end_entered(body: Node2D) -> void:
@@ -252,14 +255,15 @@ func _on_retry_pressed() -> void:
 
 # Function to go to the main menu
 func _on_main_menu_pressed() -> void:
-	print("Going to Main Menu...")
+	print("Going to Main Map...")
 
 	# Play autoload music immediately
 	if autoloader_music:
 		autoloader_music.play()
 		print("Playing autoloader music")
 
-	get_tree().change_scene_to_file("res://Scenes/MainMenu.tscn")  # Change to main menu scene
+	get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")  # Change to main scene
+	GlobalState.player_position = Vector2(613, 490)
 
 # Countdown timer tick function
 func _on_timer_tick():

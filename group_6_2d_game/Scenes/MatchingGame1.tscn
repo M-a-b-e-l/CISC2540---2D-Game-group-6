@@ -62,10 +62,10 @@ text = "Retry?"
 
 [node name="MainMenuButton" type="Button" parent="GameOverContainer"]
 layout_mode = 0
-offset_left = 590.0
-offset_top = 450.0
-offset_right = 742.0
-offset_bottom = 478.0
+offset_left = 740.0
+offset_top = 448.0
+offset_right = 968.0
+offset_bottom = 525.0
 scale = Vector2(0.5, 0.5)
 theme_override_fonts/font = ExtResource("4_urnen")
 theme_override_font_sizes/font_size = 55

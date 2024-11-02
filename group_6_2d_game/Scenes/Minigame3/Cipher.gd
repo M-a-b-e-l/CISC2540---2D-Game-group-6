@@ -23,8 +23,11 @@ func _ready() -> void:
 
 func check_cipher_beaten() -> void:
 	if is_cipher_beaten:
-		print("Cipher minigame beaten! Transitioning to EndofGame scene...")
-		get_tree().change_scene_to_file("res://Scenes/endofgame.tscn")
+		print("Cipher minigame beaten! Transitioning to main map")
+		get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")
+		#set the player position after going back to the main map 
+		GlobalState.player_position = Vector2(937, 106)
+		GlobalState.daBool3 = true
 	else:
 		print("Cipher minigame not beaten yet.")
 
