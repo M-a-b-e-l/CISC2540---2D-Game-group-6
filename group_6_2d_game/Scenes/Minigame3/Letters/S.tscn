@@ -5,7 +5,7 @@
 [node name="S" type="Node2D"]
 
 [node name="Area2D" parent="." instance=ExtResource("1_8euqr")]
-char = "S"
+letter = "S"
 
 [node name="Label" parent="Area2D" index="0"]
 text = "S"
