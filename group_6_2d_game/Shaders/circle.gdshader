@@ -1,19 +1,21 @@
 shader_type canvas_item;
 uniform vec2 light_position = vec2(0.5, 0.5);
-uniform float light_radius = 0.045;
-uniform float edge_falloff = 0.01;
+uniform float light_radius = 0.05;
 
 void fragment() {
-    // Get the aspect ratio to correct the circle shape
-    vec2 aspect_ratio = vec2(1.0, TEXTURE_PIXEL_SIZE.x/TEXTURE_PIXEL_SIZE.y);
+    // Get screen dimensions for aspect ratio
+    vec2 resolution = 0.8 / SCREEN_PIXEL_SIZE;
+    float aspect = resolution.x / (resolution.y/0.9);
     
-    // Apply aspect ratio correction to UV coordinates
-    vec2 uv_aspect = (UV - light_position) * aspect_ratio;
+    // Create aspect-corrected UV coordinates
+    vec2 uv = UV - light_position;
+    uv.x *= aspect;
     
-    // Calculate distance with aspect ratio correction
-    float dist = length(uv_aspect);
+    // Calculate circular distance
+    float dist = length(uv);
     
-    float alpha = 1.0 - smoothstep(light_radius, light_radius - edge_falloff, dist);
-    vec4 darkness_color = vec4(0.0, 0.0, 0.0, alpha);
-    COLOR = darkness_color;
+    // Create sharp circle
+    float alpha = dist > light_radius ? 0.99 : 0.0;
+    
+    COLOR = vec4(0.0, 0.0, 0.0, alpha);
 }

@@ -9,7 +9,7 @@ var player_node: Node2D
 var autoloader_music
 var background_music
 var camera
-var time_remaining = 180  # 3 minutes in seconds
+var time_remaining = 300  # 3 minutes in seconds
 var timer_label
 var ready_label  # Add this declaration
 
@@ -82,7 +82,7 @@ func _ready() -> void:
 	if canvas_layer:
 		spotlight = canvas_layer.get_node("TextureRect")
 		if spotlight and player_node:
-			spotlight.visible = true
+			spotlight.visible = false
 			spotlight.z_index = 100
 			spotlight.set("player_path", spotlight.get_path_to(player_node))
 
@@ -100,6 +100,13 @@ func _ready() -> void:
 	start_game()
 
 func start_game():
+# In start_game():
+	if spotlight and player_node:
+		spotlight.visible = true
+		print("Player position at game start: ", player_node.global_position)
+		var light_pos = player_node.global_position / get_viewport_rect().size
+		print("Initial light position (UV): ", light_pos)
+		spotlight.set("player_path", spotlight.get_path_to(player_node))
 
 	# Hide instruction and ready labels
 	if $InstructionLabel:
@@ -128,6 +135,10 @@ func start_game():
 				spotlight.visible = true
 			else:
 				print("Warning: TextureRect not found within CanvasLayer")
+			if spotlight.material:
+				var shader_material = spotlight.material as ShaderMaterial
+				shader_material.set_shader_parameter("light_radius", 0.05)  # Force it to 0.05
+				print("Set light radius to 0.05 at game start")
 
 	# Set up gameplay camera
 	if player_node and camera:
@@ -172,7 +183,11 @@ func _on_ending_entered(body: Node2D) -> void:
 		for child in get_children():
 			if not (child is AudioStreamPlayer) and has_method("set_visible") and (child is Node2D):
 				child.visible = false
-
+	
+	if body == player_node:
+		if spotlight:
+			spotlight.visible = false  # Hide spotlight on game over
+			
 		# Explicitly hide ReadyLabel if it exists
 		if ready_label:
 			ready_label.visible = false
@@ -220,6 +235,9 @@ func _on_dead_end_entered(body: Node2D) -> void:
 			if child is Node2D or child is Control:
 				if not (child is AudioStreamPlayer or child.name == "Background" or child.name == "GameOverContainer"):
 					child.visible = false
+	if body == player_node:
+		if spotlight:
+			spotlight.visible = false  # Hide spotlight on game over
 
 		# Show GameOverContainer and its buttons
 		var game_over_container = $GameOverContainer
