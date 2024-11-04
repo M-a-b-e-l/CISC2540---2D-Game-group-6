@@ -1,4 +1,5 @@
 extends Node2D
+
 var autoloader_music
 var music
 # This variable will be set to true when the Cipher minigame is beaten
@@ -29,6 +30,20 @@ func _ready() -> void:
 		game3_beat_label.hide()
 		print("Hid Game3Beat label")
 
+	# Set up and start the timer label
+	var timer_label = $TimerLabel  # Assuming TimerLabel is a Label node
+	timer_label.text = "0:05"
+	timer_label.set_position(Vector2(1050, 600))
+	timer_label.show()
+
+	# Create and start the countdown timer
+	var countdown_timer = Timer.new()
+	add_child(countdown_timer)
+	countdown_timer.wait_time = 1.0  # Countdown every second
+	countdown_timer.autostart = true
+	countdown_timer.connect("timeout", Callable(self, "_on_countdown_timer_timeout"))
+	countdown_timer.start()
+
 	# Debug check for letters
 	var letters = get_tree().get_nodes_in_group("letters")
 	print("Found ", letters.size(), " letters in 'letters' group")
@@ -41,6 +56,74 @@ func _ready() -> void:
 
 	# Start checking for solution
 	check_solution_timer()
+
+func _on_countdown_timer_timeout() -> void:
+	var timer_label = $TimerLabel  # Make sure this matches the new label node name
+	var time_parts = timer_label.text.split(":")
+	var minutes = int(time_parts[0])
+	var seconds = int(time_parts[1])
+
+	if seconds == 0:
+		if minutes == 0:
+			print("Time's up!")
+			_show_game_over()
+			return
+		minutes -= 1
+		seconds = 59
+	else:
+		seconds -= 1
+
+	# Update the timer text
+	timer_label.text = "%02d:%02d" % [minutes, seconds]
+
+	# Change the color to red in the last 30 seconds
+	if minutes == 0 and seconds <= 30:
+		timer_label.add_theme_color_override("font_color", Color(1, 0, 0))  # Red color
+
+func _show_game_over() -> void:
+	# Show GameOverContainer and hide everything else except the background
+	var game_over_container = $GameOverContainer
+	if game_over_container:
+		game_over_container.visible = true
+		print("Showing GameOverContainer")
+
+	# Hide all other elements except the background and GameOverContainer
+	var background = $CanvasLayer/Parallax2D/TextureRect
+	var all_nodes = get_children()
+	for node in all_nodes:
+		if node != game_over_container and node != $CanvasLayer and node is CanvasItem:
+			node.visible = false
+
+	# Make sure the background remains visible
+	if background:
+		background.visible = true
+
+	# Connect the buttons to their actions
+	var main_menu_button = $GameOverContainer/MainMenuButton
+	var retry_button = $GameOverContainer/RetryButton
+
+	# Use Callable for is_connected
+	if main_menu_button and not main_menu_button.is_connected("pressed", Callable(self, "_on_main_menu_button_pressed")):
+		main_menu_button.connect("pressed", Callable(self, "_on_main_menu_button_pressed"))
+
+	if retry_button and not retry_button.is_connected("pressed", Callable(self, "_on_retry_button_pressed")):
+		retry_button.connect("pressed", Callable(self, "_on_retry_button_pressed"))
+
+func _on_main_menu_button_pressed() -> void:
+	print("Main menu button pressed, transitioning to main map.")
+	# Stop any music and transition to main scene
+	if music:
+		music.stop()
+	if autoloader_music:
+		autoloader_music.play()
+
+	get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")
+	GlobalState.player_position = Vector2(940, 100)  # New position for main menu
+	GlobalState.daBool3 = true
+
+func _on_retry_button_pressed() -> void:
+	print("Retry button pressed, reloading scene.")
+	get_tree().reload_current_scene()
 
 func check_solution_timer():
 	# Create a timer to periodically check the solution

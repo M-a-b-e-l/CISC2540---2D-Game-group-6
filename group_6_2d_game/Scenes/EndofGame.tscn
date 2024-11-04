@@ -663,3 +663,11 @@ autowrap_mode = 2
 stream = ExtResource("4_tr40y")
 volume_db = -15.0
 parameters/looping = true
+
+[node name="Quit" type="Button" parent="."]
+offset_left = 1052.0
+offset_top = 605.0
+offset_right = 1124.0
+offset_bottom = 633.0
+theme_override_fonts/font = ExtResource("4_k2ift")
+text = "Quit"

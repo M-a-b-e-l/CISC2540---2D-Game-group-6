@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://r0ewdxhwercq"]
+[gd_scene load_steps=18 format=3 uid="uid://r0ewdxhwercq"]
 
 [ext_resource type="Texture2D" uid="uid://gkdr5fc3r3sj" path="res://Assets/space_background_pack copy/Assets/Blue Version/layered/blue-with-stars.png" id="1_pebax"]
 [ext_resource type="Script" path="res://Scenes/Minigame3/Cipher.gd" id="1_pw0h5"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dv4a64hrg8wic" path="res://Scenes/Minigame3/DraggableArea.tscn" id="12_x7dgv"]
 [ext_resource type="PackedScene" uid="uid://deolsg6iaqkgw" path="res://Scenes/Minigame3/Letters/S.tscn" id="13_25q7h"]
 [ext_resource type="AudioStream" uid="uid://y5n6cioraxg4" path="res://Music/LEMMiNO - Cipher (BGM).mp3" id="14_io303"]
+[ext_resource type="Theme" uid="uid://d0lvdha57nic3" path="res://Themes/main_menu_theme.tres" id="15_e4mu8"]
 
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j24r7"]
 
@@ -47,6 +48,13 @@ text = "Game 3 Complete! Moving on..."
 stream = ExtResource("14_io303")
 volume_db = -15.0
 parameters/looping = true
+
+[node name="TimerLabel" type="Label" parent="."]
+offset_left = 1050.0
+offset_top = 600.0
+offset_right = 1090.0
+offset_bottom = 623.0
+theme_override_fonts/font = ExtResource("2_xqvsj")
 
 [node name="CanvasLayer" type="Node2D" parent="."]
 z_index = -1
@@ -141,6 +149,49 @@ position = Vector2(575, 375)
 
 [node name="DraggableArea9" parent="." groups=["droppable"] instance=ExtResource("12_x7dgv")]
 position = Vector2(636, 375)
+
+[node name="GameOverContainer" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TimeUpLabel" type="Label" parent="GameOverContainer"]
+z_index = 2
+layout_mode = 0
+offset_left = 250.0
+offset_top = 220.0
+offset_right = 410.0
+offset_bottom = 243.0
+scale = Vector2(4, 4)
+theme_override_colors/font_color = Color(0.980392, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_xqvsj")
+text = "time's up!"
+
+[node name="RetryButton" type="Button" parent="GameOverContainer"]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 400.0
+offset_right = 604.0
+offset_bottom = 477.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("15_e4mu8")
+theme_override_fonts/font = ExtResource("2_xqvsj")
+theme_override_font_sizes/font_size = 55
+text = "RETRY"
+
+[node name="MainMenuButton" type="Button" parent="GameOverContainer"]
+layout_mode = 0
+offset_left = 624.0
+offset_top = 400.0
+offset_right = 862.0
+offset_bottom = 477.0
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("15_e4mu8")
+theme_override_fonts/font = ExtResource("2_xqvsj")
+theme_override_font_sizes/font_size = 55
+text = "BACK"
 
 [editable path="A"]
 [editable path="H"]
