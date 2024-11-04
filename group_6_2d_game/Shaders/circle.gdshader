@@ -1,14 +1,19 @@
-shader_type spatial;
-
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
+shader_type canvas_item;
+uniform vec2 light_position = vec2(0.5, 0.5);
+uniform float light_radius = 0.045;
+uniform float edge_falloff = 0.01;
 
 void fragment() {
-	// Called for every pixel the material is visible on.
+    // Get the aspect ratio to correct the circle shape
+    vec2 aspect_ratio = vec2(1.0, TEXTURE_PIXEL_SIZE.x/TEXTURE_PIXEL_SIZE.y);
+    
+    // Apply aspect ratio correction to UV coordinates
+    vec2 uv_aspect = (UV - light_position) * aspect_ratio;
+    
+    // Calculate distance with aspect ratio correction
+    float dist = length(uv_aspect);
+    
+    float alpha = 1.0 - smoothstep(light_radius, light_radius - edge_falloff, dist);
+    vec4 darkness_color = vec4(0.0, 0.0, 0.0, alpha);
+    COLOR = darkness_color;
 }
-
-//void light() {
-	// Called for every pixel for every light affecting the material.
-	// Uncomment to replace the default light processing function with this one.
-//}

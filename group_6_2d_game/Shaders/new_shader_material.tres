@@ -1,3 +1,10 @@
-[gd_resource type="ShaderMaterial" format=3 uid="uid://de3oyyie74n04"]
+[gd_resource type="ShaderMaterial" load_steps=2 format=3 uid="uid://de3oyyie74n04"]
+
+[ext_resource type="Shader" path="res://Shaders/circle.gdshader" id="1_t3u6x"]
 
 [resource]
+shader = ExtResource("1_t3u6x")
+shader_parameter/light_position = null
+shader_parameter/light_radius = 150.0
+shader_parameter/edge_falloff = 50.0
+shader_parameter/screen_size = null

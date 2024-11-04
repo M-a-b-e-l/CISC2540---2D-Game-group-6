@@ -1,8 +1,11 @@
-[gd_scene load_steps=16 format=4 uid="uid://cicaunitnybt"]
+[gd_scene load_steps=19 format=4 uid="uid://cicaunitnybt"]
 
 [ext_resource type="Script" path="res://Scripts/MazeGame2.gd" id="1_6rlaw"]
 [ext_resource type="Texture2D" uid="uid://d4ld3cn0qvtwa" path="res://Assets/MazeGameBG.png" id="1_rh54l"]
 [ext_resource type="AudioStream" uid="uid://dpp3idaura5ic" path="res://Music/MazeGameBGMTrimmed.mp3" id="2_iqmy7"]
+[ext_resource type="Material" uid="uid://de3oyyie74n04" path="res://Shaders/new_shader_material.tres" id="2_kwwxh"]
+[ext_resource type="Texture2D" uid="uid://bapf0ya0ei78q" path="res://Assets/pngtree-black-ring-png-image_2319165.png" id="3_hfi0c"]
+[ext_resource type="Script" path="res://Scenes/light.gd" id="3_htugq"]
 [ext_resource type="PackedScene" uid="uid://codqmq87vr5pb" path="res://Scenes/Player.tscn" id="3_tigb0"]
 [ext_resource type="FontFile" uid="uid://htx5t07ltj12" path="res://Fonts/Emulogic-zrEw.ttf" id="3_wod7a"]
 [ext_resource type="Texture2D" uid="uid://wrexuv0b4fxn" path="res://Assets/MazeGameTileset.png" id="4_6k5r4"]
@@ -285,7 +288,29 @@ height = 32.0
 [node name="MazeGame2" type="Node2D"]
 script = ExtResource("1_6rlaw")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 5
+follow_viewport_enabled = true
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
+z_index = 10
+material = ExtResource("2_kwwxh")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = 2689.0
+offset_bottom = 1512.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.3, 0.3)
+mouse_filter = 2
+texture = ExtResource("3_hfi0c")
+stretch_mode = 6
+script = ExtResource("3_htugq")
+player_path = NodePath("../../CharacterBody2D/CollisionShape2D/Player")
+
 [node name="Background" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(576, 324)
 scale = Vector2(1.2, 1.2)
 texture = ExtResource("1_rh54l")
