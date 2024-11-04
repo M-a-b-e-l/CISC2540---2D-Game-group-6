@@ -1,8 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://r0ewdxhwercq"]
+[gd_scene load_steps=18 format=3 uid="uid://r0ewdxhwercq"]
 
 [ext_resource type="Texture2D" uid="uid://gkdr5fc3r3sj" path="res://Assets/space_background_pack copy/Assets/Blue Version/layered/blue-with-stars.png" id="1_pebax"]
 [ext_resource type="Script" path="res://Scenes/Minigame3/Cipher.gd" id="1_pw0h5"]
 [ext_resource type="FontFile" uid="uid://vxvy528j05fc" path="res://Fonts/Spac3Tech-Dg7E.ttf" id="2_av7oy"]
+[ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="2_qthtj"]
 [ext_resource type="FontFile" uid="uid://htx5t07ltj12" path="res://Fonts/Emulogic-zrEw.ttf" id="2_xqvsj"]
 [ext_resource type="PackedScene" uid="uid://o63b4s24xg0f" path="res://Scenes/Minigame3/Letters/A.tscn" id="3_k0nek"]
 [ext_resource type="PackedScene" uid="uid://c2nfakgcpaf57" path="res://Scenes/Minigame3/Letters/H.tscn" id="8_evn61"]
@@ -14,6 +15,11 @@
 [ext_resource type="PackedScene" uid="uid://deolsg6iaqkgw" path="res://Scenes/Minigame3/Letters/S.tscn" id="13_25q7h"]
 [ext_resource type="AudioStream" uid="uid://y5n6cioraxg4" path="res://Music/LEMMiNO - Cipher (BGM).mp3" id="14_io303"]
 [ext_resource type="Theme" uid="uid://d0lvdha57nic3" path="res://Themes/main_menu_theme.tres" id="15_e4mu8"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_j24r7"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_l0l8n"]
+radius = 0.685789
 
 [node name="MiniGame3" type="Node2D"]
 script = ExtResource("1_pw0h5")
@@ -64,6 +70,27 @@ offset_bottom = 651.0
 scale = Vector2(2, 2)
 texture = ExtResource("1_pebax")
 metadata/_edit_use_anchors_ = true
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+visible = false
+position = Vector2(577, 325)
+scale = Vector2(38, 43)
+collision_layer = 2
+collision_mask = 3
+script = ExtResource("2_qthtj")
+speed = 200.0
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+z_index = 2
+scale = Vector2(0.0263158, 0.0232558)
+
+[node name="Node2D" type="Sprite2D" parent="CharacterBody2D"]
+texture = SubResource("PlaceholderTexture2D_j24r7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-4.76837e-07, 0.0116279)
+shape = SubResource("CircleShape2D_l0l8n")
+one_way_collision_margin = 5.0
 
 [node name="A" parent="." instance=ExtResource("3_k0nek")]
 z_index = 1

@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://bu0chbd3yppkh"]
+
+[ext_resource type="Script" path="res://Scenes/Dialogue.gd" id="1_wybdg"]
+[ext_resource type="Texture2D" uid="uid://bg6lbv3elnxsd" path="res://Sprites/set-of-pixel-speech-bubbles-vector (1).png" id="2_qib4n"]
+
+[node name="DialogueBox" type="Container"]
+z_index = 2
+script = ExtResource("1_wybdg")
+
+[node name="BubbleSprite1" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(-225, -100)
+scale = Vector2(0.102389, 0.102389)
+texture = ExtResource("2_qib4n")
+flip_h = true
+hframes = 6
+region_rect = Rect2(12.5753, 0, 1737.74, 420)
+
+[node name="Label" type="Label" parent="BubbleSprite1"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="BubbleSprite2" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(362, 408)
+scale = Vector2(0.102389, 0.102389)
+texture = ExtResource("2_qib4n")
+flip_h = true
+hframes = 6
+region_rect = Rect2(12.5753, 0, 1737.74, 420)
+
+[node name="Label" type="Label" parent="BubbleSprite2"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="BubbleSprite3" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(324, 474)
+scale = Vector2(0.102389, 0.102389)
+texture = ExtResource("2_qib4n")
+flip_h = true
+hframes = 6
+region_rect = Rect2(12.5753, 0, 1737.74, 420)
+
+[node name="Label" type="Label" parent="BubbleSprite3"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="BubbleSprite4" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(405, 436)
+scale = Vector2(0.102389, 0.102389)
+texture = ExtResource("2_qib4n")
+flip_h = true
+hframes = 6
+region_rect = Rect2(12.5753, 0, 1737.74, 420)
+
+[node name="Label" type="Label" parent="BubbleSprite4"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="BubbleSprite10" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(374, 307)
+scale = Vector2(0.102389, 0.102389)
+texture = ExtResource("2_qib4n")
+flip_h = true
+hframes = 6
+region_rect = Rect2(12.5753, 0, 1737.74, 420)
+
+[node name="Label" type="Label" parent="BubbleSprite10"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="BubbleSprite11" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(414, 271)
+scale = Vector2(0.102389, 0.102389)
+texture = ExtResource("2_qib4n")
+flip_h = true
+hframes = 6
+region_rect = Rect2(12.5753, 0, 1737.74, 420)
+
+[node name="Label" type="Label" parent="BubbleSprite11"]
+offset_right = 40.0
+offset_bottom = 23.0
