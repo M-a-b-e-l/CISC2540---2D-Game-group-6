@@ -4,6 +4,7 @@ var autoloader_music
 var music
 # This variable will be set to true when the Cipher minigame is beaten
 var is_cipher_beaten = false
+var last_debug_time = 0.0  # Add this at the top of the script with other variables
 
 # Add this to store the correct solution
 const SOLUTION = "NORTHSTAR"
@@ -126,7 +127,7 @@ func _on_retry_button_pressed() -> void:
 	get_tree().reload_current_scene()
 
 func check_solution_timer():
-	# Create a timer to periodically check the solution
+	# Create a timer to check less frequently
 	var timer = Timer.new()
 	add_child(timer)
 	timer.wait_time = 0.5  # Check every half second
@@ -137,32 +138,36 @@ func check_current_solution():
 	var current_word = ""
 	var letters = get_tree().get_nodes_in_group("letters")
 	var zones = get_tree().get_nodes_in_group("droppable")
-	var used_letters = []  # Track which letters have been used
+	var used_letters = []
 	
-	print("\n--- Checking Solution ---")
-	var used_zones = zones  # Use all available zones for NORTH STAR
+	# Only print debug messages every 4 seconds
+	var current_time = Time.get_ticks_msec() / 1000.0
+	var should_debug = (current_time - last_debug_time) >= 4.0
+	
+	if should_debug:
+		last_debug_time = current_time
+		print("\nChecking solution...") # Added to show when checks occur
+	
+	var used_zones = zones
 	
 	for zone in used_zones:
-		print("\nChecking zone at: ", zone.global_position)
 		var closest_letter = null
-		var shortest_dist = 75.0  # Keep the more lenient distance
+		var shortest_dist = 75.0
 		
-		# Find closest unused letter for this zone
 		for letter in letters:
-			if letter not in used_letters:  # Only consider unused letters
+			if letter not in used_letters:
 				var distance = letter.global_position.distance_to(zone.global_position)
-				print("Letter '", letter.letter, "' distance: ", distance)
 				if distance < shortest_dist:
 					closest_letter = letter
 					shortest_dist = distance
-					print("New closest letter: '", letter.letter, "' at distance: ", distance)
 		
 		if closest_letter:
 			current_word += closest_letter.letter
-			used_letters.append(closest_letter)  # Mark this letter as used
-			print("Added '", closest_letter.letter, "' to word")
+			used_letters.append(closest_letter)
 	
-	print("\nFinal word attempt: '", current_word, "'")
+	# Only print word attempts during debug cycles
+	if current_word != "" and should_debug:
+		print("Word attempt: '", current_word, "'")
 	if current_word == "NORTHSTAR":
 		print("Solution found!")
 		on_cipher_beaten()
