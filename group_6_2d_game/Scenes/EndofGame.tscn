@@ -1,6 +1,6 @@
 [gd_scene load_steps=105 format=3 uid="uid://bs0mt21q6l48h"]
 
-[ext_resource type="Script" path="res://Scenes/endofgame.gd" id="1_ow4sd"]
+[ext_resource type="Script" path="res://Scripts/endofgame.gd" id="1_ow4sd"]
 [ext_resource type="Texture2D" uid="uid://csv4hyqyb8fo3" path="res://Assets/Starry background  - Layer 01 - Void.png" id="1_vbgsd"]
 [ext_resource type="Texture2D" uid="uid://18ln7ind603p" path="res://Sprites/earth-pixel-art-form_1203201-1146 (1).png" id="2_df70f"]
 [ext_resource type="Texture2D" uid="uid://bs7u3ky3b7rjn" path="res://Assets/animated_space_background/Starry background  - Layer 03 - Starss.png" id="3_abigm"]

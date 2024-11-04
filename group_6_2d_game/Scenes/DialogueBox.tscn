@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bu0chbd3yppkh"]
 
-[ext_resource type="Script" path="res://Scenes/Dialogue.gd" id="1_wybdg"]
+[ext_resource type="Script" path="res://Scripts/Dialogue.gd" id="1_wybdg"]
 [ext_resource type="Texture2D" uid="uid://bg6lbv3elnxsd" path="res://Sprites/set-of-pixel-speech-bubbles-vector (1).png" id="2_qib4n"]
 
 [node name="DialogueBox" type="Container"]
