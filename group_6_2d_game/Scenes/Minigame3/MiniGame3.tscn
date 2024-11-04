@@ -32,6 +32,16 @@ theme_override_fonts/font = ExtResource("2_xqvsj")
 theme_override_font_sizes/font_size = 150
 text = "solve the anagram"
 
+[node name="Game3Beat" type="Label" parent="."]
+offset_left = 53.0
+offset_top = 267.0
+offset_right = 517.0
+offset_bottom = 290.0
+scale = Vector2(2.25, 2.25)
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+theme_override_fonts/font = ExtResource("2_xqvsj")
+text = "Game 3 Complete! Moving on..."
+
 [node name="Music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("14_io303")
 volume_db = -15.0
@@ -104,32 +114,42 @@ position = Vector2(854, 429)
 [node name="R2" parent="." instance=ExtResource("11_y2h4m")]
 position = Vector2(726, 191)
 
-[node name="DraggableArea" parent="." instance=ExtResource("12_x7dgv")]
+[node name="DraggableArea" parent="." groups=["droppable"] instance=ExtResource("12_x7dgv")]
 position = Vector2(425, 240)
 
-[node name="DraggableArea2" parent="." instance=ExtResource("12_x7dgv")]
+[node name="DraggableArea2" parent="." groups=["droppable"] instance=ExtResource("12_x7dgv")]
 position = Vector2(485, 240)
 
-[node name="DraggableArea3" parent="." instance=ExtResource("12_x7dgv")]
+[node name="DraggableArea3" parent="." groups=["droppable"] instance=ExtResource("12_x7dgv")]
 position = Vector2(545, 240)
 
-[node name="DraggableArea4" parent="." instance=ExtResource("12_x7dgv")]
+[node name="DraggableArea4" parent="." groups=["droppable"] instance=ExtResource("12_x7dgv")]
 position = Vector2(605, 240)
 
-[node name="DraggableArea5" parent="." instance=ExtResource("12_x7dgv")]
+[node name="DraggableArea5" parent="." groups=["droppable"] instance=ExtResource("12_x7dgv")]
 position = Vector2(665, 240)
 
-[node name="DraggableArea6" parent="." instance=ExtResource("12_x7dgv")]
+[node name="DraggableArea6" parent="." groups=["droppable"] instance=ExtResource("12_x7dgv")]
 position = Vector2(455, 375)
 
-[node name="DraggableArea7" parent="." instance=ExtResource("12_x7dgv")]
+[node name="DraggableArea7" parent="." groups=["droppable"] instance=ExtResource("12_x7dgv")]
 position = Vector2(515, 375)
 
-[node name="DraggableArea8" parent="." instance=ExtResource("12_x7dgv")]
+[node name="DraggableArea8" parent="." groups=["droppable"] instance=ExtResource("12_x7dgv")]
 position = Vector2(575, 375)
 
-[node name="DraggableArea9" parent="." instance=ExtResource("12_x7dgv")]
+[node name="DraggableArea9" parent="." groups=["droppable"] instance=ExtResource("12_x7dgv")]
 position = Vector2(636, 375)
 
+[editable path="A"]
 [editable path="H"]
 [editable path="H/Area2D"]
+[editable path="O"]
+[editable path="O/Area2D"]
+[editable path="R"]
+[editable path="R/Area2D"]
+[editable path="N"]
+[editable path="N/Area2D"]
+[editable path="T"]
+[editable path="T/Area2D"]
+[editable path="DraggableArea"]

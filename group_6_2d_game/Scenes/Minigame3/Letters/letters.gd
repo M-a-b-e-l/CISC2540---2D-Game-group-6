@@ -6,8 +6,10 @@ var rest_nodes = []
 @export var letter = "A"
 
 func _ready():
-	add_to_group("letters")  # Add this line
-	rest_nodes = get_tree().get_nodes_in_group("droppable")
+	add_to_group("letters")
+	# Change this line to look for DropZone nodes
+	rest_nodes = get_tree().get_nodes_in_group("dropzones")  # Change group name if different
+	print("Letter ", letter, " initialized")
 	if rest_nodes.size() > 0:
 		rest_point = rest_nodes[0].global_position
 		rest_nodes[0].select()
@@ -29,7 +31,6 @@ func _input(event: InputEvent):
 			for child in rest_nodes:
 				var distance = global_position.distance_to(child.global_position)
 				if distance < shortest_dist:
-					child.select()
+					child.select()  # This should now work with DropZone nodes
 					rest_point = child.global_position
 					shortest_dist = distance
-					print("Letter ", letter, " placed near position: ", child.global_position)  # Debug print
