@@ -11,29 +11,35 @@ var drop_zones = []  # Will store all drop zones in order
 func _ready() -> void:
 	print("Cipher Game 3 started")
    
-   # Stop autoloader music immediately
+	# Stop autoloader music immediately
 	autoloader_music = get_node("/root/BgMusic")
 	if autoloader_music:
 		autoloader_music.stop()
 		print("Stopped autoloader music")
    
-   # Start background music
+	# Start background music
 	music = $Music
 	if music:
 		music.play()
 		print("Started background music")
 
-   # Debug check for letters
+	# Hide the Game3Beat label at the start
+	var game3_beat_label = $Game3Beat
+	if game3_beat_label:
+		game3_beat_label.hide()
+		print("Hid Game3Beat label")
+
+	# Debug check for letters
 	var letters = get_tree().get_nodes_in_group("letters")
 	print("Found ", letters.size(), " letters in 'letters' group")
 	for letter in letters:
 		print("Found letter: ", letter.letter if "letter" in letter else "no letter property")
 
-   # Debug check for drop zones
+	# Debug check for drop zones
 	var zones = get_tree().get_nodes_in_group("droppable")
 	print("Found ", zones.size(), " drop zones")
 
-   # Start checking for solution
+	# Start checking for solution
 	check_solution_timer()
 
 func check_solution_timer():
@@ -51,7 +57,7 @@ func check_current_solution():
 	var used_letters = []  # Track which letters have been used
 	
 	print("\n--- Checking Solution ---")
-	var used_zones = zones  # Only use first 9 zones for NORTH STAR
+	var used_zones = zones  # Use all available zones for NORTH STAR
 	
 	for zone in used_zones:
 		print("\nChecking zone at: ", zone.global_position)
@@ -81,12 +87,14 @@ func check_current_solution():
 func check_cipher_beaten() -> void:
 	if is_cipher_beaten:
 		print("Cipher minigame beaten! Transitioning to main map")
+		
 		# Stop minigame music and restart main music
 		if music:
 			music.stop()
 		if autoloader_music:
 			autoloader_music.play()
-			
+		
+		# Change to the next scene
 		get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")
 		GlobalState.player_position = Vector2(890, 106)
 		GlobalState.daBool3 = true
@@ -96,4 +104,41 @@ func check_cipher_beaten() -> void:
 # Call this function when the Cipher minigame is completed
 func on_cipher_beaten() -> void:
 	is_cipher_beaten = true
-	check_cipher_beaten()
+
+	# Wait for 1-2 seconds to show the final anagram
+	print("Showing final anagram for 1.0 seconds...")
+	await get_tree().create_timer(1.0).timeout
+
+	# Show the Game3Beat label
+	var game3_beat_label = $Game3Beat
+	if game3_beat_label:
+		game3_beat_label.visible = true
+		print("Showing Game3Beat label")
+
+	# Reference the background texture
+	var background = $CanvasLayer/Parallax2D/TextureRect
+
+	# Hide all other elements except the background and Game3Beat label
+	var all_nodes = get_children()
+	for node in all_nodes:
+		if node != game3_beat_label and node != $CanvasLayer and node is CanvasItem:
+			node.visible = false
+
+	# Make sure the background remains visible
+	if background:
+		background.visible = true
+
+	# Wait for 3 seconds, then move to the next scene
+	await get_tree().create_timer(3.0).timeout
+	print("Transitioning to main map")
+
+	# Stop minigame music and restart main music
+	if music:
+		music.stop()
+	if autoloader_music:
+		autoloader_music.play()
+
+	# Change to the next scene
+	get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")
+	GlobalState.player_position = Vector2(890, 106)
+	GlobalState.daBool3 = true

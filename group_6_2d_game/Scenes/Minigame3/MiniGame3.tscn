@@ -1,7 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://r0ewdxhwercq"]
+[gd_scene load_steps=17 format=3 uid="uid://r0ewdxhwercq"]
 
 [ext_resource type="Texture2D" uid="uid://gkdr5fc3r3sj" path="res://Assets/space_background_pack copy/Assets/Blue Version/layered/blue-with-stars.png" id="1_pebax"]
 [ext_resource type="Script" path="res://Scenes/Minigame3/Cipher.gd" id="1_pw0h5"]
+[ext_resource type="FontFile" uid="uid://vxvy528j05fc" path="res://Fonts/Spac3Tech-Dg7E.ttf" id="2_av7oy"]
 [ext_resource type="Script" path="res://Scripts/character_body_2d.gd" id="2_qthtj"]
 [ext_resource type="FontFile" uid="uid://htx5t07ltj12" path="res://Fonts/Emulogic-zrEw.ttf" id="2_xqvsj"]
 [ext_resource type="PackedScene" uid="uid://o63b4s24xg0f" path="res://Scenes/Minigame3/Letters/A.tscn" id="3_k0nek"]
@@ -23,12 +24,12 @@ radius = 0.685789
 script = ExtResource("1_pw0h5")
 
 [node name="GameTitle" type="Label" parent="."]
-offset_left = 189.0
+offset_left = 270.0
 offset_top = 47.0
-offset_right = 2739.0
+offset_right = 2283.0
 offset_bottom = 235.0
 scale = Vector2(0.3, 0.3)
-theme_override_fonts/font = ExtResource("2_xqvsj")
+theme_override_fonts/font = ExtResource("2_av7oy")
 theme_override_font_sizes/font_size = 150
 text = "solve the anagram"
 
