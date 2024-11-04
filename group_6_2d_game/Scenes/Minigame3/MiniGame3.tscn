@@ -89,6 +89,21 @@ position = Vector2(681, 517)
 z_index = 1
 position = Vector2(265, 188)
 
+[node name="N" parent="." instance=ExtResource("11_y8gk6")]
+position = Vector2(899, 196)
+
+[node name="T" parent="." instance=ExtResource("12_sbquv")]
+position = Vector2(527, 487)
+
+[node name="S" parent="." instance=ExtResource("13_25q7h")]
+position = Vector2(184, 491)
+
+[node name="T2" parent="." instance=ExtResource("12_sbquv")]
+position = Vector2(854, 429)
+
+[node name="R2" parent="." instance=ExtResource("11_y2h4m")]
+position = Vector2(726, 191)
+
 [node name="DraggableArea" parent="." instance=ExtResource("12_x7dgv")]
 position = Vector2(425, 240)
 
@@ -116,17 +131,5 @@ position = Vector2(575, 375)
 [node name="DraggableArea9" parent="." instance=ExtResource("12_x7dgv")]
 position = Vector2(636, 375)
 
-[node name="N" parent="." instance=ExtResource("11_y8gk6")]
-position = Vector2(899, 196)
-
-[node name="T" parent="." instance=ExtResource("12_sbquv")]
-position = Vector2(527, 487)
-
-[node name="S" parent="." instance=ExtResource("13_25q7h")]
-position = Vector2(184, 491)
-
-[node name="T2" parent="." instance=ExtResource("12_sbquv")]
-position = Vector2(854, 429)
-
-[node name="R2" parent="." instance=ExtResource("11_y2h4m")]
-position = Vector2(726, 191)
+[editable path="H"]
+[editable path="H/Area2D"]

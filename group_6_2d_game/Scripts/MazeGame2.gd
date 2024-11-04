@@ -181,8 +181,8 @@ func _on_ending_entered(body: Node2D) -> void:
 		if camera:
 			camera.zoom = Vector2(1, 1)  # Zoomed out view
 			camera.limit_left = 100      # Adjust these values
-			camera.limit_right = 1152     # to match your maze boundaries
-			camera.limit_top = 0       # and prevent seeing grey space
+			camera.limit_right = 1152    # to match your maze boundaries
+			camera.limit_top = 0         # and prevent seeing grey space
 			camera.limit_bottom = 600
 			camera.make_current()  # Ensure this camera is the current one
 
@@ -200,9 +200,15 @@ func _on_ending_entered(body: Node2D) -> void:
 		# Wait for 2 seconds then change scene
 		await get_tree().create_timer(3.0).timeout
 		GlobalState.daBool2 = true
+
+		# Stop minigame music and start main music
+		if background_music.playing:
+			background_music.stop()
+		if autoloader_music and not autoloader_music.playing:
+			autoloader_music.play()
+		
 		get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")
 		GlobalState.player_position = Vector2(613, 490)
-
 
 # Called when the player enters a dead-end area
 func _on_dead_end_entered(body: Node2D) -> void:

@@ -1,6 +1,6 @@
 extends Node2D
 
-const ROUND_PATTERNS = [4, 5, 6, 8]  # Number of icons in the pattern for each round
+const ROUND_PATTERNS = [4, 5, 6]  # Changed to 3 rounds with 4, 5, 6 icons
 const MAX_ICON_REPEAT = 2  # Max times an icon can repeat consecutively
 
 # Nodes
@@ -202,15 +202,9 @@ func _on_submit_pressed():
 			print("Victory - All rounds complete!")
 			show_victory_screen()
 	else:
-		# Player failed
-		if current_round == 4:
-			# On round 4, just retry the same round
-			print("Failed on round 4 - Retrying round 4")
-			start_round(4)
-		else:
-			# On rounds 1-3, show game over screen
-			print("Failed before round 4 - Game Over")
-			show_game_over_screen()
+		# Player failed - always reset to beginning
+		print("Failed - Resetting to beginning")
+		show_game_over_screen()
 
 func update_round_label():
 	round_label.text = "Round: %d" % current_round
