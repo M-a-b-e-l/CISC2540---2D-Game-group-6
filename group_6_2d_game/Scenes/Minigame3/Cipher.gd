@@ -32,7 +32,7 @@ func _ready() -> void:
 
 	# Set up and start the timer label
 	var timer_label = $TimerLabel  # Assuming TimerLabel is a Label node
-	timer_label.text = "0:05"
+	timer_label.text = "5:00"
 	timer_label.set_position(Vector2(1050, 600))
 	timer_label.show()
 
