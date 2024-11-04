@@ -388,7 +388,7 @@ our plans :("
 horizontal_alignment = 1
 
 [node name="BubbleSprite11" parent="DialogueBox" index="5"]
-position = Vector2(953, 162)
+position = Vector2(953, 157)
 
 [node name="Label" parent="DialogueBox/BubbleSprite11" index="0"]
 offset_left = -87.9001
@@ -580,7 +580,7 @@ position = Vector2(-2, -1)
 shape = SubResource("CapsuleShape2D_ct21w")
 
 [node name="Alien11" type="AnimatedSprite2D" parent="Aliens"]
-position = Vector2(422, -29)
+position = Vector2(422, -35)
 sprite_frames = SubResource("SpriteFrames_tmy5f")
 autoplay = "default"
 
