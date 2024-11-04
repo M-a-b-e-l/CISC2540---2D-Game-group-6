@@ -32,7 +32,7 @@ func _ready() -> void:
 
 	# Set up and start the timer label
 	var timer_label = $TimerLabel  # Assuming TimerLabel is a Label node
-	timer_label.text = "0:05"
+	timer_label.text = "3:00"
 	timer_label.set_position(Vector2(1050, 600))
 	timer_label.show()
 
@@ -117,9 +117,9 @@ func _on_main_menu_button_pressed() -> void:
 	if autoloader_music:
 		autoloader_music.play()
 
+	GlobalState.daBool3 = true
 	get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")
 	GlobalState.player_position = Vector2(940, 100)  # New position for main menu
-	GlobalState.daBool3 = true
 
 func _on_retry_button_pressed() -> void:
 	print("Retry button pressed, reloading scene.")
