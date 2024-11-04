@@ -484,17 +484,6 @@ autoplay = "default"
 position = Vector2(-2, -1)
 shape = SubResource("CapsuleShape2D_ct21w")
 
-[node name="Alien11" type="AnimatedSprite2D" parent="Aliens"]
-position = Vector2(422, -29)
-sprite_frames = SubResource("SpriteFrames_tmy5f")
-autoplay = "default"
-
-[node name="Area2D" type="StaticBody2D" parent="Aliens/Alien11"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/Alien11/Area2D"]
-position = Vector2(-2, -1)
-shape = SubResource("CapsuleShape2D_ct21w")
-
 [node name="Portals" type="Node" parent="."]
 
 [node name="Portal" parent="Portals" instance=ExtResource("1_5nmis")]
