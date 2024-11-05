@@ -84,3 +84,29 @@ region_rect = Rect2(12.5753, 0, 1737.74, 420)
 [node name="Label" type="Label" parent="BubbleSprite11"]
 offset_right = 40.0
 offset_bottom = 23.0
+
+[node name="BubbleSprite12" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(414, 271)
+scale = Vector2(0.102389, 0.102389)
+texture = ExtResource("2_qib4n")
+flip_h = true
+hframes = 6
+region_rect = Rect2(12.5753, 0, 1737.74, 420)
+
+[node name="Label" type="Label" parent="BubbleSprite12"]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="BubbleSprite13" type="Sprite2D" parent="."]
+z_index = 2
+position = Vector2(414, 271)
+scale = Vector2(0.102389, 0.102389)
+texture = ExtResource("2_qib4n")
+flip_h = true
+hframes = 6
+region_rect = Rect2(12.5753, 0, 1737.74, 420)
+
+[node name="Label" type="Label" parent="BubbleSprite13"]
+offset_right = 40.0
+offset_bottom = 23.0

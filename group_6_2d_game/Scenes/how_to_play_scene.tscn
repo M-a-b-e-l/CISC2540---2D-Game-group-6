@@ -1,9 +1,9 @@
 [gd_scene load_steps=32 format=3 uid="uid://crc2hijb7nbku"]
 
 [ext_resource type="Script" path="res://Scripts/how_to_play_scene.gd" id="1_2ljhf"]
-[ext_resource type="Texture2D" uid="uid://csv4hyqyb8fo3" path="res://Assets/Starry background  - Layer 01 - Void.png" id="2_07q2x"]
+[ext_resource type="Texture2D" uid="uid://c0tfqan5iwr5" path="res://Assets/Starry background  - Layer 01 - Void.png" id="2_07q2x"]
 [ext_resource type="Theme" uid="uid://d0lvdha57nic3" path="res://Themes/main_menu_theme.tres" id="2_hr4og"]
-[ext_resource type="Texture2D" uid="uid://bg4xf8et13k8m" path="res://Assets/Starry background  - Layer 02 - Stars.png" id="3_jyg3b"]
+[ext_resource type="Texture2D" uid="uid://s7hww1ki2kvt" path="res://Assets/Starry background  - Layer 02 - Stars.png" id="3_jyg3b"]
 [ext_resource type="FontFile" uid="uid://vxvy528j05fc" path="res://Fonts/Spac3Tech-Dg7E.ttf" id="4_ugr3u"]
 [ext_resource type="FontFile" uid="uid://htx5t07ltj12" path="res://Fonts/Emulogic-zrEw.ttf" id="5_euot5"]
 [ext_resource type="Texture2D" uid="uid://ybbe7ysmhslm" path="res://Assets/kisspng-computer-keyboard-vector-graphics-arrow-keys-royal-Тетрис-5b663b6d2d5486.8668868915334265411857.png" id="7_u5mwy"]
