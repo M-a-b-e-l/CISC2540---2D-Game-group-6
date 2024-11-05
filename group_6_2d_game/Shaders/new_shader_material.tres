@@ -4,7 +4,5 @@
 
 [resource]
 shader = ExtResource("1_t3u6x")
-shader_parameter/light_position = null
+shader_parameter/light_position = Vector2(0.5, 0.5)
 shader_parameter/light_radius = 150.0
-shader_parameter/edge_falloff = 50.0
-shader_parameter/screen_size = null
