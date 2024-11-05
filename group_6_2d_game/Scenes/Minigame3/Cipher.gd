@@ -118,7 +118,7 @@ func _on_main_menu_button_pressed() -> void:
 	if autoloader_music:
 		autoloader_music.play()
 
-	GlobalState.daBool3 = true
+	GlobalState.daBool3 = false
 	get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")
 	GlobalState.player_position = Vector2(940, 100)  # New position for main menu
 
@@ -227,6 +227,6 @@ func on_cipher_beaten() -> void:
 		autoloader_music.play()
 
 	# Change to the next scene
-	get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")
-	GlobalState.player_position = Vector2(890, 106)
-	GlobalState.daBool3 = true
+	#get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")
+	#GlobalState.player_position = Vector2(890, 106)
+	#GlobalState.daBool3 = true
