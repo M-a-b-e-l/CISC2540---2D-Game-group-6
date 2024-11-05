@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bk04q2ql1tt6j"
-path="res://.godot/imported/Starry background  - Layer 01 - Void.png-2d4074c21311633cd9db2761295e8d3c.ctex"
+path="res://.godot/imported/Starry background  - Layer 01 - Void.png-04337b3d4663461596c9c261dac0548b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Fonts/Starry background  - Layer 01 - Void.png"
-dest_files=["res://.godot/imported/Starry background  - Layer 01 - Void.png-2d4074c21311633cd9db2761295e8d3c.ctex"]
+source_file="res://Starry background  - Layer 01 - Void.png"
+dest_files=["res://.godot/imported/Starry background  - Layer 01 - Void.png-04337b3d4663461596c9c261dac0548b.ctex"]
 
 [params]
 
