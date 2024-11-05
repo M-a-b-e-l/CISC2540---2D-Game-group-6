@@ -15,7 +15,7 @@ var debug_timer: float = 0.0  # Timer for debug prints
 
 func _ready() -> void:
 	# Initialize bubble sprites and hide them
-	for i in [1, 2, 3, 4, 10, 11]:
+	for i in [1, 2, 3, 4, 10, 11, 12, 13]:
 		var bubble_sprite = bubble_sprites_container.get_node_or_null("BubbleSprite" + str(i))
 		if bubble_sprite:
 			bubble_sprite.visible = false
@@ -26,7 +26,7 @@ func _ready() -> void:
 			
 	# Collect all relevant alien nodes (only those with dialogue)
 	if aliens_container:
-		for i in [1, 2, 3, 4, 10, 11]:
+		for i in [1, 2, 3, 4, 10, 11, 12, 13]:
 			var alien = aliens_container.get_node_or_null("Alien" + str(i))
 			if alien:
 				aliens.append(alien)

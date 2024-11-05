@@ -1,6 +1,6 @@
 shader_type canvas_item;
 uniform vec2 light_position = vec2(0.5, 0.5);
-uniform float light_radius = 0.05;
+uniform float light_radius = 0.10;
 
 void fragment() {
     // Get screen dimensions for aspect ratio

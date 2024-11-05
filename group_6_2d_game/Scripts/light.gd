@@ -50,4 +50,4 @@ func _process(_delta):
 		
 		shader_material.set_shader_parameter("light_position", light_pos)
 		# Ensure radius stays at 0.05
-		shader_material.set_shader_parameter("light_radius", 0.05)
+		shader_material.set_shader_parameter("light_radius", 0.10)
