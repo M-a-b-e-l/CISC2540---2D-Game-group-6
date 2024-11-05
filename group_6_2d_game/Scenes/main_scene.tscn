@@ -590,6 +590,28 @@ autoplay = "default"
 position = Vector2(-2, -1)
 shape = SubResource("CapsuleShape2D_ct21w")
 
+[node name="Alien12" type="AnimatedSprite2D" parent="Aliens"]
+position = Vector2(-401, 36)
+sprite_frames = SubResource("SpriteFrames_tmy5f")
+autoplay = "default"
+
+[node name="Area2D12" type="StaticBody2D" parent="Aliens/Alien12"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/Alien12/Area2D12"]
+position = Vector2(-2, -1)
+shape = SubResource("CapsuleShape2D_ct21w")
+
+[node name="Alien13" type="AnimatedSprite2D" parent="Aliens"]
+position = Vector2(133, 340)
+sprite_frames = SubResource("SpriteFrames_tmy5f")
+autoplay = "default"
+
+[node name="Area2D13" type="StaticBody2D" parent="Aliens/Alien13"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Aliens/Alien13/Area2D13"]
+position = Vector2(-2, -1)
+shape = SubResource("CapsuleShape2D_ct21w")
+
 [node name="Portals" type="Node" parent="."]
 
 [node name="Portal" parent="Portals" instance=ExtResource("1_5nmis")]
