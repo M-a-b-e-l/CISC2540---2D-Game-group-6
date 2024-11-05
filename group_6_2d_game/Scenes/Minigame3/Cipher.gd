@@ -10,6 +10,37 @@ var last_debug_time = 0.0  # Add this at the top of the script with other variab
 const SOLUTION = "NORTHSTAR"
 var drop_zones = []  # Will store all drop zones in order
 
+var picked_object:Node2D
+var mouse_offset = Vector2.ZERO
+
+
+func _physics_process(delta: float) -> void:
+	var mouse_position = get_viewport().get_mouse_position()
+	if Input.is_action_just_pressed("click"):
+		var world_2d = get_viewport().find_world_2d()
+		var direct_space = world_2d.direct_space_state
+
+		var query = PhysicsPointQueryParameters2D.new()
+		query.position = mouse_position
+		query.collide_with_areas = true
+
+		var intersections = direct_space.intersect_point(query)
+		if intersections:
+			intersections.sort_custom(func(a, b):
+				var obj_a = a.collider
+				var obj_b = b.collider
+				return obj_a.global_position.y > obj_b.global_position.y
+			)
+			picked_object = intersections[0].collider
+			mouse_offset = picked_object.global_position - mouse_position
+
+
+	if Input.is_action_pressed("click") and picked_object:
+		picked_object.global_position = mouse_position + mouse_offset
+
+	if Input.is_action_just_released("click"):
+		picked_object = null
+
 func _ready() -> void:
 	print("Cipher Game 3 started")
    
