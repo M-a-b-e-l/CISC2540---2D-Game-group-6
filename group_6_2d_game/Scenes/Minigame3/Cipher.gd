@@ -226,7 +226,7 @@ func on_cipher_beaten() -> void:
 	if autoloader_music:
 		autoloader_music.play()
 
-	# Change to the next scene
-	#get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")
-	#GlobalState.player_position = Vector2(890, 106)
-	#GlobalState.daBool3 = true
+	#Change to the next scene
+	get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")
+	GlobalState.player_position = Vector2(890, 106)
+	GlobalState.daBool3 = true
