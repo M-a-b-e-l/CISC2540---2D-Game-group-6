@@ -1,10 +1,10 @@
 [gd_scene load_steps=207 format=3 uid="uid://bs0mt21q6l48h"]
 
 [ext_resource type="Script" path="res://Scripts/endofgame.gd" id="1_ow4sd"]
-[ext_resource type="Texture2D" uid="uid://csv4hyqyb8fo3" path="res://Assets/Starry background  - Layer 01 - Void.png" id="1_vbgsd"]
+[ext_resource type="Texture2D" uid="uid://c0tfqan5iwr5" path="res://Assets/Starry background  - Layer 01 - Void.png" id="1_vbgsd"]
 [ext_resource type="Texture2D" uid="uid://18ln7ind603p" path="res://Sprites/earth-pixel-art-form_1203201-1146 (1).png" id="2_df70f"]
 [ext_resource type="Texture2D" uid="uid://dl4khfqk2j5pm" path="res://Sprites/1239504190.png" id="2_q0m2a"]
-[ext_resource type="Texture2D" uid="uid://bs7u3ky3b7rjn" path="res://Assets/animated_space_background/Starry background  - Layer 03 - Starss.png" id="3_abigm"]
+[ext_resource type="Texture2D" uid="uid://bs7u3ky3b7rjn" path="res://Assets/Starry background  - Layer 03 - Starss.png" id="3_abigm"]
 [ext_resource type="FontFile" uid="uid://htx5t07ltj12" path="res://Fonts/Emulogic-zrEw.ttf" id="4_k2ift"]
 [ext_resource type="AudioStream" uid="uid://kkdbb0ug0p81" path="res://Music/ファンファーレ.mp3" id="4_tr40y"]
 

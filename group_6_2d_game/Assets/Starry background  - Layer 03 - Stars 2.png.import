@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://c561arp76tshr"
-path="res://.godot/imported/Starry background  - Layer 03 - Stars 2.png-9939759433be111fcb8b463295c0210a.ctex"
+path="res://.godot/imported/Starry background  - Layer 03 - Stars 2.png-4c7fe61de7d3561b2b91595f77db84bf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/animated_space_background/Starry background  - Layer 03 - Stars 2.png"
-dest_files=["res://.godot/imported/Starry background  - Layer 03 - Stars 2.png-9939759433be111fcb8b463295c0210a.ctex"]
+source_file="res://Assets/Starry background  - Layer 03 - Stars 2.png"
+dest_files=["res://.godot/imported/Starry background  - Layer 03 - Stars 2.png-4c7fe61de7d3561b2b91595f77db84bf.ctex"]
 
 [params]
 
