@@ -146,7 +146,7 @@ func show_victory_screen():
 	if not BgMusic.playing:
 		BgMusic.play()
 	
-	get_tree().change_scene_to_file("res://scenes/main_scene.tscn")
+	get_tree().change_scene_to_file("res://Scenes/main_scene.tscn")
 	GlobalState.player_position = Vector2(140, 230)
 
 func _on_retry_pressed():
