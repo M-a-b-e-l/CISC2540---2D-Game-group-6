@@ -53,9 +53,11 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("Minigame1"):
 		#Store the player's position before colliding with the minigame collider 
 		GlobalState.player_position = position - Vector2(0, 40)
+		print("triggered")
 
 		#change scene 
-		get_tree().call_deferred("change_scene_to_file", "res://scenes/MatchingGame1.tscn")
+		#get_tree().call_deferred("change_scene_to_file", "res://scenes/MatchingGame1.tscn")
+		get_tree().change_scene_to_file("res://Scenes/MatchingGame1.tscn")
 		
 	if area.is_in_group("Minigame2"):
 		#Store the player's position before colliding with the minigame collider 
